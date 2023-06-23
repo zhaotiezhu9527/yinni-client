@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="11">
+      <change afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task/src/main/resources/logback-spring.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +43,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/Administrator/IdeaProjects/yinni-client/task/src/main/java",
+    "last_opened_file_path": "C:/Users/Administrator/IdeaProjects/yinni-client/api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,11 +53,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\api" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\java" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\resources" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\commons\src\main\java" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\commons\src\main\resources\mapper" />
-      <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\api\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,11 +109,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
-      <workItem from="1687502983208" duration="1528000" />
+      <workItem from="1687502983208" duration="3134000" />
     </task>
+    <task id="LOCAL-00001" summary="11">
+      <created>1687504711409</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687504711409</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="11" />
+    <option name="LAST_COMMIT_MESSAGE" value="11" />
   </component>
 </project>
