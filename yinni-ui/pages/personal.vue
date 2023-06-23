@@ -322,7 +322,7 @@ export default {
   }
   .money {
     width: 100%;
-    height: 90rpx;
+    height: 100rpx;
     background-color: #d5b534;
     font-size: 24rpx;
     color: #333;
