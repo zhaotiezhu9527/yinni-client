@@ -15,6 +15,7 @@ public class LanguageResolver implements LocaleResolver {
         //例如 zh_CN  en_US
         final String language = request.getHeader("lang");
         if(StringUtils.isNotEmpty(language)){
+            System.out.println(language);
             final String[] s = language.split("_");
             // s[0]:国家 s[1]:地区
             locale = new Locale(s[0],s[1]);

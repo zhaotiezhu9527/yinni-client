@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="国际化文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/config/LanguageResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/config/LanguageResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application-dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskApplication">
+  <component name="RunManager" selected="Spring Boot.ApiApplication (1)">
     <configuration name="ApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.juhai.api.ApiApplication" />
@@ -111,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="6905000" />
+      <workItem from="1687511244265" duration="9030000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -148,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687518983239</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="国际化文件">
+      <created>1687521089774</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687521089774</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
