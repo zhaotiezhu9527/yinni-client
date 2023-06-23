@@ -96,7 +96,7 @@ public class UserController {
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
         temp.put("bankName", user.getBankName());
         temp.put("bankAddr", user.getBankAddr());
-        temp.put("userLevelName", "普通用户");
+        temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
         int isRealName = 1;
         if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
             isRealName = 0;
@@ -189,7 +189,8 @@ public class UserController {
                 account.setOptTime(new Date());
                 account.setUserAgent(user.getUserAgent());
                 account.setRefNo(null);
-                account.setRemark("每日签到,获得奖励" + signAmount + "元");
+//                account.setRemark("每日签到,获得奖励" + signAmount + "元");
+                account.setRemark(StrUtil.format(MsgUtil.get("system.user.sign.remark"), signAmount));
                 accountService.save(account);
                 // 设置为今日已签到
                 redisTemplate.opsForValue().set(signKey, "sign", 1, TimeUnit.DAYS);
@@ -305,7 +306,7 @@ public class UserController {
             /** 累计密码错误 **/
             redisTemplate.opsForValue().increment(incKey);
             redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
-            return R.error("密码错误");
+            return R.error(MsgUtil.get("system.user.login.pwderror"));
         }
         if (user.getUserStatus().intValue() == 1) {
             return R.error(MsgUtil.get("system.user.enable"));
@@ -442,7 +443,7 @@ public class UserController {
             JSONArray arr = new JSONArray();
             for (Deposit temp : list) {
                 JSONObject obj = new JSONObject();
-                obj.put("typeStr", "系统充值");
+                obj.put("typeStr", MsgUtil.get("system.deposit.type"));
                 obj.put("time", temp.getOptTime());
                 obj.put("status", temp.getStatus());
                 obj.put("amount", temp.getOptAmount());
@@ -698,7 +699,8 @@ public class UserController {
         account.setOptTime(now);
         account.setUserAgent(user.getUserAgent());
         account.setRefNo(orderNo);
-        account.setRemark("提现金额:" + amount + "元");
+//        account.setRemark("提现金额:" + amount + "元");
+        account.setRemark(StrUtil.format(MsgUtil.get("system.withdraw.balance"), account));
         accountService.save(account);
 
         // 记录报表
