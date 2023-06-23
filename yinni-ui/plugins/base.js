@@ -60,7 +60,7 @@ export const request = (params) => {
   let str = params.method.toUpperCase();
   if (str == "POST") {
     params.header = {
-      lang: "zh_CN",
+      lang: "in_ID",
       "Content-Type":
         params["Content-Type"] === undefined
           ? "application/x-www-form-urlencoded;charset=UTF-8"
@@ -69,7 +69,7 @@ export const request = (params) => {
     };
   } else {
     params.header = {
-      lang: "zh_CN",
+      lang: "in_ID",
       token: uni.getStorageSync("token"),
     };
   }
