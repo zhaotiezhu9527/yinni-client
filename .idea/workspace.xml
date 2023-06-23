@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="11">
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_in_ID.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="国际化文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_zh_CN.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="5091000" />
+      <workItem from="1687511244265" duration="6905000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -146,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687511256203</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="国际化文件">
+      <created>1687518983239</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687518983239</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +167,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="11" />
-    <option name="LAST_COMMIT_MESSAGE" value="11" />
+    <MESSAGE value="国际化文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="国际化文件" />
   </component>
 </project>
