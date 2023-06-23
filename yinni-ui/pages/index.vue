@@ -8,9 +8,9 @@
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -87,7 +87,7 @@
               <u-line-progress
                 :percentage="scheduleFn(item.schedule)"
                 :showText="false"
-                activeColor="#f6d658"
+                activeColor="#2196f3"
               ></u-line-progress>
               <view class="number">{{ item.schedule }}%</view>
             </view>
@@ -231,7 +231,7 @@ export default {
 }
 .banner {
   height: 280rpx;
-  background: #f6d658;
+  background: #4b80af;
   width: 100vw;
   border-bottom-left-radius: 50rpx;
   border-bottom-right-radius: 50rpx;

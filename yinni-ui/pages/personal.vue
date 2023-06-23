@@ -8,9 +8,9 @@
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <scroll-view scroll-y class="scroll">
@@ -147,7 +147,7 @@
       ref="uModal"
       :asyncClose="true"
       showCancelButton
-      confirmColor="#f6d658"
+      confirmColor="#2196f3"
     >
       <view class="content">{{ $t("loginOutTips") }}</view>
     </u-modal>
@@ -297,8 +297,8 @@ export default {
   padding-bottom: 40rpx;
   .head {
     height: 258rpx;
-    background-image: linear-gradient(#f6d658, #f5c400);
-    color: #333;
+    background-image: linear-gradient(#759dd6, #5d80b9);
+    color: #fff;
     .head-text {
       padding: 16rpx;
       font-size: 26rpx;
@@ -323,9 +323,9 @@ export default {
   .money {
     width: 100%;
     height: 100rpx;
-    background-color: #d5b534;
+    background-color: #5874a9;
     font-size: 24rpx;
-    color: #333;
+    color: #fff;
     align-items: center;
     vertical-align: middle;
     display: flex;
@@ -347,8 +347,8 @@ export default {
     justify-content: space-between;
     align-items: center;
     .button-class {
-      background-color: #f6d658;
-      color: #333;
+      background-color: #2196f3;
+      color: #fff;
       font-weight: blod;
       font-size: 28rpx;
       border-radius: 15rpx;

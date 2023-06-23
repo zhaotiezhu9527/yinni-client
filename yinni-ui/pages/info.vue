@@ -7,11 +7,11 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -64,7 +64,7 @@
               height="40"
               :percentage="scheduleFn(items.schedule)"
               :showText="false"
-              activeColor="#f6d658"
+              activeColor="#2196f3"
             ></u-line-progress>
           </view>
         </view>
@@ -142,7 +142,7 @@
       </view>
     </view>
     <view class="btn">
-      <u-button color="#f6d658" class="btn-class" block @click="change">
+      <u-button color="#2196f3" class="btn-class" block @click="change">
         {{ $t("immediately") }}
       </u-button>
     </view>
@@ -250,7 +250,7 @@ text {
 
     .number {
       position: absolute;
-      color: #333;
+      color: #fff;
       font-size: 26rpx;
       width: 100rpx;
       text-align: right;

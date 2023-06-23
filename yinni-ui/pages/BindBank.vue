@@ -7,11 +7,11 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -119,7 +119,7 @@ export default {
 .wrap {
   .usdt-title {
     margin: 60rpx 50rpx;
-    color: #f6d658;
+    color: #2196f3;
     font-weight: 500;
     font-size: 40rpx;
   }
@@ -136,8 +136,8 @@ export default {
     .card {
       padding: 30rpx 20rpx;
       height: 320rpx;
-      background-image: linear-gradient(#f6d658, #f5c400);
-      color: #333;
+      background-image: linear-gradient(#769ed6, #5375ae);
+      color: #fff;
       .card-name {
         font-size: 28rpx;
       }

@@ -7,11 +7,11 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="cardStyle">
@@ -87,7 +87,7 @@
     <u-button
       class="btn-class"
       :loading="loading"
-      color="#f6d658"
+      color="#2196f3"
       block
       @click="investor"
     >
@@ -215,7 +215,7 @@ text {
 .cardStyle {
   padding: 40rpx 30rpx;
   .card {
-    background-color: #f6d658;
+    background-color: #2196f3;
     border-radius: 10rpx;
     padding: 40rpx;
     box-sizing: border-box;

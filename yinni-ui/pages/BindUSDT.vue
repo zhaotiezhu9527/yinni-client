@@ -7,11 +7,11 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#f6d658"
+      bgColor="#4b80af"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -98,13 +98,13 @@ export default {
   }
   .bind-text {
     text-align: center;
-    color: #f6d658;
+    color: #2196f3;
     font-size: 28rpx;
     font-weight: 500;
   }
   .usdt-title {
     margin: 60rpx 50rpx;
-    color: #f6d658;
+    color: #2196f3;
     font-weight: 500;
     font-size: 40rpx;
   }
