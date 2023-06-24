@@ -224,6 +224,7 @@ export default {
         if (data.code == 0) {
           // this.shopGoods = data.data;
           this.tabList = data.list
+          this.activeId = data.list[0].id
         }
       });
     },

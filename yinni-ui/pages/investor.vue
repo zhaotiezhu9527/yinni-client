@@ -14,6 +14,7 @@
     >
     </u-navbar>
     <view class="wrap">
+      <u-tabs :list="tabList" @click="tabClick"></u-tabs>
       <scroll-view scroll-y v-if="shopGoods.length" class="scroll">
         <view class="list">
           <view
@@ -74,7 +75,7 @@
         </view>
       </scroll-view>
 
-      <u-empty class="empty" :text="$t('nodata')" v-else />
+      <!-- <u-empty class="empty" :text="$t('nodata')" v-else /> -->
     </view>
   </view>
 </template>
@@ -85,16 +86,21 @@ export default {
     return {
       shopGoods: [],
       loading: false,
+      tabList: [], //tab数组
+      activeId: 1,//
     };
   },
   onShow() {
-    this.dataFn();
+    this.getType()
+    this.getList();
   },
   methods: {
-    dataFn() {
+    getList() {
       this.loading = true;
       this.$api
-        .project_list()
+        .project_list({
+          id: this.activeId,
+        })
         .then(({ data }) => {
           if (data.code == 0) {
             this.shopGoods = data.data;
@@ -120,6 +126,21 @@ export default {
     },
     scheduleFn(page) {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
+    },
+    // 点击标签页切换
+    tabClick(item) {
+      this.activeId = item.id
+      this.getList()
+    },
+    // 获取所有分类
+    getType(){
+      this.$api.project_allType().then(({ data }) => {
+        if (data.code == 0) {
+          // this.shopGoods = data.data;
+          this.tabList = data.list
+          this.activeId = data.list[0].id
+        }
+      });
     },
   },
 };
