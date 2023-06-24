@@ -17,6 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -56,7 +57,7 @@ public class OrderController {
     @PostMapping("/execute")
     public R execute(@Validated OrderRequest request, HttpServletRequest httpServletRequest) throws Exception {
         Date now = new Date();
-
+        Integer count = NumberUtils.toInt(request.getCount(), 0);
         // 查询项目信息
         Project project = projectService.getById(request.getProjectId());
         if (project == null) {
@@ -66,7 +67,7 @@ public class OrderController {
             return R.error(MsgUtil.get("system.project.finshed"));
         }
         // 操作金额
-        BigDecimal amount = new BigDecimal(request.getAmount());
+        BigDecimal amount = NumberUtil.mul(count, project.getMinAmount());
         if (amount.doubleValue() < project.getMinAmount().doubleValue()) {
             return R.error(StrUtil.format(MsgUtil.get("system.order.minamount"), project.getMinAmount()));
         }
