@@ -38,6 +38,7 @@
             :text="config.home_notice || ''"
           />
         </view>
+        <u-tabs :list="tabList" @click="tabClick"></u-tabs>
         <view class="list">
           <view
             class="view"
@@ -92,11 +93,11 @@
               <view class="number">{{ item.schedule }}%</view>
             </view>
           </view>
-          <u-empty
+          <!-- <u-empty
             class="empty2"
             :text="$t('nodata')"
             v-if="!shopGoods.length"
-          />
+          /> -->
         </view>
       </scroll-view>
     </view>
@@ -148,6 +149,8 @@ export default {
       shopGoods: [],
       config: {},
       infos: {},
+      tabList: [], //tab数组
+      activeId: 1,//
     };
   },
   async onLoad() {
@@ -156,12 +159,8 @@ export default {
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
-    // 获取产品列表
-    this.$api.project_list().then(({ data }) => {
-      if (data.code == 0) {
-        this.shopGoods = data.data;
-      }
-    });
+    this.getType()
+    this.getList()
   },
   methods: {
     change({ name, path, url }) {
@@ -214,6 +213,30 @@ export default {
     scheduleFn(page) {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
+    // 点击标签页切换
+    tabClick(item) {
+      this.activeId = item.id
+      this.getList()
+    },
+    // 获取所有分类
+    getType(){
+      this.$api.project_allType().then(({ data }) => {
+        if (data.code == 0) {
+          // this.shopGoods = data.data;
+          this.tabList = data.list
+        }
+      });
+    },
+    // 获取列表数据
+    getList(){
+      this.$api.project_list({
+        id: this.activeId
+      }).then(({ data }) => {
+      if (data.code == 0) {
+        this.shopGoods = data.data;
+      }
+    });
+    }
   },
 };
 </script>

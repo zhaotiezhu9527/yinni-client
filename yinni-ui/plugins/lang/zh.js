@@ -185,4 +185,5 @@ export default {
   topUpUSDT: "我要充值USDT",
   freeRegistration: "免费注册",
   mywithdraw: "我要提现",
+  PurchaseQuantity: "购买数量",
 };

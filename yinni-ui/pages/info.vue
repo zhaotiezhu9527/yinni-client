@@ -46,6 +46,14 @@
               >
             </view>
           </view>
+          <view class="rate">
+            <view class="li">
+              <view class="con">{{ $t("PurchaseQuantity") }}</view>
+              <view class="num">
+                <text>{{ num }} </text>
+              </view>
+            </view>
+          </view>
           <!-- <view class="investor">
             <view class="con">
               <text>{{ $t("shareType") }}：{{ $t("InterestRebate") }}</text>
@@ -153,6 +161,7 @@ export default {
   data() {
     return {
       items: {},
+      num: 1,
     };
   },
   onLoad(e) {

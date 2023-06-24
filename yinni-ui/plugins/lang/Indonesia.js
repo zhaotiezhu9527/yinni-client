@@ -185,4 +185,5 @@ export default {
     topUpUSDT: "Isi ulang usdt",
     freeRegistration: "daftar",
     mywithdraw: "menarik uang",
+    PurchaseQuantity: "Kuantitas pembelian",
   };

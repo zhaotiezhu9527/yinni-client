@@ -314,3 +314,18 @@ export const system_config = (data) => {
       });
   });
 };
+
+// 获取所有分类
+export const project_allType = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "project/allType",
+        method: "get",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};
