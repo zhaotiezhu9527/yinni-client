@@ -7,15 +7,18 @@ import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.juhai.api.utils.JwtUtils;
 import com.juhai.commons.entity.Project;
+import com.juhai.commons.entity.ProjectType;
 import com.juhai.commons.entity.User;
 import com.juhai.commons.service.ParamterService;
 import com.juhai.commons.service.ProjectService;
+import com.juhai.commons.service.ProjectTypeService;
 import com.juhai.commons.service.UserService;
 import com.juhai.commons.utils.MsgUtil;
 import com.juhai.commons.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,11 +44,16 @@ public class ProjectController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProjectTypeService projectTypeService;
+
     @ApiOperation(value = "获取项目列表")
     @GetMapping("/list")
     public R list(HttpServletRequest httpServletRequest) {
+        String id = httpServletRequest.getParameter("id");
         List<Project> list = projectService.list(
                 new LambdaQueryWrapper<Project>()
+                        .eq(StringUtils.isNotBlank(id), Project::getTypeId, id)
                         .eq(Project::getStatus, 0)
                         .orderByDesc(Project::getSort)
         );
@@ -100,5 +108,21 @@ public class ProjectController {
         temp.put("userBalance", user.getBalance());
 
         return R.ok().put("data", temp);
+    }
+
+
+    @ApiOperation(value = "获取所有项目分类")
+    @GetMapping("/allType")
+    public R allType(HttpServletRequest httpServletRequest) {
+
+        List<ProjectType> list = projectTypeService.list(new LambdaQueryWrapper<ProjectType>().eq(ProjectType::getStatus, 0).orderByDesc(ProjectType::getSort));
+        JSONArray array = new JSONArray();
+        for (ProjectType projectType : list) {
+            JSONObject object = new JSONObject();
+            object.put("id", projectType.getId());
+            object.put("name", projectType.getTypeName());
+            array.add(object);
+        }
+        return R.ok().put("list", array);
     }
 }
