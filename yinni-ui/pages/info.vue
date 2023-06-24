@@ -46,7 +46,7 @@
               >
             </view>
           </view>
-          <view class="investor">
+          <!-- <view class="investor">
             <view class="con">
               <text>{{ $t("shareType") }}：{{ $t("InterestRebate") }}</text>
               <text>
@@ -66,10 +66,10 @@
               :showText="false"
               activeColor="#2196f3"
             ></u-line-progress>
-          </view>
+          </view> -->
         </view>
       </view>
-      <view class="tabs">
+      <!-- <view class="tabs">
         <view class="name">{{ $t("investmentInfos") }}</view>
         <u-row class="row">
           <u-col class="col" span="4">{{ $t("projectName") }}</u-col>
@@ -139,7 +139,7 @@
             </text></u-col
           >
         </u-row>
-      </view>
+      </view> -->
     </view>
     <view class="btn">
       <u-button color="#2196f3" class="btn-class" block @click="change">

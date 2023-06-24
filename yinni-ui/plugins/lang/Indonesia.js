@@ -114,7 +114,7 @@ export default {
     limitTime: "menit",
     minAmount: "Jumlah investasi minimum",
     deadline: "Periode investasi",
-    investment: "Investasikan sekarang",
+    investment: "menerima segera",
     scale: "Skala proyek",
     interest: "Pelunasan bunga harian: pelunasan pokok jatuh tempo",
     InterestRebate: "Potongan bunga harian, pelunasan pokok pada saat jatuh tempo",
