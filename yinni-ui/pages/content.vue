@@ -20,17 +20,13 @@
           <view>{{ $t("availableBalance") }} ({{ $t("money") }})</view>
           <view>{{ infos.balance }}{{ $t("money") }}</view>
         </view>
-        <view class="item">
-          <view>{{ $t("investableAmount") }} ({{ $t("money") }})</view>
-          <view>{{ items.projectAmount }}{{ $t("money") }}</view>
-        </view>
       </view>
     </view>
     <view class="amount">
       <view class="li">
         <view class="name">{{ $t("minAmount") }}</view>
         <view class="txt">
-          <text>{{ items.minAmount }}</text>
+          <text>{{ Number(items.minAmount) * Number(form.count) }}</text>
           {{ $t("money") }}
         </view>
       </view>
@@ -45,7 +41,7 @@
           />
           <u-input
             class="uinput"
-            v-model="form.amount"
+            v-model="form.count"
             type="number"
             border="none"
             :placeholder="$t('inputAmout')"
@@ -58,22 +54,22 @@
           />
         </view>
       </view>
-      <view class="li end">
+      <!-- <view class="li end">
         <view>
           <u-button class="btns" color="#f34133" @click="fullthrow">
             {{ $t("fullthrow") }}
           </u-button>
         </view>
-      </view>
+      </view> -->
     </view>
-    <view class="pwd">
+    <!-- <view class="pwd">
       {{ $t("start") }}<text>{{ items.minAmount }}</text
       >{{ $t("money") }}，{{ $t("add") }}<text>{{ items.minAmount }}</text
       >{{ $t("money") }}，<text class="other">{{ $t("fullthrow") }}</text
       >{{ $t("be") }}{{ $t("availableBalance")
       }}<text> {{ infos.balance }} </text>{{ $t("money")
       }}{{ $t("multiple") }}。
-    </view>
+    </view> -->
     <view class="input">
       <view>{{ $t("payPwd") }}</view>
       <u-input
@@ -103,7 +99,7 @@ export default {
       infos: {},
       loading: false,
       form: {
-        amount: "",
+        count: 1,
         pwd: "",
         projectId: 0,
       },
@@ -136,14 +132,8 @@ export default {
     },
     // 立即投资
     investor() {
-      if (!this.form.amount) {
+      if (!this.form.count) {
         this.$base.show(this.$t("inputAmout"));
-        return false;
-      } else if (Number(this.form.amount) < Number(this.items.minAmount)) {
-        this.$base.show(this.$t("greaterminAmount"));
-        return false;
-      } else if (Number(this.form.amount) > Number(this.items.projectAmount)) {
-        this.$base.show(this.$t("greaterprojectAmount"));
         return false;
       } else if (!this.form.pwd && this.form.pwd + "".length < 6) {
         this.$base.show(this.$t("inputConfigPayPwd"));
@@ -156,7 +146,7 @@ export default {
           if (data.code == 0) {
             this.$base.show(this.$t("investmentSuccess"));
             this.form = {
-              amount: "",
+              count: "",
               pwd: "",
               projectId: this.items.projectId,
             };
@@ -170,39 +160,16 @@ export default {
         });
     },
     // 一键全投
-    fullthrow() {
-      this.form.amount = Number(this.infos.balance);
-    },
+    // fullthrow() {
+    //   this.form.amount = Number(this.infos.balance);
+    // },
     // 加减
     add() {
-      if (!this.items.projectAmount) return false;
-      this.form.amount =
-        Number(this.form.amount) + Number(this.items.minAmount);
-      if (this.items.minAmount >= this.infos.balance) {
-        this.fullthrow();
-        return false;
-      } else if (this.form.amount < this.items.minAmount) {
-        this.form.amount = this.items.minAmount;
-        return false;
-      }
-      if (this.form.amount > Number(this.items.projectAmount)) {
-        this.form.amount = Number(this.items.projectAmount);
-      } else if (this.form.amount >= Number(this.infos.balance)) {
-        this.form.amount = Number(this.infos.balance);
-      }
-      this.form.amount = this.form.amount.toFixed(3);
+      this.form.count += 1;
     },
     subtract() {
-      if (!this.items.projectAmount) return false;
-      this.form.amount -= this.items.minAmount;
-      if (this.items.minAmount >= this.infos.balance) {
-        this.fullthrow();
-        return false;
-      } else if (this.form.amount <= this.items.minAmount) {
-        this.form.amount = this.items.minAmount;
-        return false;
-      }
-      this.form.amount = this.form.amount.toFixed(3);
+      if (this.form.count == 0) return false;
+      this.form.count -= 1;
     },
   },
 };
@@ -223,7 +190,7 @@ text {
     color: #333;
     justify-content: center;
     .item {
-      width: 50%;
+      // width: 50%;
       text-align: center;
       view:nth-child(1) {
         font-size: 26rpx;

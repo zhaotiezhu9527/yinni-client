@@ -26,7 +26,7 @@
           <view class="head-money"> {{ userData.balance }} </view>
           <view class="head-integral"> {{ $t("balance") }}</view>
         </view>
-        <view class="money">
+        <!-- <view class="money">
           <view class="interest">
             <view>{{ userData.waitReturnInterest }}</view>
             <view>{{ $t("waitReturnInterest") }}（{{ $t("money") }}）</view>
@@ -35,7 +35,7 @@
             <view>{{ userData.waitReturnPrincipal }}</view>
             <view>{{ $t("waitReturnPrincipal") }}（{{ $t("money") }}）</view>
           </view>
-        </view>
+        </view> -->
         <!-- 按钮 -->
         <view class="button-box">
           <u-button class="button-class" @click="pathChange">
@@ -47,7 +47,7 @@
         </view>
         <!-- 列表 -->
         <view class="list">
-          <view
+          <!-- <view
             v-if="config.ouyi_download_url"
             class="list-item"
             @click="downloadChange(config.ouyi_download_url)"
@@ -73,7 +73,7 @@
             <image class="icon-img" src="../static/img/icon_app_huobi.png" />
             <label>{{ $t("huobi_download_url") }}</label>
             <view class="icon"></view>
-          </view>
+          </view> -->
           <view class="list-item" @click="sign">
             <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
             <label>{{ $t("sign") }}</label>
@@ -127,11 +127,11 @@
             <label>{{ $t("idCard") }}</label>
             <view class="icon"></view>
           </view>
-          <view class="list-item" @click="goBindUSDT">
+          <!-- <view class="list-item" @click="goBindUSDT">
             <image class="icon-img" src="../static/img/mine_func_usdt.png" />
             <label>{{ $t("USDTBind") }}</label>
             <view class="icon"></view>
-          </view>
+          </view> -->
         </view>
         <!-- 退出登录 -->
         <u-button class="logout" @click="show = true">
