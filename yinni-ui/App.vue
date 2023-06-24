@@ -43,7 +43,7 @@ export default {
                   plus.runtime.openURL(new_app.downloadUrl);
                   plus.runtime.quit();
                 } else if (res.cancel) {
-                  plus.runtime.quit(); //强制退出应用
+                  plus.runtime.quit();
                 }
               },
             });
