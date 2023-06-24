@@ -177,7 +177,7 @@ export default {
     dateTime: "Waktu",
     sum: "Jumlah",
     abstract: "Ringkasan",
-    balance: "keseimbangan (uang) poin bonus (0)",
+    balance: "keseimbangan (uang)",
     investmentProject: "Proyek investasi",
     about: "Tentang kami",
     calculator: "Kalkulator",

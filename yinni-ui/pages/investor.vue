@@ -54,15 +54,15 @@
               </view>
             </view>
             <view class="investor">
-              <view class="con">
+              <!-- <view class="con">
                 <text>
                   {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
                 </text>
                 <text>{{ $t("interest") }}</text>
-              </view>
+              </view> -->
               <view class="btn">{{ $t("investment") }}</view>
             </view>
-            <view class="progress">
+            <!-- <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
               <u-line-progress
                 :percentage="scheduleFn(item.schedule)"
@@ -70,7 +70,7 @@
                 activeColor="#2196f3"
               />
               <view class="number">{{ item.schedule }}%</view>
-            </view>
+            </view> -->
           </view>
         </view>
       </scroll-view>
