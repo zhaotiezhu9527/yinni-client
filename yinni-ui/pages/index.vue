@@ -18,27 +18,29 @@
         <view class="banner">
           <u-swiper :list="list2" class="my-swipe" indicator> </u-swiper>
         </view>
-        <view class="content">
-          <view
-            class="item"
-            v-for="(item, index) in list"
-            :key="index"
-            @click="change(item)"
-          >
-            <image class="img" :src="item.img" />
-            <text class="txt">{{ item.name }}</text>
-          </view>
-        </view>
         <view class="notice">
           <u-notice-bar
             color="#ffffff"
             bgColor="#e15241"
+            class="border-radius5"
             scrollable
             fontSize="28rpx"
             :text="config.home_notice || ''"
           />
         </view>
-        <u-tabs :list="tabList" @click="tabClick"></u-tabs>
+        <view class="content">
+          <view
+            class="item"
+            v-for="(item, index) in tabList"
+            :key="index"
+            @click="tabClick(item)"
+          >
+            <image class="img" :src="item.img" />
+            <text class="txt" :class="activeId == item.id ? 'red-text' : ''">{{ item.name }}</text>
+          </view>
+        </view>
+        
+        <!-- <u-tabs :list="tabList" @click="tabClick"></u-tabs> -->
         <view class="list">
           <view
             class="view"
@@ -169,6 +171,7 @@ export default {
   },
   onShow() {
     this.getType();
+    this.tabClick({id:1});
     this.getList();
   },
   methods: {
@@ -297,7 +300,7 @@ export default {
   }
 }
 .content {
-  padding: 100rpx 0 0;
+  
   // display: flex;
   // flex-wrap: wrap;
   // justify-content: space-between;
@@ -326,8 +329,9 @@ export default {
   }
 }
 .notice {
+  padding: 100rpx 0 0;
   margin: 30rpx 30rpx 0;
-  border-radius: 10rpx;
+  // border-radius: 10rpx;
   overflow: hidden;
   /deep/.uicon-volume {
     font-size: 32rpx !important;
