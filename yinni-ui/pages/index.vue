@@ -60,8 +60,7 @@
               </view>
               <view class="li">
                 <view class="num">
-                  <text>{{ item.limitTime }}</text>
-                  {{ $t("limitTime") }}
+                  <text>{{ item.time }}</text>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
@@ -103,6 +102,7 @@
 </template>
 
 <script>
+import { changetime } from "../plugins/util";
 import img0 from "../static/img/func_icon_touzi.png";
 import img1 from "../static/img/func_icon_guanyu.png";
 import img2 from "../static/img/func_icon_jisuan.png";
@@ -144,11 +144,16 @@ export default {
         },
       ],
       list2: [banner1, banner2, banner3],
-      shopGoods: [],
+      shopGoods: [
+        {
+          // time:'00:00:00'
+        }
+      ],
       config: {},
       infos: {},
       tabList: [], //tab数组
       activeId: 1,//
+      timer: null,
     };
   },
   async onLoad() {
@@ -159,6 +164,12 @@ export default {
   onShow() {
     this.getType()
     this.getList()
+  },
+  onUnload:function(){  
+    if(this.timer) {  
+      clearInterval(this.timer);  
+      this.timer = null;  
+    }  
   },
   methods: {
     change({ name, path, url }) {
@@ -214,6 +225,7 @@ export default {
     // 点击标签页切换
     tabClick(item) {
       this.activeId = item.id
+      clearInterval(this.timer)
       this.getList()
     },
     // 获取所有分类
@@ -228,13 +240,31 @@ export default {
     },
     // 获取列表数据
     getList(){
+      clearInterval(this.timer)
+      this.timer = null
       this.$api.project_list({
         id: this.activeId
       }).then(({ data }) => {
       if (data.code == 0) {
         this.shopGoods = data.data;
+        this.shopGoods.forEach((item,index) => {
+          this.countdown(index,item.time)
+        })
       }
     });
+    },
+    countdown(index,time){
+      this.timer = setInterval(() => {
+        time --
+        if(time <= 0){
+          console.log(time)
+          clearInterval(this.timer)
+          this.timer = null;  
+          this.getList()
+          return
+        }
+        this.shopGoods[index].time = changetime(time)
+      },1000)
     }
   },
 };

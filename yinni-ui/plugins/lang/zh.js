@@ -188,5 +188,6 @@ export default {
   PurchaseQuantity: "购买数量",
   logout:"退出登陆",
   quxiao:"取消",
-  schedule:"库存"
+  schedule:"库存",
+  overTime:"已结束"
 };

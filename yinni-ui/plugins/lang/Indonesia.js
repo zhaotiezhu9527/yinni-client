@@ -189,4 +189,5 @@ export default {
     logout:"mengonfirmasi",
     quxiao:"Membatalkan",
     schedule:"persediaan",
+    overTime:"lebih"
   };
