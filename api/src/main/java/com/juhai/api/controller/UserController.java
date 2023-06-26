@@ -262,6 +262,7 @@ public class UserController {
         map.put("random", RandomUtil.randomString(6));
         String token = JwtUtils.getToken(map);
         redisTemplate.opsForValue().set(RedisKeyUtil.UserTokenKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserOnlineKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
         return R.ok().put("token", token);
     }
 
@@ -270,6 +271,7 @@ public class UserController {
     public R logout(HttpServletRequest httpServletRequest) {
         String userName = JwtUtils.getUserName(httpServletRequest);
         redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
+        redisTemplate.delete(RedisKeyUtil.UserOnlineKey(userName));
         return R.ok();
     }
 
@@ -340,6 +342,7 @@ public class UserController {
             token = JwtUtils.getToken(map);
             redisTemplate.opsForValue().set(RedisKeyUtil.UserTokenKey(user.getUserName()), token, expire, TimeUnit.MINUTES);
         }
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserOnlineKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
         /** 删除密码输入错误次数 **/
         redisTemplate.delete(incKey);
         return R.ok().put("token", token);

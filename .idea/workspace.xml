@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="投注修改">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="在线用户">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +75,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiApplication (1)">
+  <component name="RunManager" selected="Application.ProjectController">
+    <configuration name="ProjectController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.juhai.api.controller.ProjectController" />
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.juhai.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.juhai.api.ApiApplication" />
@@ -106,6 +119,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ApiApplication (1)" />
+        <item itemvalue="Application.ProjectController" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +132,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="24150000" />
+      <workItem from="1687511244265" duration="30483000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -211,7 +225,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687604208303</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="结算修改">
+      <created>1687749611145</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1687749611145</updated>
+    </task>
+    <task id="LOCAL-00015" summary="倒计时">
+      <created>1687755084365</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687755084365</updated>
+    </task>
+    <task id="LOCAL-00016" summary="在线用户">
+      <created>1687757073044</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1687757073044</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +272,9 @@
     <MESSAGE value="国际化文件调整3" />
     <MESSAGE value="商品分类" />
     <MESSAGE value="投注修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="投注修改" />
+    <MESSAGE value="结算修改" />
+    <MESSAGE value="倒计时" />
+    <MESSAGE value="在线用户" />
+    <option name="LAST_COMMIT_MESSAGE" value="在线用户" />
   </component>
 </project>
