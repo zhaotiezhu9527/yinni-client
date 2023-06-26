@@ -68,9 +68,9 @@ public class OrderController {
         }
         // 操作金额
         BigDecimal amount = NumberUtil.mul(count, project.getMinAmount());
-        if (amount.doubleValue() < project.getMinAmount().doubleValue()) {
-            return R.error(StrUtil.format(MsgUtil.get("system.order.minamount"), project.getMinAmount()));
-        }
+//        if (amount.doubleValue() < project.getMinAmount().doubleValue()) {
+//            return R.error(StrUtil.format(MsgUtil.get("system.order.minamount"), project.getMinAmount()));
+//        }
 
         // 查询用户信息
         String userName = JwtUtils.getUserName(httpServletRequest);
