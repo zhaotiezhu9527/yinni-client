@@ -1,6 +1,7 @@
 package com.juhai.api.controller;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
@@ -59,8 +60,15 @@ public class ProjectController {
         );
         JSONArray array = new JSONArray();
         if (CollUtil.isNotEmpty(list)) {
+            Date now = new Date();
             Map<String, String> map = paramterService.getAllParamByMap();
             for (Project project : list) {
+                // 不在时间区间内 过滤
+                if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
+                    continue;
+                }
+                // 获取当前小时
+                Date nextHour = getNextTime(now, project.getLimitTime().intValue());
                 JSONObject temp = new JSONObject();
                 temp.put("projectId", project.getId());
                 temp.put("projectName", project.getProjectName());
@@ -72,10 +80,32 @@ public class ProjectController {
                 temp.put("schedule", project.getSchedule());
                 temp.put("guaranteeCompany", map.get("guarantee_company"));
                 temp.put("img", map.get("resource_domain") + project.getImg());
+                temp.put("time", DateUtil.between(now, nextHour, DateUnit.SECOND));
                 array.add(temp);
             }
         }
         return R.ok().put("data", array);
+    }
+
+    /**
+     * 获取下一次时间
+     * @param now
+     * @param offset
+     * @return
+     */
+    private Date getNextTime(Date now, int offset) {
+        Date curHour = DateUtil.beginOfHour(now);
+        Date nextHour = null;
+        int length = 60 / offset;
+        // 十分钟一期
+        for (int i = 0; i < length; i++) {
+            nextHour = DateUtil.offsetMinute(curHour, offset);
+            if (DateUtil.isIn(now, curHour, nextHour)) {
+                break;
+            }
+            curHour = nextHour;
+        }
+        return nextHour;
     }
 
     @ApiOperation(value = "获取项目详情")
@@ -90,6 +120,7 @@ public class ProjectController {
             return R.error(MsgUtil.get("system.project.finshed"));
         }
 
+        Date now = new Date();
         Map<String, String> map = paramterService.getAllParamByMap();
         JSONObject temp = new JSONObject();
         temp.put("projectId", project.getId());
@@ -102,6 +133,8 @@ public class ProjectController {
         temp.put("schedule", project.getSchedule());
         temp.put("guaranteeCompany", map.get("guarantee_company"));
         temp.put("img", map.get("resource_domain") + project.getImg());
+
+        temp.put("time", DateUtil.between(now, getNextTime(now, project.getLimitTime().intValue()), DateUnit.SECOND));
 
         String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
