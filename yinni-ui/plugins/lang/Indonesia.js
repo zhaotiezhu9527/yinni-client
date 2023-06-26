@@ -168,7 +168,7 @@ export default {
     investmentDetail:
   "Investasikan pada hari yang sama, dan pendapatan akan diselesaikan secara otomatis pada saat jatuh tempo pada hari yang sama (misalnya, jika Anda berhasil berinvestasi pada pukul 15:00, Anda akan menerima dividen dan pokok pada saat berakhirnya periode investasi). Pada saat jatuh tempo, sistem akan mengembalikan dividen Lanri dan pokok produk ke akun Anda secara bersamaan.。",
     calculate: "Perhitungan pendapatan",
-    deadline: "Durasi proyek",
+    deadline: "Akhir waktu",
     byStages: "Investasi tetap secara mencicil, setiap angsuran",
     dayShare: "Jaminan suku bunga dividen harian*pokok",
     dayRebate: "Potongan bunga harian, pelunasan pokok pada saat jatuh tempo, dan pendapatan seperti biasa pada hari libur",
