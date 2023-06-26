@@ -3,7 +3,7 @@ import * as store from "plugins/store.js";
 Vue.prototype.$store = store;
 import i18n from "./lang/index";
 Vue.prototype._i18n = i18n;
-let that = i18n.vm.messages[uni.getStorageSync("lang") || "zh"];
+let that = i18n.vm.messages[uni.getStorageSync("lang") || "Indonesia"];
 
 //设置缓存内容
 export const storage = (name, value) => {
