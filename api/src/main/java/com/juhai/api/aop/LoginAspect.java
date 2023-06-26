@@ -1,6 +1,7 @@
 package com.juhai.api.aop;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.juhai.api.utils.JwtUtils;
@@ -61,6 +62,13 @@ public class LoginAspect {
         log.info("请求地址:" + request.getRequestURL());
         log.info("请求方式:" + request.getMethod());
         log.info("请求参数:" + JSONUtil.toJsonStr(request.getParameterMap()));
+
+        String[] headers = {"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
+        for (String header : headers) {
+            String clientIP = ServletUtil.getClientIP(request, header);
+            log.info(header + ":" + clientIP);
+        }
+
         for (String pattern : urls) {
             pattern = contentPath + pattern;
             boolean match = matcher.match(pattern, request.getRequestURI());

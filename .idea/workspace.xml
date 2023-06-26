@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="在线用户">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="翻译">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/aop/LoginAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/aop/LoginAspect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="30483000" />
+      <workItem from="1687511244265" duration="31492000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -246,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687757073044</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="翻译">
+      <created>1687761731580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687761731580</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +281,7 @@
     <MESSAGE value="结算修改" />
     <MESSAGE value="倒计时" />
     <MESSAGE value="在线用户" />
-    <option name="LAST_COMMIT_MESSAGE" value="在线用户" />
+    <MESSAGE value="翻译" />
+    <option name="LAST_COMMIT_MESSAGE" value="翻译" />
   </component>
 </project>
