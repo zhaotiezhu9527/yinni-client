@@ -240,8 +240,6 @@ export default {
     },
     // 获取列表数据
     getList(){
-      clearInterval(this.timer)
-      this.timer = null
       this.$api.project_list({
         id: this.activeId
       }).then(({ data }) => {
