@@ -30,6 +30,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Data
@@ -63,12 +64,9 @@ public class LoginAspect {
         log.info("请求方式:" + request.getMethod());
         log.info("请求参数:" + JSONUtil.toJsonStr(request.getParameterMap()));
 
-        String[] headers = {"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
-        for (String header : headers) {
-//            String clientIP = ServletUtil.getClientIP(request, header);
-            String clientIP = request.getHeader(header);
-            log.info(header + ":" + clientIP);
-        }
+        Map<String, String> headerMap = ServletUtil.getHeaderMap(request);
+        System.out.println(JSONUtil.toJsonStr(headerMap));
+//        String[] headers = {"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
 
         for (String pattern : urls) {
             pattern = contentPath + pattern;
