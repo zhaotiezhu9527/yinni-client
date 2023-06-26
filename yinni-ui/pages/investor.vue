@@ -46,7 +46,7 @@
               >
               <view class="li">
                 <view class="num">
-                  {{ $t("money") }} <text>{{ item.minAmount }}</text>
+                  <label>{{ $t("money") }}</label> <text>{{ item.minAmount }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view>
               </view>
