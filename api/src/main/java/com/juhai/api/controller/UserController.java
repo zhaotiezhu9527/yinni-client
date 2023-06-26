@@ -223,7 +223,8 @@ public class UserController {
             return R.error(MsgUtil.get("system.user.register.invitecode"));
         }
 
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+//        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "remote-host");
 
         User user = new User();
         user.setUserName(request.getUserName());
@@ -278,7 +279,7 @@ public class UserController {
     @ApiOperation(value = "登录")
     @PostMapping("/login")
     public R login(@Validated LoginRequest request, HttpServletRequest httpServletRequest) {
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "remote-host");
 
         // 查询用户信息
         User user = userService.getUserByName(request.getUserName());
