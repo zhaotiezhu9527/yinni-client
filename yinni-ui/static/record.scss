@@ -25,7 +25,7 @@
   .content {
     display: flex;
     font-size: 24rpx;
-    height: 80rpx;
+    min-height: 80rpx;
     align-items: center;
     border-bottom: 2rpx solid #bbb;
   }

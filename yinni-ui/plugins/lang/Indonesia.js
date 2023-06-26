@@ -105,8 +105,8 @@ export default {
     bian_download_url: "Unduh Binance Android",
     huobi_download_url: "Unduh APLIKASI Huobi",
     sign: "Masuk harian",
-    investmentRecords: "Catatan investasi",
-    fundDetails: "Rincian dana",
+    investmentRecords: "Riwayat Pembelian",
+    fundDetails: "Rincian pendanaan",
     onlineService: "layanan daring",
     investor: "Investasi proyek",
     projectName2: "jaminan",
@@ -186,4 +186,7 @@ export default {
     freeRegistration: "daftar",
     mywithdraw: "menarik RP",
     PurchaseQuantity: "Kuantitas pembelian",
+    logout:"mengonfirmasi",
+    quxiao:"Membatalkan",
+    schedule:"persediaan",
   };

@@ -33,10 +33,9 @@
             <view class="rate">
               <view class="li">
                 <view class="num"
-                  ><text>{{ item.incomeRate }}</text>
-                  %
+                  ><text>{{ item.schedule }}</text>
                 </view>
-                <view class="con">{{ $t("incomeRate") }}</view>
+                <view class="con">{{ $t("schedule") }}</view>
               </view>
               <view class="li">
                 <view class="num">
@@ -47,8 +46,7 @@
               >
               <view class="li">
                 <view class="num">
-                  <text>{{ item.minAmount }}</text>
-                  {{ $t("money") }}
+                  {{ $t("money") }} <text>{{ item.minAmount }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view>
               </view>

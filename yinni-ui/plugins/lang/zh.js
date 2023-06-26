@@ -186,4 +186,7 @@ export default {
   freeRegistration: "免费注册",
   mywithdraw: "我要提现",
   PurchaseQuantity: "购买数量",
+  logout:"退出登陆",
+  quxiao:"取消",
+  schedule:"库存"
 };

@@ -54,10 +54,9 @@
             <view class="rate">
               <view class="li">
                 <view class="num"
-                  ><text>{{ item.incomeRate }}</text>
-                  %
+                  ><text>{{ item.schedule }}</text>
                 </view>
-                <view class="con">{{ $t("incomeRate") }}</view>
+                <view class="con">{{ $t("schedule") }}</view>
               </view>
               <view class="li">
                 <view class="num">
@@ -67,9 +66,8 @@
                 <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
-                <view class="num"
-                  ><text>{{ item.minAmount }}</text>
-                  {{ $t("money") }}
+                <view class="num">
+                  {{ $t("money") }} <text>{{ item.minAmount }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
@@ -126,13 +124,13 @@ export default {
           path: "/pages/investor",
         },
         { name: this.$t("about"), img: img1, path: "/pages/about" },
-        { name: this.$t("calculator"), img: img2 },
+        // { name: this.$t("calculator"), img: img2 },
         { name: this.$t("sign"), img: img3 },
-        {
-          name: this.$t("topUpUSDT"),
-          img: img4,
-          path: "/pages/preview",
-        },
+        // {
+        //   name: this.$t("topUpUSDT"),
+        //   img: img4,
+        //   path: "/pages/preview",
+        // },
         { name: this.$t("mywithdraw"), img: img5, path: "/pages/withdraw" },
         {
           name: this.$t("freeRegistration"),
@@ -274,24 +272,31 @@ export default {
 }
 .content {
   padding: 100rpx 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  overflow: hidden;
   .img {
     width: 70rpx;
     height: 70rpx;
+    display: block;
+    margin: auto;
   }
   .item {
     padding-top: 40rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // flex-direction: column;
     width: 25%;
+    float: left;
   }
   .txt {
     padding-top: 10rpx;
     font-size: 24rpx;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
 .notice {

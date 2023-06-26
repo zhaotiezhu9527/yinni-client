@@ -206,7 +206,7 @@ export default {
   justify-content: center;
   padding-top: 60rpx;
   .img {
-    width: 50%;
+    width: 80%;
   }
 }
 .btns {
