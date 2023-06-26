@@ -65,7 +65,8 @@ public class LoginAspect {
 
         String[] headers = {"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
         for (String header : headers) {
-            String clientIP = ServletUtil.getClientIP(request, header);
+//            String clientIP = ServletUtil.getClientIP(request, header);
+            String clientIP = request.getHeader(header);
             log.info(header + ":" + clientIP);
         }
 
