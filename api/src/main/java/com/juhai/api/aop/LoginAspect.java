@@ -3,6 +3,7 @@ package com.juhai.api.aop;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.C;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.juhai.api.utils.JwtUtils;
 import com.juhai.commons.enums.ResultEnum;
@@ -64,10 +65,8 @@ public class LoginAspect {
         log.info("请求方式:" + request.getMethod());
         log.info("请求参数:" + JSONUtil.toJsonStr(request.getParameterMap()));
 
-        Map<String, String> headerMap = ServletUtil.getHeaderMap(request);
-        System.out.println(JSONUtil.toJsonStr(headerMap));
-//        String[] headers = {"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
-
+        String clientIp = ServletUtil.getClientIPByHeader(request, "remote-host");
+        log.info("请求IP:" + clientIp);
         for (String pattern : urls) {
             pattern = contentPath + pattern;
             boolean match = matcher.match(pattern, request.getRequestURI());
