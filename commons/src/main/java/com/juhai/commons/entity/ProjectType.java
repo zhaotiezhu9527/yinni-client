@@ -38,6 +38,12 @@ public class ProjectType implements Serializable {
     @TableField(value = "sort")
     private Integer sort;
 
+    /**
+     * 图片
+     */
+    @TableField(value = "img")
+    private String img;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

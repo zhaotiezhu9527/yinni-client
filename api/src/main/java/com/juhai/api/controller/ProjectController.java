@@ -149,11 +149,15 @@ public class ProjectController {
     public R allType(HttpServletRequest httpServletRequest) {
 
         List<ProjectType> list = projectTypeService.list(new LambdaQueryWrapper<ProjectType>().eq(ProjectType::getStatus, 0).orderByDesc(ProjectType::getSort));
+
+        Map<String, String> map = paramterService.getAllParamByMap();
+
         JSONArray array = new JSONArray();
         for (ProjectType projectType : list) {
             JSONObject object = new JSONObject();
             object.put("id", projectType.getId());
             object.put("name", projectType.getTypeName());
+            object.put("img", map.get("resource_domain") + projectType.getImg());
             array.add(object);
         }
         return R.ok().put("list", array);
