@@ -64,9 +64,6 @@ public class LoginAspect {
         log.info("请求地址:" + request.getRequestURL());
         log.info("请求方式:" + request.getMethod());
         log.info("请求参数:" + JSONUtil.toJsonStr(request.getParameterMap()));
-
-        String clientIp = ServletUtil.getClientIPByHeader(request, "remote-host");
-        log.info("请求IP:" + clientIp);
         for (String pattern : urls) {
             pattern = contentPath + pattern;
             boolean match = matcher.match(pattern, request.getRequestURI());
