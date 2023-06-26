@@ -248,6 +248,16 @@ export default {
           if (data.code == 0) {
             this.loading = false;
             this.shopGoods = data.data;
+            for (let index = 0; index < this.shopGoods.length; index++) {
+              const item = this.shopGoods[index];
+              console.log(item);
+              if (item.time === 0) {
+                setTimeout(() => {
+                  this.getList();
+                }, 1000);
+                return false;
+              }
+            }
           }
         });
     },
