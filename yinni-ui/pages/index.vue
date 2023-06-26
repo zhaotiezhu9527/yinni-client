@@ -60,13 +60,19 @@
               </view>
               <view class="li">
                 <view class="num">
-                  <text>{{ item.time }}</text>
+                  <u-count-down
+                    :time="item.time * 1000"
+                    format="HH:mm:ss"
+                    @finish="getList"
+                    class="time"
+                  ></u-count-down>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
                 <view class="num">
-                  <label>{{ $t("money") }}</label><text>{{ item.minAmount }}</text>
+                  <label>{{ $t("money") }}</label
+                  ><text>{{ item.minAmount }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
@@ -117,6 +123,7 @@ import banner3 from "../static/img/banner_15.jpg";
 export default {
   data() {
     return {
+      loading: false,
       list: [
         {
           name: this.$t("investmentProject"),
@@ -147,13 +154,12 @@ export default {
       shopGoods: [
         {
           // time:'00:00:00'
-        }
+        },
       ],
       config: {},
       infos: {},
       tabList: [], //tab数组
-      activeId: 1,//
-      timer: null,
+      activeId: 1, //
     };
   },
   async onLoad() {
@@ -162,14 +168,8 @@ export default {
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
-    this.getType()
-    this.getList()
-  },
-  onUnload:function(){  
-    if(this.timer) {  
-      clearInterval(this.timer);  
-      this.timer = null;  
-    }  
+    this.getType();
+    this.getList();
   },
   methods: {
     change({ name, path, url }) {
@@ -224,46 +224,33 @@ export default {
     },
     // 点击标签页切换
     tabClick(item) {
-      this.activeId = item.id
-      clearInterval(this.timer)
-      this.getList()
+      this.activeId = item.id;
+      this.getList();
     },
     // 获取所有分类
-    getType(){
+    getType() {
       this.$api.project_allType().then(({ data }) => {
         if (data.code == 0) {
-          // this.shopGoods = data.data;
-          this.tabList = data.list
-          this.activeId = data.list[0].id
+          this.tabList = data.list;
+          this.activeId = data.list[0].id;
         }
       });
     },
     // 获取列表数据
-    getList(){
-      this.$api.project_list({
-        id: this.activeId
-      }).then(({ data }) => {
-      if (data.code == 0) {
-        this.shopGoods = data.data;
-        this.shopGoods.forEach((item,index) => {
-          this.countdown(index,item.time)
+    getList() {
+      if (this.loading) return false;
+      this.loading = true;
+      this.$api
+        .project_list({
+          id: this.activeId,
         })
-      }
-    });
+        .then(({ data }) => {
+          if (data.code == 0) {
+            this.loading = false;
+            this.shopGoods = data.data;
+          }
+        });
     },
-    countdown(index,time){
-      this.timer = setInterval(() => {
-        time --
-        if(time <= 0){
-          console.log(time)
-          clearInterval(this.timer)
-          this.timer = null;  
-          this.getList()
-          return
-        }
-        this.shopGoods[index].time = changetime(time)
-      },1000)
-    }
   },
 };
 </script>
@@ -339,5 +326,9 @@ export default {
 .empty2 {
   padding-top: 40rpx;
   background-color: #fff;
+}
+.time /deep/.u-count-down__text {
+  font-size: 24rpx;
+  color: red;
 }
 </style>
