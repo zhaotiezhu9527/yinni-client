@@ -107,20 +107,20 @@ public class UserController {
         temp.put("integral", 0);
         temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
 
-        List<Order> list = orderService.list(
-                new LambdaQueryWrapper<Order>()
-                        .select(Order::getAmount, Order::getForecastReturnAmount)
-                        .eq(Order::getUserName, userName)
-                        .eq(Order::getStatus, 0)
-        );
+//        List<Order> list = orderService.list(
+//                new LambdaQueryWrapper<Order>()
+//                        .select(Order::getAmount, Order::getForecastReturnAmount)
+//                        .eq(Order::getUserName, userName)
+//                        .eq(Order::getStatus, 0)
+//        );
         // 待回收利息
         BigDecimal waitReturnInterest = new BigDecimal(0);
         // 待回收本金
         BigDecimal waitReturnPrincipal = new BigDecimal(0);
-        for (Order order : list) {
-            waitReturnInterest = NumberUtil.add(waitReturnInterest, order.getForecastReturnAmount());
-            waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
-        }
+//        for (Order order : list) {
+//            waitReturnInterest = NumberUtil.add(waitReturnInterest, order.getForecastReturnAmount());
+//            waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
+//        }
         
         temp.put("waitReturnInterest", waitReturnInterest);
         temp.put("waitReturnPrincipal", waitReturnPrincipal);
@@ -223,7 +223,8 @@ public class UserController {
             return R.error(MsgUtil.get("system.user.register.invitecode"));
         }
 
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+//        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
 
         User user = new User();
         user.setUserName(request.getUserName());
@@ -278,7 +279,7 @@ public class UserController {
     @ApiOperation(value = "登录")
     @PostMapping("/login")
     public R login(@Validated LoginRequest request, HttpServletRequest httpServletRequest) {
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
 
         // 查询用户信息
         User user = userService.getUserByName(request.getUserName());

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="在线用户">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="IP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task/src/main/java/com/juhai/task/service/impl/SettleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/aop/LoginAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/aop/LoginAspect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="30483000" />
+      <workItem from="1687511244265" duration="35478000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -246,7 +245,63 @@
       <option name="project" value="LOCAL" />
       <updated>1687757073044</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="翻译">
+      <created>1687761731580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687761731580</updated>
+    </task>
+    <task id="LOCAL-00018" summary="IP">
+      <created>1687763236914</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687763236914</updated>
+    </task>
+    <task id="LOCAL-00019" summary="IP">
+      <created>1687763806561</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687763806561</updated>
+    </task>
+    <task id="LOCAL-00020" summary="IP">
+      <created>1687764624984</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764624984</updated>
+    </task>
+    <task id="LOCAL-00021" summary="IP">
+      <created>1687764836986</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764836986</updated>
+    </task>
+    <task id="LOCAL-00022" summary="IP">
+      <created>1687765039191</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687765039191</updated>
+    </task>
+    <task id="LOCAL-00023" summary="IP">
+      <created>1687766976977</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687766976977</updated>
+    </task>
+    <task id="LOCAL-00024" summary="IP">
+      <created>1687767177606</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687767177606</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +330,8 @@
     <MESSAGE value="结算修改" />
     <MESSAGE value="倒计时" />
     <MESSAGE value="在线用户" />
-    <option name="LAST_COMMIT_MESSAGE" value="在线用户" />
+    <MESSAGE value="翻译" />
+    <MESSAGE value="IP" />
+    <option name="LAST_COMMIT_MESSAGE" value="IP" />
   </component>
 </project>
