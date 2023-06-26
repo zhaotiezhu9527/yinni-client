@@ -39,14 +39,19 @@
               </view>
               <view class="li">
                 <view class="num">
-                  <text>{{ item.limitTime }}</text>
-                  {{ $t("limitTime") }}
+                  <u-count-down
+                    :time="item.time * 1000"
+                    format="HH:mm:ss"
+                    @finish="getList"
+                    class="time"
+                  ></u-count-down>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
                 <view class="num">
-                  <label>{{ $t("money") }}</label> <text>{{ item.minAmount }}</text>
+                  <label>{{ $t("money") }}</label>
+                  <text>{{ item.minAmount }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view>
               </view>
@@ -85,15 +90,16 @@ export default {
       shopGoods: [],
       loading: false,
       tabList: [], //tab数组
-      activeId: 1,//
+      activeId: 1, //
     };
   },
   onShow() {
-    this.getType()
+    this.getType();
     this.getList();
   },
   methods: {
     getList() {
+      if (this.loading) return false;
       this.loading = true;
       this.$api
         .project_list({
@@ -101,8 +107,19 @@ export default {
         })
         .then(({ data }) => {
           if (data.code == 0) {
+            this.loading = false;
             this.shopGoods = data.data;
+            for (let index = 0; index < this.shopGoods.length; index++) {
+              const item = this.shopGoods[index];
+              if (item.time === 0) {
+                setTimeout(() => {
+                  this.getList();
+                }, 1000);
+                return false;
+              }
+            }
           } else {
+            this.loading = false;
             this.$base.show(data.msg);
           }
         })
@@ -127,16 +144,15 @@ export default {
     },
     // 点击标签页切换
     tabClick(item) {
-      this.activeId = item.id
-      this.getList()
+      this.activeId = item.id;
+      this.getList();
     },
     // 获取所有分类
-    getType(){
+    getType() {
       this.$api.project_allType().then(({ data }) => {
         if (data.code == 0) {
-          // this.shopGoods = data.data;
-          this.tabList = data.list
-          this.activeId = data.list[0].id
+          this.tabList = data.list;
+          this.activeId = data.list[0].id;
         }
       });
     },
@@ -151,5 +167,9 @@ export default {
 }
 .page {
   background-color: #fafafa;
+}
+.time /deep/.u-count-down__text {
+  font-size: 24rpx;
+  color: red;
 }
 </style>
