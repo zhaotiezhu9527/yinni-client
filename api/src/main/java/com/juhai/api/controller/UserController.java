@@ -364,12 +364,12 @@ public class UserController {
         if (CollUtil.isNotEmpty(list)) {
             Map<Integer, String> statusMap = new HashMap<>();
             // 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到
-            statusMap.put(1, "mengisi ulang");
-            statusMap.put(2, "tolak bayar");
-            statusMap.put(3, "menarik uang");
-            statusMap.put(4, "Membeli");
-            statusMap.put(5, "penghasilan");
-            statusMap.put(6, "mendaftar");
+            statusMap.put(1, "Isi ulang sistem");
+            statusMap.put(2, "Pengurangan sistem");
+            statusMap.put(3, "Penarikan");
+            statusMap.put(4, "Pengurangan pembelian");
+            statusMap.put(5, "Pendapatan pembelian");
+            statusMap.put(6, "Masuk");
             JSONArray arr = new JSONArray();
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
