@@ -63,11 +63,13 @@
               <view class="li">
                 <view class="num">
                   <u-count-down
+                    v-show="item.status === 0"
                     :time="item.time * 1000"
                     format="HH:mm:ss"
                     @finish="getList"
                     class="time"
                   ></u-count-down>
+                  <view class="time" v-show="item.status === 1">00:00:00</view>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
@@ -86,7 +88,7 @@
                 </text>
                 <text>{{ $t("interest") }}</text>
               </view> -->
-              <view class="btn">{{ $t("investment") }}</view>
+              <view class="btn" :class="item.status === 1 ? 'grey-btn' : ''">{{ $t("investment") }}</view>
             </view>
             <!-- <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
@@ -211,13 +213,18 @@ export default {
       }
     },
     routePath(item) {
-      this.$api.project_info(item.projectId).then(({ data }) => {
-        if (data.code == 0) {
-          uni.navigateTo({
-            url: `/pages/content?id=${item.projectId}`,
-          });
-        }
-      });
+      if(item.status === 1){
+        return
+      }else if(item.status === 0){
+        this.$api.project_info(item.projectId).then(({ data }) => {
+          if (data.code == 0) {
+            uni.navigateTo({
+              url: `/pages/content?id=${item.projectId}`,
+            });
+          }
+        });
+      }
+      
     },
     guaranteeCompanyFn(name) {
       return name ? name.charAt(name.length - 1) : "-";
