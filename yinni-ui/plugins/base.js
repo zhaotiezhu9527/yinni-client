@@ -35,7 +35,8 @@ const PATH_URL =
     // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
     // : "https://juhai.top/"; //阿明a2 安科app打包地址
     // : "https://juhai.top/"; //app打包地址测试
-    : "/yn-qtapi-test/"; //app打包地址测试
+    // : "/yn-qtapi-test/"; //app打包地址测试
+    : "/yn-qtapi-prod/"; //app打包地址测试
     // : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
 
 export const upload = (params) => {
