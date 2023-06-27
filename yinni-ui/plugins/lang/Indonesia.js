@@ -80,7 +80,7 @@ export default {
     loadingAmount: "Harus dibayar",
     complete: "selesai",
     topup: "menagih RP",
-    topupRecords: "Catatan isi ulang",
+    topupRecords: "Daftar simpanan",
     topupAmount: "Jumlah isi ulang",
     topupType: "Metode isi ulang",
     topupTime: "Waktu isi ulang",
