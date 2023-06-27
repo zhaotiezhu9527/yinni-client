@@ -189,5 +189,6 @@ export default {
   logout:"退出登陆",
   quxiao:"取消",
   schedule:"库存",
-  overTime:"已结束"
+  overTime:"已结束",
+  commission: "佣金"
 };

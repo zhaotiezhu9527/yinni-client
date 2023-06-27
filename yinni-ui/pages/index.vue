@@ -81,6 +81,10 @@
                   <label>{{ $t("money") }}</label
                   ><text>{{ item.minAmount }}</text>
                 </view>
+                <view class="num">
+                  <label>{{ $t("commission") }}</label
+                  ><text>{{ Number(Number(item.minAmount) * Number(item.incomeRate / 100)).toFixed(2) }}</text>
+                </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
             </view>
