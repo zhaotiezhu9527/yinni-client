@@ -63,13 +63,16 @@ public class ProjectController {
             Date now = new Date();
             Map<String, String> map = paramterService.getAllParamByMap();
             for (Project project : list) {
-                // 不在时间区间内 过滤
-                if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
-                    continue;
-                }
+                JSONObject temp = new JSONObject();
                 // 获取当前小时
                 Date nextHour = getNextTime(now, project.getLimitTime().intValue());
-                JSONObject temp = new JSONObject();
+                int status = 0;
+                // 不在时间区间内 过滤
+                if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
+                    status = 1;
+                }
+
+
                 temp.put("projectId", project.getId());
                 temp.put("projectName", project.getProjectName());
                 temp.put("projectAmount", project.getProjectAmount());
@@ -81,6 +84,7 @@ public class ProjectController {
                 temp.put("guaranteeCompany", map.get("guarantee_company"));
                 temp.put("img", map.get("resource_domain") + project.getImg());
                 temp.put("time", DateUtil.between(now, nextHour, DateUnit.SECOND));
+                temp.put("status", status);
                 array.add(temp);
             }
         }
