@@ -18,7 +18,7 @@
         <image
           class="image"
           mode="widthFix"
-          src="../static/img/banner_15.jpg"
+          src="../static/img/about.png"
         />
         <div class="text-content">
           

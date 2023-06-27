@@ -80,7 +80,7 @@
                 </view>
                 <view class="num">
                   <label>{{ $t("commission") }}</label
-                  ><text>{{ Number(Number(item.minAmount) * Number(item.incomeRate / 100)).toFixed(2) }}</text>
+                  ><text>{{ getNum(index,item.minAmount,item.incomeRate) }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
@@ -128,6 +128,8 @@ import img7 from "../static/img/func_icon_kefu.png";
 import banner1 from "../static/img/banner_13.jpg";
 import banner2 from "../static/img/banner_14.jpg";
 import banner3 from "../static/img/banner_15.jpg";
+import banner4 from "../static/img/banner_16.jpg";
+import banner5 from "../static/img/banner_17.jpg";
 export default {
   data() {
     return {
@@ -158,7 +160,7 @@ export default {
           path: "/pages/preview",
         },
       ],
-      list2: [banner1, banner2, banner3],
+      list2: [banner1, banner2, banner3,banner4,banner5],
       shopGoods: [
         {
           // time:'00:00:00'
@@ -276,6 +278,17 @@ export default {
           }
         });
     },
+    // 佣金格式化
+    getNum(index,money,bili){
+      let num = 0
+      let regs = /^\d+$/
+      num = Number(Number(money) * Number(bili) / 100)
+      if(regs.test(num)){
+        return num
+      }else{
+        return num.toFixed(2)
+      }
+    }
   },
 };
 </script>
