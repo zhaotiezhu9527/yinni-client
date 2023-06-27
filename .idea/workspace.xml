@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="IP调整">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="商品分类">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/ProjectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/ProjectType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="38593000" />
+      <workItem from="1687511244265" duration="39504000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -309,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687767502037</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="商品分类">
+      <created>1687783015505</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687783015505</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +339,6 @@
     <MESSAGE value="国际化文件调整1" />
     <MESSAGE value="国际化文件调整2" />
     <MESSAGE value="国际化文件调整3" />
-    <MESSAGE value="商品分类" />
     <MESSAGE value="投注修改" />
     <MESSAGE value="结算修改" />
     <MESSAGE value="倒计时" />
@@ -341,6 +346,7 @@
     <MESSAGE value="翻译" />
     <MESSAGE value="IP" />
     <MESSAGE value="IP调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="IP调整" />
+    <MESSAGE value="商品分类" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品分类" />
   </component>
 </project>
