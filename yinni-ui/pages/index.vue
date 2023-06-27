@@ -50,7 +50,7 @@
             :key="index"
             @click="routePath(item)"
           >
-            <image class="img" :src="item.img" mode="widthFix" />
+            <image class="goods-img" :src="item.img" mode="widthFix" />
             <view class="name">
               <text></text>
               <text>{{ item.projectName }}</text>
@@ -315,6 +315,10 @@ export default {
 @import "../static/list.scss";
 .list {
   background-color: #fff;
+  .goods-img{
+    display: block;
+    margin: 0 auto;
+  }
 }
 .scroll {
   height: calc(100vh - 210rpx + var(--status-bar-height));
