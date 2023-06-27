@@ -35,7 +35,7 @@
               {{ $t("waitReview") }}
             </view>
             <view class="table-money" v-else-if="item.status === 1">
-              {{ $t(withdrawalSuccess) }}
+              {{ $t("withdrawalSuccess") }}
             </view>
             <view class="table-money" v-else-if="item.status === 2">
               {{ $t("withdrawalError") }}
