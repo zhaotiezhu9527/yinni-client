@@ -182,6 +182,12 @@ export default {
     await this.$onLaunched;
     this.config = uni.getStorageSync("system_config");
   },
+  onTabItemTap() {
+    let end = setInterval(function () {}, 10000);
+    for (let i = 1; i <= end; i++) {
+      clearInterval(i);
+    }
+  },
   onShow() {
     this.getInfo();
   },

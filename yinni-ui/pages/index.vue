@@ -36,10 +36,12 @@
             @click="tabClick(item)"
           >
             <image class="img" :src="item.img" />
-            <text class="txt" :class="activeId == item.id ? 'red-text' : ''">{{ item.name }}</text>
+            <text class="txt" :class="activeId == item.id ? 'red-text' : ''">{{
+              item.name
+            }}</text>
           </view>
         </view>
-        
+
         <!-- <u-tabs :list="tabList" @click="tabClick"></u-tabs> -->
         <view class="list">
           <view
@@ -63,13 +65,14 @@
               <view class="li">
                 <view class="num">
                   <u-count-down
-                    v-show="item.status === 0"
+                    ref="countDown"
+                    v-if="item.status === 0"
                     :time="item.time * 1000"
                     format="HH:mm:ss"
                     @finish="getList"
                     class="time"
                   ></u-count-down>
-                  <view class="time" v-show="item.status === 1">00:00:00</view>
+                  <view class="time" v-else>00:00:00</view>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
@@ -88,7 +91,9 @@
                 </text>
                 <text>{{ $t("interest") }}</text>
               </view> -->
-              <view class="btn" :class="item.status === 1 ? 'grey-btn' : ''">{{ $t("investment") }}</view>
+              <view class="btn" :class="item.status === 1 ? 'grey-btn' : ''">{{
+                $t("investment")
+              }}</view>
             </view>
             <!-- <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
@@ -173,10 +178,23 @@ export default {
   },
   onShow() {
     this.getType();
-    this.tabClick({id:1});
+    this.tabClick({ id: 1 });
     this.getList();
   },
+  onTabItemTap() {
+    let end = setInterval(function () {}, 10000);
+    for (let i = 1; i <= end; i++) {
+      clearInterval(i);
+    }
+  },
   methods: {
+    countDownFn() {
+      if (this.$refs.countDown) {
+        this.$refs.countDown.forEach((e) => {
+          e.reset();
+        });
+      }
+    },
     change({ name, path, url }) {
       if ([this.$t("investmentProject"), this.$t("about")].includes(name)) {
         uni.switchTab({
@@ -213,9 +231,9 @@ export default {
       }
     },
     routePath(item) {
-      if(item.status === 1){
-        return
-      }else if(item.status === 0){
+      if (item.status === 1) {
+        return;
+      } else if (item.status === 0) {
         this.$api.project_info(item.projectId).then(({ data }) => {
           if (data.code == 0) {
             uni.navigateTo({
@@ -224,7 +242,6 @@ export default {
           }
         });
       }
-      
     },
     guaranteeCompanyFn(name) {
       return name ? name.charAt(name.length - 1) : "-";
@@ -250,6 +267,7 @@ export default {
     getList() {
       if (this.loading) return false;
       this.loading = true;
+      this.countDownFn();
       this.$api
         .project_list({
           id: this.activeId,
@@ -307,7 +325,6 @@ export default {
   }
 }
 .content {
-  
   // display: flex;
   // flex-wrap: wrap;
   // justify-content: space-between;
