@@ -8,7 +8,7 @@ export default {
     confirmPwd: "Konfirmasikan kata sandi",
     password: "kata sandi",
     loginAccount: "Silakan masukkan akun login",
-    account: "Nomor rekening",
+    account: "Nama akun",
     registerAccount: "Silakan masukkan akun yang terdaftar",
     inputPayPwd: "sandi pembayaran",
     inputNewPayPwd: "Silakan masukkan kata sandi pembayaran baru",
