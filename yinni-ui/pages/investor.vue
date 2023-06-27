@@ -40,11 +40,14 @@
               <view class="li">
                 <view class="num">
                   <u-count-down
+                    ref="countDown"
+                    v-if="item.status === 0"
                     :time="item.time * 1000"
                     format="HH:mm:ss"
                     @finish="getList"
                     class="time"
                   ></u-count-down>
+                  <view class="time" v-else>00:00:00</view>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
@@ -97,10 +100,24 @@ export default {
     this.getType();
     this.getList();
   },
+  onTabItemTap() {
+    let end = setInterval(function () {}, 10000);
+    for (let i = 1; i <= end; i++) {
+      clearInterval(i);
+    }
+  },
   methods: {
+    countDownFn() {
+      if (this.$refs.countDown) {
+        this.$refs.countDown.forEach((e) => {
+          e.reset();
+        });
+      }
+    },
     getList() {
       if (this.loading) return false;
       this.loading = true;
+      this.countDownFn();
       this.$api
         .project_list({
           id: this.activeId,
