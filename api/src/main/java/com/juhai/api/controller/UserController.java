@@ -362,10 +362,18 @@ public class UserController {
         PageUtils page = accountService.queryPage(params);
         List<Account> list = (List<Account>) page.getList();
         if (CollUtil.isNotEmpty(list)) {
+            Map<Integer, String> statusMap = new HashMap<>();
+            // 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到
+            statusMap.put(1, "mengisi ulang");
+            statusMap.put(2, "tolak bayar");
+            statusMap.put(3, "menarik uang");
+            statusMap.put(4, "Membeli");
+            statusMap.put(5, "penghasilan");
+            statusMap.put(6, "mendaftar");
             JSONArray arr = new JSONArray();
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
-                obj.put("remark", temp.getRemark());
+                obj.put("remark", statusMap.getOrDefault(temp.getOptType(), "-"));
                 obj.put("amount", temp.getOptAmount());
                 obj.put("optTime", temp.getOptTime());
                 arr.add(obj);
@@ -704,7 +712,7 @@ public class UserController {
         account.setUserAgent(user.getUserAgent());
         account.setRefNo(orderNo);
 //        account.setRemark("提现金额:" + amount + "元");
-        account.setRemark(StrUtil.format(MsgUtil.get("system.withdraw.balance"), account));
+        account.setRemark(StrUtil.format(MsgUtil.get("system.withdraw.balance"), amount));
         accountService.save(account);
 
         // 记录报表
