@@ -47,6 +47,14 @@
         </view>
         <!-- 列表 -->
         <view class="list">
+           <view
+            class="list-item"
+            @click="pathChange"
+          >
+            <image class="icon-img" src="../static/img/func_icon_kefu.png" />
+            <label>{{ $t("onlineService") }}</label>
+            <view class="icon"></view>
+          </view>
           <!-- <view
             v-if="config.ouyi_download_url"
             class="list-item"
@@ -132,6 +140,11 @@
             <label>{{ $t("USDTBind") }}</label>
             <view class="icon"></view>
           </view> -->
+          <!-- <view class="list-item" @click="goAddr">
+            <image class="icon-img" src="../static/img/mine_func_touzi.png" />
+            <label>{{ $t("address") }}</label>
+            <view class="icon"></view>
+          </view> -->
         </view>
         <!-- 退出登录 -->
         <u-button class="logout" @click="show = true">
@@ -193,9 +206,15 @@ export default {
   },
   methods: {
     pathChange() {
-      uni.navigateTo({
-        url: "/pages/onlineService",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/onlineService",
+      // });
+      // #ifdef APP-PLUS
+      plus.runtime.openURL(this.config.online_service);
+      // #endif
+      // #ifdef H5
+      window.open(this.config.online_service);
+      // #endif
     },
     downloadChange(url) {
       // #ifdef APP-PLUS
@@ -248,6 +267,11 @@ export default {
     goAccountSafe() {
       uni.navigateTo({
         url: "/pages/AccountSafe",
+      });
+    },
+    goAddr(){
+      uni.navigateTo({
+        url: "/pages/addr",
       });
     },
     goWithdraw() {

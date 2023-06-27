@@ -190,5 +190,9 @@ export default {
     quxiao:"Membatalkan",
     schedule:"persediaan",
     overTime:"lebih",
-    commission: "Komisi"
+    commission: "Komisi",
+    address: "Alamat pengiriman",
+    phoneNo: "Nomor telepon",
+    inputAddress: "Masukkan nomor telepon",
+    inputPhoneNo: "harap masukkan alamat",
   };

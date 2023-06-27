@@ -190,5 +190,9 @@ export default {
   quxiao:"取消",
   schedule:"库存",
   overTime:"已结束",
-  commission: "佣金"
+  commission: "佣金",
+  address: "收货地址",
+  phoneNo: "手机号码",
+  inputAddress: "请输入手机号码",
+  inputPhoneNo: "请输入地址",
 };
