@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="无效商品">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="资金流动翻译1">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/AddressRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +68,9 @@
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\java" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.juhai.api.controller.request" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -88,7 +93,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.juhai.api.ApiApplication" />
       <extension name="coverage">
@@ -97,13 +102,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="api" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="api.ApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,7 +115,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ApiApplication (1)" />
+        <item itemvalue="Spring Boot.ApiApplication" />
         <item itemvalue="Application.ProjectController" />
       </list>
     </recent_temporary>
@@ -131,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="42377000" />
+      <workItem from="1687511244265" duration="46682000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -322,7 +320,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687835537323</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="资金流动翻译">
+      <created>1687842783485</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687842783485</updated>
+    </task>
+    <task id="LOCAL-00029" summary="资金流动翻译1">
+      <created>1687857744766</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687857744766</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +367,8 @@
     <MESSAGE value="IP调整" />
     <MESSAGE value="商品分类" />
     <MESSAGE value="无效商品" />
-    <option name="LAST_COMMIT_MESSAGE" value="无效商品" />
+    <MESSAGE value="资金流动翻译" />
+    <MESSAGE value="资金流动翻译1" />
+    <option name="LAST_COMMIT_MESSAGE" value="资金流动翻译1" />
   </component>
 </project>

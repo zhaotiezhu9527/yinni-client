@@ -18,10 +18,10 @@
         <image
           class="image"
           mode="widthFix"
-          src="../static/img/banner_15.jpg"
+          src="../static/img/about.png"
         />
         <div class="text-content">
-          <p></p>
+          <p>
             Shopee adalah platform e-commerce terkemuka di Asia Tenggara dan
             Taiwan. Diluncurkan pada tahun 2015, ini adalah platform yang
             disesuaikan untuk wilayah tersebut untuk memberikan pengalaman

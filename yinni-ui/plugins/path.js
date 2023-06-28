@@ -73,5 +73,6 @@ const home = [
   },
   { path: "/pages/preview" },
   { path: "/pages/onlineService" },
+  { path: "/pages/addr" },
 ];
 export default home;

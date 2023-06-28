@@ -124,6 +124,8 @@ public class UserController {
         
         temp.put("waitReturnInterest", waitReturnInterest);
         temp.put("waitReturnPrincipal", waitReturnPrincipal);
+        temp.put("address", user.getAddress());
+        temp.put("userPhone", user.getUserPhone());
 
         return R.ok().put("data", temp);
     }
@@ -364,12 +366,12 @@ public class UserController {
         if (CollUtil.isNotEmpty(list)) {
             Map<Integer, String> statusMap = new HashMap<>();
             // 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到
-            statusMap.put(1, "mengisi ulang");
-            statusMap.put(2, "tolak bayar");
-            statusMap.put(3, "menarik uang");
-            statusMap.put(4, "Membeli");
-            statusMap.put(5, "penghasilan");
-            statusMap.put(6, "mendaftar");
+            statusMap.put(1, "Isi ulang sistem");
+            statusMap.put(2, "Pengurangan sistem");
+            statusMap.put(3, "Penarikan");
+            statusMap.put(4, "Pengurangan pembelian");
+            statusMap.put(5, "Pendapatan pembelian");
+            statusMap.put(6, "Masuk");
             JSONArray arr = new JSONArray();
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
@@ -726,6 +728,25 @@ public class UserController {
 //        userReportService.insertOrUpdate(report);
 //
 //        redisTemplate.opsForValue().set("user:withdraw:notice", "1");
+        return R.ok();
+    }
+
+
+    @ApiOperation(value = "用户填写地址")
+    @PostMapping("/address")
+    public R address(@Validated AddressRequest request, HttpServletRequest httpServletRequest) {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+
+//        User user = userService.getUserByName(userName);
+
+        userService.update(
+                new UpdateWrapper<User>().lambda()
+                        .set(User::getAddress, request.getAddress())
+                        .set(User::getUserPhone, request.getUserPhone())
+                        .set(User::getModifyTime, new Date())
+                        .eq(User::getUserName, userName)
+        );
+
         return R.ok();
     }
 }
