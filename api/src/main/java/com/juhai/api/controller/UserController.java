@@ -124,6 +124,8 @@ public class UserController {
         
         temp.put("waitReturnInterest", waitReturnInterest);
         temp.put("waitReturnPrincipal", waitReturnPrincipal);
+        temp.put("address", user.getAddress());
+        temp.put("userPhone", user.getUserPhone());
 
         return R.ok().put("data", temp);
     }
@@ -726,6 +728,25 @@ public class UserController {
 //        userReportService.insertOrUpdate(report);
 //
 //        redisTemplate.opsForValue().set("user:withdraw:notice", "1");
+        return R.ok();
+    }
+
+
+    @ApiOperation(value = "用户填写地址")
+    @PostMapping("/address")
+    public R address(@Validated AddressRequest request, HttpServletRequest httpServletRequest) {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+
+//        User user = userService.getUserByName(userName);
+
+        userService.update(
+                new UpdateWrapper<User>().lambda()
+                        .set(User::getAddress, request.getAddress())
+                        .set(User::getUserPhone, request.getUserPhone())
+                        .set(User::getModifyTime, new Date())
+                        .eq(User::getUserName, userName)
+        );
+
         return R.ok();
     }
 }

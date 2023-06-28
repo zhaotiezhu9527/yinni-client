@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="资金流动翻译">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="资金流动翻译1">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/AddressRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +68,9 @@
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\java" />
       <recent name="C:\Users\Administrator\IdeaProjects\yinni-client\task\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.juhai.api.controller.request" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -124,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687502982119</updated>
       <workItem from="1687502983208" duration="5090000" />
-      <workItem from="1687511244265" duration="45852000" />
+      <workItem from="1687511244265" duration="46682000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -322,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687842783485</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="资金流动翻译1">
+      <created>1687857744766</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687857744766</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +368,7 @@
     <MESSAGE value="商品分类" />
     <MESSAGE value="无效商品" />
     <MESSAGE value="资金流动翻译" />
-    <option name="LAST_COMMIT_MESSAGE" value="资金流动翻译" />
+    <MESSAGE value="资金流动翻译1" />
+    <option name="LAST_COMMIT_MESSAGE" value="资金流动翻译1" />
   </component>
 </project>
