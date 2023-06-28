@@ -329,3 +329,18 @@ export const project_allType = (data) => {
       });
   });
 };
+
+//收货地址
+export const user_address = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "user/address",
+        method: "post",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};

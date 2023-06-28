@@ -140,11 +140,11 @@
             <label>{{ $t("USDTBind") }}</label>
             <view class="icon"></view>
           </view> -->
-          <!-- <view class="list-item" @click="goAddr">
+          <view class="list-item" @click="goAddr">
             <image class="icon-img" src="../static/img/mine_func_touzi.png" />
             <label>{{ $t("address") }}</label>
             <view class="icon"></view>
-          </view> -->
+          </view>
         </view>
         <!-- 退出登录 -->
         <u-button class="logout" @click="show = true">

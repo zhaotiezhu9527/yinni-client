@@ -20,7 +20,7 @@
         <input
           type="text"
           :disabled="!bindStatus"
-          v-model="realName"
+          v-model="userPhone"
           class="input-text"
           :placeholder="$t('inputPhoneNo')"
         />
@@ -30,7 +30,7 @@
         <input
           type="text"
           :disabled="!bindStatus"
-          v-model="idCardNo"
+          v-model="address"
           class="input-text"
           :placeholder="$t('inputAddress')"
         />
@@ -53,8 +53,8 @@ export default {
   data() {
     return {
       loading: false,
-      idCardNo: "", //身份证号
-      realName: "", //真实姓名
+      userPhone: "", //手机号码
+      address: "", //收货地址
       bindStatus: false, //是否实名
     };
   },
@@ -66,28 +66,28 @@ export default {
     getInfo() {
       this.$api.user_info().then((res) => {
         if (res.data.code == 0) {
-          if (!res.data.data.idCard || res.data.data.idCard === null) {
+          if (!res.data.data.userPhone || res.data.data.userPhone === null) {
             this.bindStatus = true;
           } else {
             this.bindStatus = false;
           }
-          this.idCardNo = res.data.data.idCard;
-          this.realName = res.data.data.realName;
+          this.userPhone = res.data.data.userPhone;
+          this.address = res.data.data.address;
         }
       });
     },
     // 实名认证
     changeBind() {
-      if (!this.realName) {
+      if (!this.address) {
         return this.$base.show(this.$t("inputAddress"));
-      } else if (!this.idCardNo) {
+      } else if (!this.userPhone) {
         return this.$base.show(this.$t("inputPhoneNo"));
       }
       this.loading = true;
       this.$api
-        .user_realName({
-          realName: this.realName,
-          idCardNo: this.idCardNo,
+        .user_address({
+          userPhone: this.userPhone,
+          address: this.address,
         })
         .then((res) => {
           if (res.data.code == 0) {
