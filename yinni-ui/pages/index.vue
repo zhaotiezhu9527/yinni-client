@@ -83,7 +83,11 @@
                 </view>
                 <view class="num">
                   <label>{{ $t("commission") }}</label
-                  ><text>{{ Number(Number(item.minAmount) * Number(item.incomeRate / 100)).toFixed(2) }}</text>
+                  ><text>{{
+                    Number(
+                      Number(item.minAmount) * Number(item.incomeRate / 100)
+                    ).toFixed(2)
+                  }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
@@ -278,15 +282,19 @@ export default {
         })
         .then(({ data }) => {
           if (data.code == 0) {
-            this.loading = false;
             this.shopGoods = data.data;
+            let size = 0;
             for (let index = 0; index < this.shopGoods.length; index++) {
               const item = this.shopGoods[index];
+              size++;
               if (item.time === 0) {
                 setTimeout(() => {
+                  this.loading = false;
                   this.getList();
                 }, 1000);
                 return false;
+              } else if (size === this.shopGoods.length) {
+                this.loading = false;
               }
             }
           } else {
