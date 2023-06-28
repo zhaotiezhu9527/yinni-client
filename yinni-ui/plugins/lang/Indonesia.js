@@ -193,6 +193,6 @@ export default {
     commission: "Komisi",
     address: "Alamat pengiriman",
     phoneNo: "Nomor telepon",
-    inputAddress: "Masukkan nomor telepon",
-    inputPhoneNo: "harap masukkan alamat",
+    inputAddress: "harap masukkan alamat",
+    inputPhoneNo: "Masukkan nomor telepon",
   };

@@ -193,6 +193,6 @@ export default {
   commission: "佣金",
   address: "收货地址",
   phoneNo: "手机号码",
-  inputAddress: "请输入手机号码",
-  inputPhoneNo: "请输入地址",
+  inputAddress: "请输入地址",
+  inputPhoneNo: "请输入手机号码",
 };
