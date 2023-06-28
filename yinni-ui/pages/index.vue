@@ -82,8 +82,8 @@
                   ><text>{{ item.minAmount }}</text>
                 </view>
                 <view class="num">
-                  <label>{{ $t("commission") }}</label
-                  ><text>{{
+                  <label>{{ $t("commission") }}</label>
+                  <text>{{
                     getNum(index, item.minAmount, item.incomeRate)
                   }}</text>
                 </view>
