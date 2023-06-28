@@ -42,7 +42,7 @@
         @click="changeBind"
         :loading="loading"
       >
-        {{ $t("idCard") }}
+        {{ $t("submitBind") }}
       </u-button>
     </view>
   </view>
