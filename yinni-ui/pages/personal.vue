@@ -130,11 +130,11 @@
             <label>{{ $t("bankCardNumTitle") }}</label>
             <view class="icon"></view>
           </view>
-          <view class="list-item" @click="goRealName">
+          <!-- <view class="list-item" @click="goRealName">
             <image class="icon-img" src="../static/img/mine_func_shiming.png" />
             <label>{{ $t("idCard") }}</label>
             <view class="icon"></view>
-          </view>
+          </view> -->
           <!-- <view class="list-item" @click="goBindUSDT">
             <image class="icon-img" src="../static/img/mine_func_usdt.png" />
             <label>{{ $t("USDTBind") }}</label>
