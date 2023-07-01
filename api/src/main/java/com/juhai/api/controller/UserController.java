@@ -98,9 +98,9 @@ public class UserController {
         temp.put("bankAddr", user.getBankAddr());
         temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
         int isRealName = 1;
-        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
-            isRealName = 0;
-        }
+//        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
+//            isRealName = 0;
+//        }
 
         Map<String, String> params = paramterService.getAllParamByMap();
         temp.put("isRealName", isRealName);
@@ -655,9 +655,13 @@ public class UserController {
             return R.error(MsgUtil.get("system.order.paypwderror"));
         }
 
-        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
-            return R.error(MsgUtil.get("system.order.realname"));
+//        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
+//            return R.error(MsgUtil.get("system.order.realname"));
+//        }
+        if (StringUtils.isBlank(user.getBankCardNum())) {
+            return R.error(MsgUtil.get("system.user.nobindbank"));
         }
+
         if (user.getUserStatus().intValue() == 1) {
             return R.error(MsgUtil.get("system.user.enable"));
         }
