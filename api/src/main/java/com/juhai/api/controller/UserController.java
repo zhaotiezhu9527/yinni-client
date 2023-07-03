@@ -98,14 +98,15 @@ public class UserController {
         temp.put("bankAddr", user.getBankAddr());
         temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
         int isRealName = 1;
-//        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
-//            isRealName = 0;
-//        }
+        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getBankCardNum())) {
+            isRealName = 0;
+        }
 
-        Map<String, String> params = paramterService.getAllParamByMap();
+//        Map<String, String> params = paramterService.getAllParamByMap();
         temp.put("isRealName", isRealName);
         temp.put("integral", 0);
-        temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
+        // temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
+        temp.put("usdtAmount", 0);
 
 //        List<Order> list = orderService.list(
 //                new LambdaQueryWrapper<Order>()
@@ -520,7 +521,7 @@ public class UserController {
         String userName = JwtUtils.getUserName(httpServletRequest);
 
         User user = userService.getUserByName(userName);
-        if (StringUtils.isNotBlank(user.getBankCardNum())) {
+        if (StringUtils.isNotBlank(user.getBankCardNum()) && StringUtils.isNotBlank(user.getRealName())) {
             return R.error(MsgUtil.get("system.user.bindbank"));
         }
 
@@ -529,6 +530,7 @@ public class UserController {
                         .set(User::getBankName, request.getBankName())
                         .set(User::getBankCardNum, request.getCardNo())
                         .set(User::getBankAddr, request.getAddr())
+                        .set(User::getRealName, request.getRealName())
                         .set(User::getModifyTime, new Date())
                         .eq(User::getUserName, userName)
         );
@@ -658,7 +660,7 @@ public class UserController {
 //        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
 //            return R.error(MsgUtil.get("system.order.realname"));
 //        }
-        if (StringUtils.isBlank(user.getBankCardNum())) {
+        if (StringUtils.isBlank(user.getBankCardNum()) || StringUtils.isBlank(user.getRealName())) {
             return R.error(MsgUtil.get("system.user.nobindbank"));
         }
 
