@@ -92,10 +92,9 @@ export default {
       } else if (!this.bankCardNum) {
         return this.$base.show(this.$t("inputBankCardNum"));
       } else if (!this.addr) {
-        return this.$base.show(this.$("inputAddr"));
-      } 
-      else if (!this.realName) {
-        return this.$base.show(this.$("inputRealName"));
+        return this.$base.show(this.$t("inputAddr"));
+      } else if (!this.realName) {
+        return this.$base.show(this.$t("inputRealName"));
       }
       this.loading = true;
       this.$api
