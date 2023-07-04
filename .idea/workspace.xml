@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="删除实名制">
+    <list default="true" id="d13cc0a4-fadb-4801-8452-94343f727175" name="Changes" comment="绑定银行卡新增姓名">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/BindBankRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/BindBankRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/ProjectController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +130,8 @@
       <workItem from="1687511244265" duration="50982000" />
       <workItem from="1688117842662" duration="1203000" />
       <workItem from="1688182108817" duration="1295000" />
-      <workItem from="1688353028555" duration="1111000" />
+      <workItem from="1688353028555" duration="2190000" />
+      <workItem from="1688442826262" duration="704000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1687504711409</created>
@@ -350,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688182799880</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="绑定银行卡新增姓名">
+      <created>1688354341029</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1688354341029</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +394,7 @@
     <MESSAGE value="资金流动翻译1" />
     <MESSAGE value="用户收货地址接口" />
     <MESSAGE value="删除实名制" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除实名制" />
+    <MESSAGE value="绑定银行卡新增姓名" />
+    <option name="LAST_COMMIT_MESSAGE" value="绑定银行卡新增姓名" />
   </component>
 </project>

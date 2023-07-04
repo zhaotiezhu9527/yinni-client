@@ -65,7 +65,16 @@ public class ProjectController {
             for (Project project : list) {
                 JSONObject temp = new JSONObject();
                 // 获取当前小时
-                Date nextHour = getNextTime(now, project.getLimitTime().intValue());
+                Date nextHour = null;
+                if (project.getLimitTime().intValue() == 3 || project.getLimitTime().intValue() == 5 || project.getLimitTime().intValue() == 10) {
+                    nextHour = getNextTime(now, project.getLimitTime().intValue(), 60);
+                } else if (project.getLimitTime().intValue() == 720) {
+                    nextHour = getNextTime(now, project.getLimitTime().intValue(), 1440);
+                } else if (project.getLimitTime().intValue() == 1440) {
+                    nextHour = DateUtil.endOfDay(now);
+                } else {
+                    continue;
+                }
                 int status = 0;
                 // 不在时间区间内 过滤
                 if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
@@ -97,10 +106,10 @@ public class ProjectController {
      * @param offset
      * @return
      */
-    private Date getNextTime(Date now, int offset) {
+    private Date getNextTime(Date now, int offset, int count) {
         Date curHour = DateUtil.beginOfHour(now);
         Date nextHour = null;
-        int length = 60 / offset;
+        int length = count / offset;
         // 十分钟一期
         for (int i = 0; i < length; i++) {
             nextHour = DateUtil.offsetMinute(curHour, offset);
@@ -138,7 +147,8 @@ public class ProjectController {
         temp.put("guaranteeCompany", map.get("guarantee_company"));
         temp.put("img", map.get("resource_domain") + project.getImg());
 
-        temp.put("time", DateUtil.between(now, getNextTime(now, project.getLimitTime().intValue()), DateUnit.SECOND));
+//        temp.put("time", DateUtil.between(now, getNextTime(now, project.getLimitTime().intValue()), DateUnit.SECOND));
+        temp.put("time", 0);
 
         String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
