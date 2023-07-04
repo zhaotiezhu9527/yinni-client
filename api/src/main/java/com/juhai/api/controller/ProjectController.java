@@ -108,6 +108,9 @@ public class ProjectController {
      */
     private Date getNextTime(Date now, int offset, int count) {
         Date curHour = DateUtil.beginOfHour(now);
+        if (offset == 720) {
+            curHour = DateUtil.beginOfDay(now);
+        }
         Date nextHour = null;
         int length = count / offset;
         // 十分钟一期
