@@ -193,9 +193,10 @@ export default {
     return {};
   },
   onTabItemTap() {
-    let end = setInterval(function () {}, 10);
-    for (let i = 1; i <= end; i++) {
-      clearInterval(i);
+    if (this.$store.countDown) {
+      this.$store.countDown.forEach((e) => {
+        e.reset();
+      });
     }
   },
   onLoad() {},
