@@ -104,12 +104,6 @@
         "text": "indeks"
 
       },
-      // {
-      //   "pagePath": "pages/investor",
-      //   "iconPath": "./static/img/money1.png",
-      //   "selectedIconPath": "./static/img/money.png",
-      //   "text": "pemeran"
-      // },
       {
         "pagePath": "pages/about",
         "iconPath": "./static/img/find1.png",
