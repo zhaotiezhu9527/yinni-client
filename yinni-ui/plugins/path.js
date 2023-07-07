@@ -21,9 +21,6 @@ const home = [
     path: "/pages/about",
   },
   {
-    path: "/pages/investor",
-  },
-  {
     path: "/pages/personal",
   },
   {
@@ -73,5 +70,6 @@ const home = [
   },
   { path: "/pages/preview" },
   { path: "/pages/onlineService" },
+  { path: "/pages/addr" },
 ];
 export default home;

@@ -98,32 +98,35 @@ public class UserController {
         temp.put("bankAddr", user.getBankAddr());
         temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
         int isRealName = 1;
-        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
+        if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getBankCardNum())) {
             isRealName = 0;
         }
 
-        Map<String, String> params = paramterService.getAllParamByMap();
+//        Map<String, String> params = paramterService.getAllParamByMap();
         temp.put("isRealName", isRealName);
         temp.put("integral", 0);
-        temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
+        // temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
+        temp.put("usdtAmount", 0);
 
-        List<Order> list = orderService.list(
-                new LambdaQueryWrapper<Order>()
-                        .select(Order::getAmount, Order::getForecastReturnAmount)
-                        .eq(Order::getUserName, userName)
-                        .eq(Order::getStatus, 0)
-        );
+//        List<Order> list = orderService.list(
+//                new LambdaQueryWrapper<Order>()
+//                        .select(Order::getAmount, Order::getForecastReturnAmount)
+//                        .eq(Order::getUserName, userName)
+//                        .eq(Order::getStatus, 0)
+//        );
         // 待回收利息
         BigDecimal waitReturnInterest = new BigDecimal(0);
         // 待回收本金
         BigDecimal waitReturnPrincipal = new BigDecimal(0);
-        for (Order order : list) {
-            waitReturnInterest = NumberUtil.add(waitReturnInterest, order.getForecastReturnAmount());
-            waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
-        }
+//        for (Order order : list) {
+//            waitReturnInterest = NumberUtil.add(waitReturnInterest, order.getForecastReturnAmount());
+//            waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
+//        }
         
         temp.put("waitReturnInterest", waitReturnInterest);
         temp.put("waitReturnPrincipal", waitReturnPrincipal);
+        temp.put("address", user.getAddress());
+        temp.put("userPhone", user.getUserPhone());
 
         return R.ok().put("data", temp);
     }
@@ -223,7 +226,8 @@ public class UserController {
             return R.error(MsgUtil.get("system.user.register.invitecode"));
         }
 
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+//        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
 
         User user = new User();
         user.setUserName(request.getUserName());
@@ -262,6 +266,7 @@ public class UserController {
         map.put("random", RandomUtil.randomString(6));
         String token = JwtUtils.getToken(map);
         redisTemplate.opsForValue().set(RedisKeyUtil.UserTokenKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserOnlineKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
         return R.ok().put("token", token);
     }
 
@@ -270,13 +275,14 @@ public class UserController {
     public R logout(HttpServletRequest httpServletRequest) {
         String userName = JwtUtils.getUserName(httpServletRequest);
         redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
+        redisTemplate.delete(RedisKeyUtil.UserOnlineKey(userName));
         return R.ok();
     }
 
     @ApiOperation(value = "登录")
     @PostMapping("/login")
     public R login(@Validated LoginRequest request, HttpServletRequest httpServletRequest) {
-        String clientIP = ServletUtil.getClientIP(httpServletRequest);
+        String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
 
         // 查询用户信息
         User user = userService.getUserByName(request.getUserName());
@@ -340,6 +346,7 @@ public class UserController {
             token = JwtUtils.getToken(map);
             redisTemplate.opsForValue().set(RedisKeyUtil.UserTokenKey(user.getUserName()), token, expire, TimeUnit.MINUTES);
         }
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserOnlineKey(user.getUserName()), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
         /** 删除密码输入错误次数 **/
         redisTemplate.delete(incKey);
         return R.ok().put("token", token);
@@ -358,10 +365,18 @@ public class UserController {
         PageUtils page = accountService.queryPage(params);
         List<Account> list = (List<Account>) page.getList();
         if (CollUtil.isNotEmpty(list)) {
+            Map<Integer, String> statusMap = new HashMap<>();
+            // 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到
+            statusMap.put(1, "Isi ulang sistem");
+            statusMap.put(2, "Pengurangan sistem");
+            statusMap.put(3, "Penarikan");
+            statusMap.put(4, "Pengurangan pembelian");
+            statusMap.put(5, "Pendapatan pembelian");
+            statusMap.put(6, "Masuk");
             JSONArray arr = new JSONArray();
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
-                obj.put("remark", temp.getRemark());
+                obj.put("remark", statusMap.getOrDefault(temp.getOptType(), "-"));
                 obj.put("amount", temp.getOptAmount());
                 obj.put("optTime", temp.getOptTime());
                 arr.add(obj);
@@ -506,7 +521,7 @@ public class UserController {
         String userName = JwtUtils.getUserName(httpServletRequest);
 
         User user = userService.getUserByName(userName);
-        if (StringUtils.isNotBlank(user.getBankCardNum())) {
+        if (StringUtils.isNotBlank(user.getBankCardNum()) && StringUtils.isNotBlank(user.getRealName())) {
             return R.error(MsgUtil.get("system.user.bindbank"));
         }
 
@@ -515,6 +530,7 @@ public class UserController {
                         .set(User::getBankName, request.getBankName())
                         .set(User::getBankCardNum, request.getCardNo())
                         .set(User::getBankAddr, request.getAddr())
+                        .set(User::getRealName, request.getRealName())
                         .set(User::getModifyTime, new Date())
                         .eq(User::getUserName, userName)
         );
@@ -641,9 +657,13 @@ public class UserController {
             return R.error(MsgUtil.get("system.order.paypwderror"));
         }
 
-        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
-            return R.error(MsgUtil.get("system.order.realname"));
+//        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
+//            return R.error(MsgUtil.get("system.order.realname"));
+//        }
+        if (StringUtils.isBlank(user.getBankCardNum()) || StringUtils.isBlank(user.getRealName())) {
+            return R.error(MsgUtil.get("system.user.nobindbank"));
         }
+
         if (user.getUserStatus().intValue() == 1) {
             return R.error(MsgUtil.get("system.user.enable"));
         }
@@ -700,7 +720,7 @@ public class UserController {
         account.setUserAgent(user.getUserAgent());
         account.setRefNo(orderNo);
 //        account.setRemark("提现金额:" + amount + "元");
-        account.setRemark(StrUtil.format(MsgUtil.get("system.withdraw.balance"), account));
+        account.setRemark(StrUtil.format(MsgUtil.get("system.withdraw.balance"), amount));
         accountService.save(account);
 
         // 记录报表
@@ -714,6 +734,25 @@ public class UserController {
 //        userReportService.insertOrUpdate(report);
 //
 //        redisTemplate.opsForValue().set("user:withdraw:notice", "1");
+        return R.ok();
+    }
+
+
+    @ApiOperation(value = "用户填写地址")
+    @PostMapping("/address")
+    public R address(@Validated AddressRequest request, HttpServletRequest httpServletRequest) {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+
+//        User user = userService.getUserByName(userName);
+
+        userService.update(
+                new UpdateWrapper<User>().lambda()
+                        .set(User::getAddress, request.getAddress())
+                        .set(User::getUserPhone, request.getUserPhone())
+                        .set(User::getModifyTime, new Date())
+                        .eq(User::getUserName, userName)
+        );
+
         return R.ok();
     }
 }

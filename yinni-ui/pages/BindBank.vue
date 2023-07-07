@@ -27,6 +27,14 @@
         <view class="from-input">
           <input
             type="text"
+            v-model="realName"
+            class="input-text"
+            :placeholder="$t('inputRealName')"
+          />
+        </view>
+        <view class="from-input">
+          <input
+            type="text"
             class="input-text"
             v-model="bankName"
             :placeholder="$t('inputBank')"
@@ -70,6 +78,7 @@ export default {
       addr: "", //支行
       loading: false,
       bindStatus: "", //银行卡绑定状态
+      realName: "",//实名制
     };
   },
   onShow() {
@@ -83,7 +92,9 @@ export default {
       } else if (!this.bankCardNum) {
         return this.$base.show(this.$t("inputBankCardNum"));
       } else if (!this.addr) {
-        return this.$base.show(this.$("inputAddr"));
+        return this.$base.show(this.$t("inputAddr"));
+      } else if (!this.realName) {
+        return this.$base.show(this.$t("inputRealName"));
       }
       this.loading = true;
       this.$api
@@ -91,6 +102,7 @@ export default {
           addr: this.addr,
           bankName: this.bankName,
           cardNo: this.bankCardNum,
+          realName: this.realName,
         })
         .then((res) => {
           if (res.data.code == 0) {
@@ -105,9 +117,10 @@ export default {
     getInfo() {
       this.$api.user_info().then((res) => {
         if (res.data.code == 0) {
-          this.bindStatus = res.data.data.bankName;
+          this.bindStatus = res.data.data.bankName && res.data.data.realName;
           this.bankName = res.data.data.bankName;
           this.bankCardNum = res.data.data.bankCardNum;
+          this.realName = res.data.data.realName;
         }
       });
     },

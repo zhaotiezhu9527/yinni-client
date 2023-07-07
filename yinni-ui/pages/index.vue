@@ -18,27 +18,31 @@
         <view class="banner">
           <u-swiper :list="list2" class="my-swipe" indicator> </u-swiper>
         </view>
-        <view class="content">
-          <view
-            class="item"
-            v-for="(item, index) in list"
-            :key="index"
-            @click="change(item)"
-          >
-            <image class="img" :src="item.img" />
-            <text class="txt">{{ item.name }}</text>
-          </view>
-        </view>
         <view class="notice">
           <u-notice-bar
             color="#ffffff"
             bgColor="#e15241"
+            class="border-radius5"
             scrollable
             fontSize="28rpx"
             :text="config.home_notice || ''"
           />
         </view>
-        <u-tabs :list="tabList" @click="tabClick"></u-tabs>
+        <view class="content">
+          <view
+            class="item"
+            v-for="(item, index) in tabList"
+            :key="index"
+            @click="tabClick(item)"
+          >
+            <image class="img" :src="item.img" />
+            <text class="txt" :class="activeId == item.id ? 'red-text' : ''">{{
+              item.name
+            }}</text>
+          </view>
+        </view>
+
+        <!-- <u-tabs :list="tabList" @click="tabClick"></u-tabs> -->
         <view class="list">
           <view
             class="view"
@@ -46,7 +50,7 @@
             :key="index"
             @click="routePath(item)"
           >
-            <image class="img" :src="item.img" mode="widthFix" />
+            <image class="goods-img" :src="item.img" mode="widthFix" />
             <view class="name">
               <text></text>
               <text>{{ item.projectName }}</text>
@@ -54,36 +58,50 @@
             <view class="rate">
               <view class="li">
                 <view class="num"
-                  ><text>{{ item.incomeRate }}</text>
-                  %
+                  ><text>{{ item.schedule }}</text>
                 </view>
-                <view class="con">{{ $t("incomeRate") }}</view>
+                <view class="con">{{ $t("schedule") }}</view>
               </view>
               <view class="li">
                 <view class="num">
-                  <text>{{ item.limitTime }}</text>
-                  {{ $t("limitTime") }}
+                  <u-count-down
+                    ref="countDown"
+                    v-if="item.status === 0"
+                    :time="item.time * 1000"
+                    format="HH:mm:ss"
+                    @finish="getList"
+                    class="time"
+                  ></u-count-down>
+                  <view class="time" v-else>00:00:00</view>
                 </view>
                 <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
-                <view class="num"
+                <view class="num">
+                  <label>{{ $t("money") }}</label
                   ><text>{{ item.minAmount }}</text>
-                  {{ $t("money") }}
+                </view>
+                <view class="num">
+                  <label>{{ $t("commission") }}</label>
+                  <text>{{
+                    getNum(index, item.minAmount, item.incomeRate)
+                  }}</text>
                 </view>
                 <view class="con">{{ $t("minAmount") }}</view></view
               >
             </view>
             <view class="investor">
-              <view class="con">
+              <!-- <view class="con">
                 <text>
                   {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
                 </text>
                 <text>{{ $t("interest") }}</text>
-              </view>
-              <view class="btn">{{ $t("investment") }}</view>
+              </view> -->
+              <view class="btn" :class="item.status === 1 ? 'grey-btn' : ''">{{
+                $t("investment")
+              }}</view>
             </view>
-            <view class="progress">
+            <!-- <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
               <u-line-progress
                 :percentage="scheduleFn(item.schedule)"
@@ -91,7 +109,7 @@
                 activeColor="#2196f3"
               ></u-line-progress>
               <view class="number">{{ item.schedule }}%</view>
-            </view>
+            </view> -->
           </view>
           <!-- <u-empty
             class="empty2"
@@ -105,6 +123,7 @@
 </template>
 
 <script>
+import { changetime } from "../plugins/util";
 import img0 from "../static/img/func_icon_touzi.png";
 import img1 from "../static/img/func_icon_guanyu.png";
 import img2 from "../static/img/func_icon_jisuan.png";
@@ -116,23 +135,21 @@ import img7 from "../static/img/func_icon_kefu.png";
 import banner1 from "../static/img/banner_13.jpg";
 import banner2 from "../static/img/banner_14.jpg";
 import banner3 from "../static/img/banner_15.jpg";
+import banner4 from "../static/img/banner_16.jpg";
+import banner5 from "../static/img/banner_17.jpg";
 export default {
   data() {
     return {
+      loading: false,
       list: [
-        {
-          name: this.$t("investmentProject"),
-          img: img0,
-          path: "/pages/investor",
-        },
         { name: this.$t("about"), img: img1, path: "/pages/about" },
-        { name: this.$t("calculator"), img: img2 },
+        // { name: this.$t("calculator"), img: img2 },
         { name: this.$t("sign"), img: img3 },
-        {
-          name: this.$t("topUpUSDT"),
-          img: img4,
-          path: "/pages/preview",
-        },
+        // {
+        //   name: this.$t("topUpUSDT"),
+        //   img: img4,
+        //   path: "/pages/preview",
+        // },
         { name: this.$t("mywithdraw"), img: img5, path: "/pages/withdraw" },
         {
           name: this.$t("freeRegistration"),
@@ -145,12 +162,16 @@ export default {
           path: "/pages/preview",
         },
       ],
-      list2: [banner1, banner2, banner3],
-      shopGoods: [],
+      list2: [banner1, banner2, banner3, banner4, banner5],
+      shopGoods: [
+        {
+          // time:'00:00:00'
+        },
+      ],
       config: {},
       infos: {},
       tabList: [], //tab数组
-      activeId: 1,//
+      activeId: 1, //
     };
   },
   async onLoad() {
@@ -159,10 +180,23 @@ export default {
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
-    this.getType()
-    this.getList()
+    this.getType();
+    this.tabClick({ id: 1 });
+  },
+  onTabItemTap() {
+    let end = setInterval(function () {}, 10);
+    for (let i = 1; i <= end; i++) {
+      clearInterval(i);
+    }
   },
   methods: {
+    countDownFn() {
+      if (this.$refs.countDown) {
+        this.$refs.countDown.forEach((e) => {
+          e.reset();
+        });
+      }
+    },
     change({ name, path, url }) {
       if ([this.$t("investmentProject"), this.$t("about")].includes(name)) {
         uni.switchTab({
@@ -199,13 +233,17 @@ export default {
       }
     },
     routePath(item) {
-      this.$api.project_info(item.projectId).then(({ data }) => {
-        if (data.code == 0) {
-          uni.navigateTo({
-            url: `/pages/info?id=${item.projectId}`,
-          });
-        }
-      });
+      if (item.status === 1) {
+        return;
+      } else if (item.status === 0) {
+        this.$api.project_info(item.projectId).then(({ data }) => {
+          if (data.code == 0) {
+            uni.navigateTo({
+              url: `/pages/content?id=${item.projectId}`,
+            });
+          }
+        });
+      }
     },
     guaranteeCompanyFn(name) {
       return name ? name.charAt(name.length - 1) : "-";
@@ -215,28 +253,60 @@ export default {
     },
     // 点击标签页切换
     tabClick(item) {
-      this.activeId = item.id
-      this.getList()
+      this.activeId = item.id;
+      this.getList();
     },
     // 获取所有分类
-    getType(){
+    getType() {
       this.$api.project_allType().then(({ data }) => {
         if (data.code == 0) {
-          // this.shopGoods = data.data;
-          this.tabList = data.list
+          this.tabList = data.list;
+          this.activeId = data.list[0].id;
         }
       });
     },
     // 获取列表数据
-    getList(){
-      this.$api.project_list({
-        id: this.activeId
-      }).then(({ data }) => {
-      if (data.code == 0) {
-        this.shopGoods = data.data;
+    getList() {
+      if (this.loading) return false;
+      this.loading = true;
+      this.countDownFn();
+      this.$api
+        .project_list({
+          id: this.activeId,
+        })
+        .then(({ data }) => {
+          if (data.code == 0) {
+            this.shopGoods = data.data;
+            let size = 0;
+            for (let index = 0; index < this.shopGoods.length; index++) {
+              const item = this.shopGoods[index];
+              size++;
+              if (item.time === 0) {
+                setTimeout(() => {
+                  this.loading = false;
+                  this.getList();
+                }, 1000);
+                return false;
+              } else if (size === this.shopGoods.length) {
+                this.loading = false;
+              }
+            }
+          } else {
+            this.loading = false;
+          }
+        });
+    },
+    // 佣金格式化
+    getNum(index, money, bili) {
+      let num = 0;
+      let regs = /^\d+$/;
+      num = Number((Number(money) * Number(bili)) / 100);
+      if (regs.test(num)) {
+        return num;
+      } else {
+        return num.toFixed(2);
       }
-    });
-    }
+    },
   },
 };
 </script>
@@ -245,6 +315,10 @@ export default {
 @import "../static/list.scss";
 .list {
   background-color: #fff;
+  .goods-img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 .scroll {
   height: calc(100vh - 210rpx + var(--status-bar-height));
@@ -272,30 +346,37 @@ export default {
   }
 }
 .content {
-  padding: 100rpx 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  overflow: hidden;
   .img {
     width: 70rpx;
     height: 70rpx;
+    display: block;
+    margin: auto;
   }
   .item {
     padding-top: 40rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // flex-direction: column;
     width: 25%;
+    float: left;
   }
   .txt {
     padding-top: 10rpx;
     font-size: 24rpx;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
 .notice {
+  padding: 100rpx 0 0;
   margin: 30rpx 30rpx 0;
-  border-radius: 10rpx;
+  // border-radius: 10rpx;
   overflow: hidden;
   /deep/.uicon-volume {
     font-size: 32rpx !important;
@@ -305,5 +386,9 @@ export default {
 .empty2 {
   padding-top: 40rpx;
   background-color: #fff;
+}
+.time /deep/.u-count-down__text {
+  font-size: 24rpx;
+  color: red;
 }
 </style>

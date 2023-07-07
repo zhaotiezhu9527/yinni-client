@@ -17,9 +17,9 @@
     <view class="wrap">
       <view class="title">
         <view class="title-remark">{{ $t("abstract") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("sum") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-time">{{ $t("dateTime") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
@@ -28,13 +28,13 @@
             <view class="table-title">
               {{ item.remark }}
             </view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view
               class="table-money"
               :class="item.amount > 0 ? 'green-text' : 'red-text'"
               >{{ item.amount }}</view
             >
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-time">{{ item.optTime }}</view>
           </view>
         </u-list-item>

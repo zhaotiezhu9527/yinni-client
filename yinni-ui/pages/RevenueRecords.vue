@@ -17,11 +17,11 @@
     <view class="wrap">
       <view class="title">
         <view class="title-remark">{{ $t("projectName") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("returnTime") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("amount") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-time">{{ $t("status") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
@@ -30,11 +30,11 @@
             <view class="table-title">
               {{ item.projectName }}
             </view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-money">{{ item.returnTime }}</view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-money">{{ item.amount }}</view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-time">{{
               item.status ? $t("complete") : $t("loadingAmount")
             }}</view>

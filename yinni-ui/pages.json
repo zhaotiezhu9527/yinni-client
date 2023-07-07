@@ -29,9 +29,6 @@
       "path": "pages/about"
     },
     {
-      "path": "pages/investor"
-    },
-    {
       "path": "pages/personal"
     },
     {
@@ -84,6 +81,9 @@
     },
     {
       "path": "pages/onlineService"
+    },
+    {
+      "path": "pages/addr"
     }
   ],
   "tabBar": {
@@ -102,12 +102,6 @@
 
       },
       {
-        "pagePath": "pages/investor",
-        "iconPath": "./static/img/money1.png",
-        "selectedIconPath": "./static/img/money.png",
-        "text": "pemeran"
-      },
-      {
         "pagePath": "pages/about",
         "iconPath": "./static/img/find1.png",
         "selectedIconPath": "./static/img/find.png",
@@ -117,7 +111,7 @@
         "pagePath": "pages/personal",
         "iconPath": "./static/img/user1.png",
         "selectedIconPath": "./static/img/user.png",
-        "text": "milikku"
+        "text": "saya"
       }
     ]
   },

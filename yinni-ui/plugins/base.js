@@ -3,7 +3,7 @@ import * as store from "plugins/store.js";
 Vue.prototype.$store = store;
 import i18n from "./lang/index";
 Vue.prototype._i18n = i18n;
-let that = i18n.vm.messages[uni.getStorageSync("lang") || "zh"];
+let that = i18n.vm.messages[uni.getStorageSync("lang") || "Indonesia"];
 
 //设置缓存内容
 export const storage = (name, value) => {
@@ -28,14 +28,15 @@ export const loading = (title) => {
 };
 const PATH_URL =
   process.env.NODE_ENV === "development"
-    ? "http://192.168.4.85:9522/" //本地测试
-    // ? "http://ynqtapi.juhai.xyz/yn-qtapi-test/" //测试
+    // ? "http://192.168.4.85:9522/" //本地测试
+    ? "https://shopeegg.com/yn-qtapi-prod/" //测试
       // : "/api/";//h5打包地址
       // "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
     // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
     // : "https://juhai.top/"; //阿明a2 安科app打包地址
     // : "https://juhai.top/"; //app打包地址测试
-    : "/yn-qtapi-test/"; //app打包地址测试
+    // : "/yn-qtapi-test/"; //app打包地址测试
+    : "https://shopeegg.com/yn-qtapi-prod/"; //app打包地址测试
     // : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
 
 export const upload = (params) => {
@@ -113,7 +114,6 @@ export const request = (params) => {
 export const BackPage = (url) => {
   if (
     url === "/pages/index" ||
-    url === "/pages/investor" ||
     url === "/pages/personal" ||
     url === "/pages/about" ||
     url === "/"

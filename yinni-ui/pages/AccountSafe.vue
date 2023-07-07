@@ -23,7 +23,7 @@
           <label>{{ $t("userName") }}</label>
           <view class="right-text">{{ infos.userName }}</view>
         </view>
-        <view class="list margintop10 borderBottom" @click="goRealName">
+        <!-- <view class="list margintop10 borderBottom" @click="goRealName">
           <view class="image">
             <image class="icon-img" src="../static/img/admin.png" />
           </view>
@@ -31,8 +31,8 @@
           <view class="right-text">{{
             infos.idCard ? $t("yesIdCard") : $t("noIdCard")
           }}</view>
-        </view>
-        <view class="list borderBottom" @click="goChangeLoginPassword">
+        </view> -->
+        <view class="list margintop10 borderBottom" @click="goChangeLoginPassword">
           <view class="image">
             <image class="icon-img" src="../static/img/pass.png" />
           </view>

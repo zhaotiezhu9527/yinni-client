@@ -17,9 +17,9 @@
     <view class="wrap">
       <view class="title">
         <view class="title-amount">{{ $t("withdrawalMoney") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-remark">{{ $t("operationTime") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("status") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
@@ -28,14 +28,14 @@
             <view class="table-money">
               {{ item.amount }}
             </view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-title">{{ item.time }}</view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-money" v-if="item.status === 0">
               {{ $t("waitReview") }}
             </view>
             <view class="table-money" v-else-if="item.status === 1">
-              {{ $t(withdrawalSuccess) }}
+              {{ $t("withdrawalSuccess") }}
             </view>
             <view class="table-money" v-else-if="item.status === 2">
               {{ $t("withdrawalError") }}

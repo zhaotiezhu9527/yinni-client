@@ -19,7 +19,7 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_logo.png"
+          src="../static/img/login_logo.jpg"
         />
       </view>
       <view class="form">
@@ -206,7 +206,7 @@ export default {
   justify-content: center;
   padding-top: 60rpx;
   .img {
-    width: 50%;
+    width: 80%;
   }
 }
 .btns {

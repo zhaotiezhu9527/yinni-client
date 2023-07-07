@@ -1,7 +1,9 @@
 package com.juhai.api.aop;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.C;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.juhai.api.utils.JwtUtils;
 import com.juhai.commons.enums.ResultEnum;
@@ -29,6 +31,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Data
@@ -90,7 +93,8 @@ public class LoginAspect {
 
         // token续期
         redisTemplate.expireAt(tokenKey, DateUtil.offsetMinute(new Date(), expire));
-//        redisTemplate.expireAt(tokenKey, DateUtil.offsetDay(new Date(), RedisKeyUtil.USER_TOKEN_EXPIRE));
+        // 在线用户续期
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserOnlineKey(jwtUserPhone), token, RedisKeyUtil.USER_TOKEN_EXPIRE, TimeUnit.MINUTES);
         return joinPoint.proceed();
     }
 

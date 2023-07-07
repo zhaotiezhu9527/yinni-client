@@ -21,4 +21,8 @@ public class BindBankRequest {
     @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "银行名称", example = "人民银行", required = true)
     private String bankName;
+
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "真实姓名", example = "张三", required = true)
+    private String realName;
 }

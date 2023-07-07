@@ -26,7 +26,7 @@
           <view class="head-money"> {{ userData.balance }} </view>
           <view class="head-integral"> {{ $t("balance") }}</view>
         </view>
-        <view class="money">
+        <!-- <view class="money">
           <view class="interest">
             <view>{{ userData.waitReturnInterest }}</view>
             <view>{{ $t("waitReturnInterest") }}（{{ $t("money") }}）</view>
@@ -35,7 +35,7 @@
             <view>{{ userData.waitReturnPrincipal }}</view>
             <view>{{ $t("waitReturnPrincipal") }}（{{ $t("money") }}）</view>
           </view>
-        </view>
+        </view> -->
         <!-- 按钮 -->
         <view class="button-box">
           <u-button class="button-class" @click="pathChange">
@@ -47,7 +47,12 @@
         </view>
         <!-- 列表 -->
         <view class="list">
-          <view
+          <view class="list-item" @click="pathChange">
+            <image class="icon-img" src="../static/img/func_icon_kefu.png" />
+            <label>{{ $t("onlineService") }}</label>
+            <view class="icon"></view>
+          </view>
+          <!-- <view
             v-if="config.ouyi_download_url"
             class="list-item"
             @click="downloadChange(config.ouyi_download_url)"
@@ -73,7 +78,7 @@
             <image class="icon-img" src="../static/img/icon_app_huobi.png" />
             <label>{{ $t("huobi_download_url") }}</label>
             <view class="icon"></view>
-          </view>
+          </view> -->
           <view class="list-item" @click="sign">
             <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
             <label>{{ $t("sign") }}</label>
@@ -81,14 +86,14 @@
           </view>
           <view class="list-item" @click="goFundDetails">
             <image class="icon-img" src="../static/img/mine_func_zijin.png" />
-            <label>{{ $t("investmentRecords") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goInvestmentRecords">
-            <image class="icon-img" src="../static/img/mine_func_touzi.png" />
             <label>{{ $t("fundDetails") }}</label>
             <view class="icon"></view>
           </view>
+          <!-- <view class="list-item" @click="goInvestmentRecords">
+            <image class="icon-img" src="../static/img/mine_func_touzi.png" />
+            <label>{{ $t("investmentRecords") }}</label>
+            <view class="icon"></view>
+          </view> -->
           <view class="list-item" @click="goRevenueRecords">
             <image class="icon-img" src="../static/img/mine_func_shouyi.png" />
             <label>{{ $t("revenueRecords") }}</label>
@@ -99,7 +104,7 @@
               class="icon-img"
               src="../static/img/mine_func_chongzhi.png"
             />
-            <label>{{ $t("WithdrawalRecords") }}</label>
+            <label>{{ $t("topupRecords") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goWithdrawalRecords">
@@ -122,14 +127,19 @@
             <label>{{ $t("bankCardNumTitle") }}</label>
             <view class="icon"></view>
           </view>
-          <view class="list-item" @click="goRealName">
+          <!-- <view class="list-item" @click="goRealName">
             <image class="icon-img" src="../static/img/mine_func_shiming.png" />
             <label>{{ $t("idCard") }}</label>
             <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goBindUSDT">
+          </view> -->
+          <!-- <view class="list-item" @click="goBindUSDT">
             <image class="icon-img" src="../static/img/mine_func_usdt.png" />
             <label>{{ $t("USDTBind") }}</label>
+            <view class="icon"></view>
+          </view> -->
+          <view class="list-item" @click="goAddr">
+            <image class="icon-img" src="../static/img/mine_func_touzi.png" />
+            <label>{{ $t("address") }}</label>
             <view class="icon"></view>
           </view>
         </view>
@@ -148,6 +158,8 @@
       :asyncClose="true"
       showCancelButton
       confirmColor="#2196f3"
+      :confirmText="$t('logout')"
+      :cancelText="$t('quxiao')"
     >
       <view class="content">{{ $t("loginOutTips") }}</view>
     </u-modal>
@@ -180,14 +192,26 @@ export default {
     await this.$onLaunched;
     this.config = uni.getStorageSync("system_config");
   },
+  onTabItemTap() {
+    let end = setInterval(function () {}, 10);
+    for (let i = 1; i <= end; i++) {
+      clearInterval(i);
+    }
+  },
   onShow() {
     this.getInfo();
   },
   methods: {
     pathChange() {
-      uni.navigateTo({
-        url: "/pages/onlineService",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/onlineService",
+      // });
+      // #ifdef APP-PLUS
+      plus.runtime.openURL(this.config.online_service);
+      // #endif
+      // #ifdef H5
+      window.open(this.config.online_service);
+      // #endif
     },
     downloadChange(url) {
       // #ifdef APP-PLUS
@@ -240,6 +264,11 @@ export default {
     goAccountSafe() {
       uni.navigateTo({
         url: "/pages/AccountSafe",
+      });
+    },
+    goAddr() {
+      uni.navigateTo({
+        url: "/pages/addr",
       });
     },
     goWithdraw() {

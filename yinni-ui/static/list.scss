@@ -45,9 +45,15 @@
     .con,
     .num {
       font-size: 24rpx;
+      label{
+        margin-right: 10rpx;
+      }
     }
     .con {
       padding-top: 20rpx;
+      &:nth-child(3){
+        padding-top: 0;
+      }
     }
     text {
       color: red;
@@ -76,6 +82,10 @@
       border-radius: 10rpx;
       background-color: #2196f3;
       padding: 12rpx 26rpx;
+      margin: auto;
+    }
+    .grey-btn{
+      background-color: #999;
     }
   }
   .progress {
@@ -95,4 +105,7 @@
       text-align: right;
     }
   }
+}
+.border-radius5{
+  border-radius: 10rpx;
 }

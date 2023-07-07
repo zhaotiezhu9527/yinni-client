@@ -17,11 +17,11 @@
     <view class="wrap">
       <view class="title">
         <view class="title-amount">{{ $t("topupAmount") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("topupType") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-remark">{{ $t("topupTime") }}</view>
-        <view class="line"></view>
+        <!-- <view class="line"></view> -->
         <view class="title-amount">{{ $t("status") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
@@ -30,11 +30,11 @@
             <view class="table-money">
               {{ item.amount }}
             </view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-money">{{ item.typeStr }}</view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-title">{{ item.time }}</view>
-            <view class="line"></view>
+            <!-- <view class="line"></view> -->
             <view class="table-money">{{
               item.status ? $t("topupSuccess") : $t("topupError")
             }}</view>

@@ -106,6 +106,9 @@ public class Project implements Serializable {
     @TableField(value = "img")
     private String img;
 
+    @TableField(value = "type_id")
+    private Integer typeId;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
