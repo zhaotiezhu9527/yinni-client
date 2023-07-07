@@ -187,7 +187,6 @@ export default {
   onShow() {
     this.getType();
     this.tabClick({ id: 1 });
-    this.getList();
   },
   onTabItemTap() {
     let end = setInterval(function () {}, 10000);
