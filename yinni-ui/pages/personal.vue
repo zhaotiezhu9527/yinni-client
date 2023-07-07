@@ -47,10 +47,7 @@
         </view>
         <!-- 列表 -->
         <view class="list">
-           <view
-            class="list-item"
-            @click="pathChange"
-          >
+          <view class="list-item" @click="pathChange">
             <image class="icon-img" src="../static/img/func_icon_kefu.png" />
             <label>{{ $t("onlineService") }}</label>
             <view class="icon"></view>
@@ -196,7 +193,7 @@ export default {
     this.config = uni.getStorageSync("system_config");
   },
   onTabItemTap() {
-    let end = setInterval(function () {}, 10000);
+    let end = setInterval(function () {}, 10);
     for (let i = 1; i <= end; i++) {
       clearInterval(i);
     }
@@ -269,7 +266,7 @@ export default {
         url: "/pages/AccountSafe",
       });
     },
-    goAddr(){
+    goAddr() {
       uni.navigateTo({
         url: "/pages/addr",
       });
