@@ -142,11 +142,6 @@ export default {
     return {
       loading: false,
       list: [
-        {
-          name: this.$t("investmentProject"),
-          img: img0,
-          path: "/pages/investor",
-        },
         { name: this.$t("about"), img: img1, path: "/pages/about" },
         // { name: this.$t("calculator"), img: img2 },
         { name: this.$t("sign"), img: img3 },

@@ -21,9 +21,6 @@ const home = [
     path: "/pages/about",
   },
   {
-    path: "/pages/investor",
-  },
-  {
     path: "/pages/personal",
   },
   {
