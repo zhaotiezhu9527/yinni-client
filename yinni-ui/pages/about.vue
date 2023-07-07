@@ -15,11 +15,7 @@
     </u-navbar>
     <view class="wrap">
       <scroll-view scroll-y class="scroll">
-        <image
-          class="image"
-          mode="widthFix"
-          src="../static/img/about.png"
-        />
+        <image class="image" mode="widthFix" src="../static/img/about.png" />
         <div class="text-content">
           <p>
             Shopee adalah platform e-commerce terkemuka di Asia Tenggara dan
@@ -197,7 +193,7 @@ export default {
     return {};
   },
   onTabItemTap() {
-    let end = setInterval(function () {}, 10000);
+    let end = setInterval(function () {}, 10);
     for (let i = 1; i <= end; i++) {
       clearInterval(i);
     }
