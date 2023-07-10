@@ -195,5 +195,5 @@ export default {
     phoneNo: "Nomor telepon",
     inputAddress: "harap masukkan alamat",
     inputPhoneNo: "Masukkan nomor telepon",
-    inviteCodeText: "ID",
+    inviteCodeText: "ID kode undangan",
   };
