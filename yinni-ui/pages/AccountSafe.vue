@@ -23,6 +23,13 @@
           <label>{{ $t("userName") }}</label>
           <view class="right-text">{{ infos.userName }}</view>
         </view>
+        <view class="list margintop10">
+          <view class="image">
+            <image class="icon-img3" src="../static/img/uid.png" />
+          </view>
+          <label>{{ $t("inviteCodeText") }}</label>
+          <view class="right-text">{{ infos.inviteCode }}</view>
+        </view>
         <!-- <view class="list margintop10 borderBottom" @click="goRealName">
           <view class="image">
             <image class="icon-img" src="../static/img/admin.png" />
@@ -108,6 +115,10 @@ export default {
         height: 40rpx;
       }
       .icon-img2 {
+        width: 36rpx;
+        height: 36rpx;
+      }
+      .icon-img3 {
         width: 36rpx;
         height: 36rpx;
       }
