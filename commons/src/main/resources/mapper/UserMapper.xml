@@ -25,6 +25,7 @@
             <result property="lastTime" column="last_time" jdbcType="TIMESTAMP"/>
             <result property="lastIp" column="last_ip" jdbcType="VARCHAR"/>
             <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+            <result property="levelId" column="level_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -34,7 +35,7 @@
         bank_card_num,bank_name,bank_addr,
         user_status,user_level_id,user_agent,
         register_time,register_ip,
-        last_time,last_ip,modify_time
+        last_time,last_ip,modify_time,level_id
     </sql>
 
     <!-- 修改用户余额 -->

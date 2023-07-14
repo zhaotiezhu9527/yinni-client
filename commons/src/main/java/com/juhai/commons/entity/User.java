@@ -154,6 +154,12 @@ public class User implements Serializable {
     @TableField(value = "address")
     private String address;
 
+    /**
+     * 用户地址
+     */
+    @TableField(value = "level_id")
+    private Integer levelId;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
