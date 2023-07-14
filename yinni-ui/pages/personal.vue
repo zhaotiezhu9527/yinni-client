@@ -20,10 +20,11 @@
           <view class="head-text">
             <label>{{ $t("userAccount") }}：{{ userData.userName }}</label>
             <label>
-              {{ $t("userLevelName") }}：{{ userData.userLevelName }}
-            </label>
-            <label>
               {{ $t("inviteCodeText") }}：{{ userData.inviteCode }}
+            </label>
+            <br>
+            <label>
+              {{ $t("userLevelName") }}：{{ userData.userLevelName }}
             </label>
           </view>
           <view class="head-money"> {{ userData.balance }} </view>
@@ -184,6 +185,7 @@ export default {
         bankName: "", //银行名称
         bankCardNum: "", //银行卡号
         usdtAmount: "", //usdt
+        inviteCode: "xxxxxx"
       },
       loading: false,
       items: {},
@@ -330,7 +332,7 @@ export default {
   background-color: #f8f8f9;
   padding-bottom: 40rpx;
   .head {
-    height: 258rpx;
+    height: 300rpx;
     background-image: linear-gradient(#759dd6, #5d80b9);
     color: #fff;
     .head-text {
