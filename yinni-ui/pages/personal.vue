@@ -206,7 +206,8 @@ export default {
   },
   onShow() {
     this.getInfo();
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
+    this.systemFn()
   },
   methods: {
     pathChange() {
@@ -320,6 +321,13 @@ export default {
         }
       });
     },
+    systemFn(){
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.config = data.data
+        }
+      });
+    }
   },
 };
 </script>

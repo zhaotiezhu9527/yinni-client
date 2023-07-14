@@ -104,6 +104,7 @@ export const request = (params) => {
         resolve(res);
       },
       fail: () => {
+        reject();
         show(that.web);
         uni.hideLoading();
       },
