@@ -176,12 +176,13 @@ export default {
   },
   async onLoad() {
     await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
     this.getType();
     this.tabClick({ id: 1 });
+    this.config = uni.getStorageSync("system_config");
   },
   methods: {
     countDownFn() {

@@ -32,8 +32,12 @@ export default {
           let new_app = data.data.version.find(
             (item) => item.platForm === uni.getSystemInfoSync().platform
           );
-          let newVersion = new_app.version.replaceAll('.','')
-          let oldVersion = that_app.replaceAll('.','')
+          let newVersion= new_app.version.split(".").map((a) => parseInt(a));
+          let oldVersion = that_app.appWgtVersion
+            .split(".")
+            .map((a) => parseInt(a));
+          oldVersion = Number(oldVersion.join(""));
+          newVersion = Number(newVersion.join(""));
           if (oldVersion < newVersion) {
             uni.showModal({
               title: this.$t("tips"),
@@ -45,7 +49,7 @@ export default {
                   plus.runtime.openURL(new_app.downloadUrl);
                   plus.runtime.quit();
                 } else if (res.cancel) {
-                  plus.runtime.quit();
+                  plus.runtime.quit(); //强制退出应用
                 }
               },
             });

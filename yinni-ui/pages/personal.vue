@@ -22,6 +22,9 @@
             <label>
               {{ $t("userLevelName") }}：{{ userData.userLevelName }}
             </label>
+            <label>
+              {{ $t("inviteCodeText") }}：{{ userData.inviteCode }}
+            </label>
           </view>
           <view class="head-money"> {{ userData.balance }} </view>
           <view class="head-integral"> {{ $t("balance") }}</view>
@@ -190,7 +193,7 @@ export default {
   },
   async onLoad() {
     await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
   },
   onTabItemTap() {
     if (this.$store.countDown) {
@@ -201,6 +204,7 @@ export default {
   },
   onShow() {
     this.getInfo();
+    this.config = uni.getStorageSync("system_config");
   },
   methods: {
     pathChange() {

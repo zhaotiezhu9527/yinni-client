@@ -31,8 +31,7 @@ export default {
       config: {}, //配置
     };
   },
-  async onShow() {
-    await this.$onLaunched;
+  onShow() {
     this.config = uni.getStorageSync("system_config");
   },
   methods: {},
