@@ -77,6 +77,9 @@ public class UserController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    @Autowired
+    private LevelService levelService;
+
     @Value("${token.expire}")
     private int expire;
 
@@ -90,13 +93,20 @@ public class UserController {
         temp.put("userName", user.getUserName());
         temp.put("balance", user.getBalance());
         temp.put("realName", user.getRealName());
-        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 4, 4));
+        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
         temp.put("inviteCode", user.getInviteCode());
-        temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 4 , 4));
+        temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 2 , 2));
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
         temp.put("bankName", user.getBankName());
         temp.put("bankAddr", user.getBankAddr());
-        temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
+
+        String levelName = MsgUtil.get("system.user.levelname");
+        Level level = levelService.getById(user.getLevelId());
+        if (level != null) {
+            levelName = level.getLevelName();
+        }
+
+        temp.put("userLevelName", levelName);
         int isRealName = 1;
         if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getBankCardNum())) {
             isRealName = 0;
