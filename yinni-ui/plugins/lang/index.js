@@ -4,16 +4,18 @@ import VueI18n from "vue-i18n";
 import zh from "./zh.js";
 import yn from "./yn.js";
 import Indonesia from "./Indonesia.js";
+import vi_VN from "./vi.js";
 
 Vue.use(VueI18n);
 
 // 创建实例这里设置语言
 const i18n = new VueI18n({
-  locale: uni.getStorageSync("lang") ? uni.getStorageSync("lang") : "Indonesia",
+  locale: uni.getStorageSync("lang") ? uni.getStorageSync("lang") : "vi_VN",
   messages: {
     zh,
     yn,
     Indonesia,
+    vi_VN,
   },
 });
 

@@ -132,11 +132,11 @@ import img4 from "../static/img/func_icon_chongzhi.png";
 import img5 from "../static/img/func_icon_tixian.png";
 import img6 from "../static/img/func_icon_zhuce.png";
 import img7 from "../static/img/func_icon_kefu.png";
-import banner1 from "../static/img/banner_13.jpg";
-import banner2 from "../static/img/banner_14.jpg";
-import banner3 from "../static/img/banner_15.jpg";
-import banner4 from "../static/img/banner_16.jpg";
-import banner5 from "../static/img/banner_17.jpg";
+import banner1 from "../static/img/banner_18.jpg";
+import banner2 from "../static/img/banner_19.jpg";
+import banner3 from "../static/img/banner_20.jpg";
+// import banner4 from "../static/img/banner_16.jpg";
+// import banner5 from "../static/img/banner_17.jpg";
 export default {
   data() {
     return {
@@ -162,7 +162,7 @@ export default {
           path: "/pages/preview",
         },
       ],
-      list2: [banner1, banner2, banner3, banner4, banner5],
+      list2: [banner1, banner2, banner3],
       shopGoods: [
         {
           // time:'00:00:00'

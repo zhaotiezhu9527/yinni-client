@@ -3,7 +3,8 @@ import * as store from "plugins/store.js";
 Vue.prototype.$store = store;
 import i18n from "./lang/index";
 Vue.prototype._i18n = i18n;
-let that = i18n.vm.messages[uni.getStorageSync("lang") || "Indonesia"];
+let langType = 'vi_VN'
+let that = i18n.vm.messages[uni.getStorageSync("lang") || langType];
 
 //设置缓存内容
 export const storage = (name, value) => {
@@ -35,8 +36,8 @@ const PATH_URL =
     // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
     // : "https://juhai.top/"; //阿明a2 安科app打包地址
     // : "https://juhai.top/"; //app打包地址测试
-    // : "/yn-qtapi-test/"; //app打包地址测试
-    : "https://shopeegg.com/yn-qtapi-prod/"; //app打包地址测试
+    : "/yn-qtapi-test/"; //app打包地址测试
+    // : "https://shopeegg.com/yn-qtapi-prod/"; //app打包地址测试
     // : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
 
 export const upload = (params) => {
@@ -61,7 +62,7 @@ export const request = (params) => {
   let str = params.method.toUpperCase();
   if (str == "POST") {
     params.header = {
-      lang: "in_ID",
+      lang: langType,
       "Content-Type":
         params["Content-Type"] === undefined
           ? "application/x-www-form-urlencoded;charset=UTF-8"
@@ -70,7 +71,7 @@ export const request = (params) => {
     };
   } else {
     params.header = {
-      lang: "in_ID",
+      lang: langType,
       token: uni.getStorageSync("token"),
     };
   }

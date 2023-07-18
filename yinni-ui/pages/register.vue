@@ -19,7 +19,7 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_logo.jpg"
+          src="../static/img/login_logo1.jpg"
         />
       </view>
       <view class="form">
