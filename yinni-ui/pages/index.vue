@@ -25,6 +25,7 @@
             class="border-radius5"
             scrollable
             fontSize="28rpx"
+            speed="50"
             :text="config.home_notice || ''"
           />
         </view>
