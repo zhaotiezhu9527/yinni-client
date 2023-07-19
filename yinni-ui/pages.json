@@ -98,20 +98,20 @@
         "pagePath": "pages/index",
         "iconPath": "./static/img/index1.png",
         "selectedIconPath": "./static/img/index.png",
-        "text": "Trang chủ"
+        "text": "首页"
 
       },
       {
         "pagePath": "pages/about",
         "iconPath": "./static/img/find1.png",
         "selectedIconPath": "./static/img/find.png",
-        "text": "Hồ sơ công ty"
+        "text": "关于"
       },
       {
         "pagePath": "pages/personal",
         "iconPath": "./static/img/user1.png",
         "selectedIconPath": "./static/img/user.png",
-        "text": "trung tâm cá nhân"
+        "text": "我的"
       }
     ]
   },

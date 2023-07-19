@@ -196,4 +196,6 @@ export default {
   inputAddress: "vui lòng nhập địa chỉ",
   inputPhoneNo: "vui lòng nhập số điện thoại",
   inviteCodeText: "ID đã mời",
+  home:"Trang chủ",
+  personalCenter:"trung tâm cá nhân",
 };

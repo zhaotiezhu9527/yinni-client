@@ -196,4 +196,6 @@ export default {
     inputAddress: "harap masukkan alamat",
     inputPhoneNo: "Masukkan nomor telepon",
     inviteCodeText: "ID kode undangan",
+    home:"indeks",
+    personalCenter:"saya",
   };

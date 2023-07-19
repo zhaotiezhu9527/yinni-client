@@ -104,6 +104,24 @@ export default {
         },
       });
     }
+    uni.setTabBarItem(
+      {
+      index: 0,
+      text: this.$t("home"),
+      }
+    )
+    uni.setTabBarItem(
+      {
+      index: 1,
+      text: this.$t("aboutTitle"),
+      }
+    )
+    uni.setTabBarItem(
+      {
+      index: 2,
+      text: this.$t("personalCenter"),
+      }
+    )
   },
 };
 </script>
