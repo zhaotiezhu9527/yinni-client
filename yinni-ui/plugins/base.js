@@ -31,14 +31,10 @@ const PATH_URL =
   process.env.NODE_ENV === "development"
     // ? "http://192.168.4.85:9522/" //本地测试
     ? "https://shopeegg.com/yn-qtapi-prod/" //测试
-      // : "/api/";//h5打包地址
-      // "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
-    // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
-    // : "https://juhai.top/"; //阿明a2 安科app打包地址
-    // : "https://juhai.top/"; //app打包地址测试
+    // : "http://ynqt.juhai.xyz/yn-qtapi-test/"; //app打包地址测试
     // : "/yn-qtapi-test/"; //app打包地址测试
     : "https://shopeegg.com/yn-qtapi-prod/"; //app打包地址测试
-    // : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
+    // : "/yn-qtapi-prod/"; //越南101 线上h5打包地址
 
 export const upload = (params) => {
   let header = {
