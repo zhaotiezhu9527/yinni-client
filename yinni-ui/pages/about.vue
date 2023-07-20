@@ -15,6 +15,7 @@
     </u-navbar>
     <view class="wrap">
       <scroll-view scroll-y class="scroll">
+        <image class="image" mode="widthFix" src="../static/img/banner_20.jpg" />
         <div v-html="content" class="content-list"></div>
       </scroll-view>
     </view>
@@ -62,9 +63,9 @@ export default {
   height: calc(100vh - 210rpx + var(--status-bar-height));
 }
 .content-list{
-  img{
-    width: 100%;
-    }
-  font-size: 24rpx;
+  padding: 0 20rpx;
+}
+.image {
+  width: 100vw;
 }
 </style>

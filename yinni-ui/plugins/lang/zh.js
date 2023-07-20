@@ -197,5 +197,5 @@ export default {
   inputPhoneNo: "请输入手机号码",
   inviteCodeText: "邀请码ID",
   home:"首页",
-  personalCenter:"个人中心"
+  personalCenter:"个人中心",
 };
