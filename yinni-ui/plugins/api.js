@@ -347,3 +347,18 @@ export const user_address = (data) => {
       });
   });
 };
+
+// 获取所有分类
+export const system_text = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "/system/text",
+        method: "get",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};

@@ -15,24 +15,7 @@
     </u-navbar>
     <view class="wrap">
       <scroll-view scroll-y class="scroll">
-        <image class="image" mode="widthFix" src="../static/img/banner_20.jpg" />
-        <div class="text-content">
-          <p>
-            
-            Founded in 1895, Hakuhodo is today a global top ten integrated 
-            marketing and innovation company. Through our network linking over
-            150 offices in 20 countries and regions, we work in partnership 
-            with more than 3,000 clients. Some of our relationships have endured
-            for over 70 years. Leveraging our world-class research and big data
-            and digital expertise, we develop innovative creative solutions 
-            for each client we partner with.
-          </p>
-
-          <p>
-            “Agency Report 2022” ranks Hakuhodo the second largest 
-            advertising agency in the world.
-          </p>
-        </div>
+        <div v-html="content" class="content-list"></div>
       </scroll-view>
     </view>
   </view>
@@ -41,7 +24,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      content: "",//后台文本值
+    };
   },
   onTabItemTap() {
     if (this.$store.countDown) {
@@ -51,7 +36,24 @@ export default {
     }
   },
   onLoad() {},
-  methods: {},
+  onShow() {
+     this.getData()
+  },
+  methods: {
+    //获取公司简介
+    getData() {
+      this.$api.system_text({
+        code: "ptjj"
+      }).then((res) => {
+        if (res.data.code == 0) {
+          let richtext = res.data.data
+          let regex = new RegExp('<img','gi')
+          richtext = richtext.replace(regex,`<img style="max-width: 100%"`)
+          this.content = richtext
+        }
+      });
+    }
+  },
 };
 </script>
 
@@ -59,18 +61,10 @@ export default {
 .scroll {
   height: calc(100vh - 210rpx + var(--status-bar-height));
 }
-.image {
-  width: 100vw;
-}
-.text {
-  font-size: 50rpx;
-}
-.text-content {
-  padding: 20rpx;
-}
-p {
-  margin-bottom: 20rpx;
+.content-list{
+  img{
+    width: 100%;
+    }
   font-size: 24rpx;
-  color: #333;
 }
 </style>
