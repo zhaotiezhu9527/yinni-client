@@ -14,7 +14,7 @@ public class BindBankRequest {
     @ApiModelProperty(value = "银行卡号", example = "465465465123", required = true)
     private String cardNo;
 
-    @NotNull(message = "system.param.err")
+//    @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "地址", example = "北京支行", required = true)
     private String addr;
 
