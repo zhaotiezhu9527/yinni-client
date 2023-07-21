@@ -30,7 +30,7 @@ export default {
   newPayPwd: "mật khẩu thanh toán mới",
   oldPwd: "mật khẩu đăng nhập ban đầu",
   newPwd: "mật khẩu đăng nhập mới",
-  bankCardNumTitle: "thẻ ngân hàng bắt buộc",
+  bankCardNumTitle: "Liên kết ngân hàng",
   bankName: "tên ngân hàng",
   bank: "thẻ ngân hàng",
   addBank: "thêm thẻ ngân hàng",
