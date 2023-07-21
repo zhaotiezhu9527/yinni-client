@@ -35,27 +35,28 @@
         <view class="from-input">
           <input
             type="text"
+            v-model="bankCardNum"
+            class="input-text"
+            :placeholder="$t('inputBankCardNum')"
+          />
+        </view>
+        <view class="from-input">
+          <input
+            type="text"
             class="input-text"
             v-model="bankName"
             :placeholder="$t('inputBank')"
           />
         </view>
-        <view class="from-input">
+        <!-- <view class="from-input">
           <input
             type="text"
             class="input-text"
             v-model="addr"
             :placeholder="$t('inputAddr')"
           />
-        </view>
-        <view class="from-input">
-          <input
-            type="text"
-            v-model="bankCardNum"
-            class="input-text"
-            :placeholder="$t('inputBankCardNum')"
-          />
-        </view>
+        </view> -->
+        
         <u-button
           class="btn-class"
           block
@@ -91,15 +92,17 @@ export default {
         return this.$base.show(this.$t("inputBank"));
       } else if (!this.bankCardNum) {
         return this.$base.show(this.$t("inputBankCardNum"));
-      } else if (!this.addr) {
-        return this.$base.show(this.$t("inputAddr"));
-      } else if (!this.realName) {
+      } 
+      // else if (!this.addr) {
+      //   return this.$base.show(this.$t("inputAddr"));
+      // } 
+      else if (!this.realName) {
         return this.$base.show(this.$t("inputRealName"));
       }
       this.loading = true;
       this.$api
         .user_bindBank({
-          addr: this.addr,
+          // addr: this.addr,
           bankName: this.bankName,
           cardNo: this.bankCardNum,
           realName: this.realName,
