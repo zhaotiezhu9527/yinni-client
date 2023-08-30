@@ -134,6 +134,20 @@ export default {
       },
       this.$refs.contactInfo,
     );
+    this.$uikit.render(
+      ContactListContainer,
+      {
+        renderCustomContact: (contactType) => {
+            console.log('==========renderCustomContact===========', contactType);
+            if( contactType === 'groupList'){
+              return compile(`<div></div>`)
+            }else{
+              return null
+            }
+          }
+      },
+      this.$refs.contactList
+    );
   },
   methods: {
     // 退出登录
