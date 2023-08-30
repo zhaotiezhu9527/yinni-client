@@ -5,11 +5,19 @@ export const useToken = defineStore('token', {
   state: () => {
     return {
       token: '' as string,
+      accid: '' as string,
+      imToken: '' as string,
     };
   },
   actions: {
-    setToken(data) {
+    setToken(data: string) {
       this.token = data;
+    },
+    setImToken(data: string) {
+      this.imToken = data;
+    },
+    setAccid(data: string) {
+      this.accid = data;
     },
   },
 });

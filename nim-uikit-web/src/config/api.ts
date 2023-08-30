@@ -36,8 +36,21 @@ async function get_logout(params: any) {
   });
 }
 
+/**
+ * 系统
+ * @param {*} params
+ */
+async function get_config(params: any) {
+  return request({
+    url: 'im-qtapi-test/system/config',
+    method: 'get',
+    params: params,
+  });
+}
+
 export default {
   get_register,
   get_login,
   get_logout,
+  get_config,
 };

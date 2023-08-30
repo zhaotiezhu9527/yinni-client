@@ -1,6 +1,6 @@
 <template>
   <Login />
-  <IMApp v-if="uikitInit && !useToken().token" />
+  <IMApp v-if="uikitInit && useToken().token" />
   <div class="home" v-else></div>
 </template>
 <script>
@@ -21,18 +21,22 @@ export default {
     return {
       useToken,
       uikitInit: false,
-      is_token: '',
     };
   },
   created() {
     // 后期改为路由权限
     this.useToken().setToken(Cookies.get('token'));
+    this.useToken().setAccid(Cookies.get('accid'));
+    this.useToken().setImToken(Cookies.get('imToken'));
   },
   mounted() {
+    // this.$api.get_config().then((data) => {
+    //   console.log(data);
+    // });
     const initOptions = {
       appkey: 'fdeee5472da804a1da4ff6a3c96ab986', // 请填写你的appkey
-      account: 'a1test06', // 请填写你的account
-      token: 'e2a312a4de8acfb73db4be66a50b3801', // 请填写你的token
+      account: this.useToken().accid, // 请填写你的account
+      token: this.useToken().imToken, // 请填写你的token
     };
     const localOptions = {
       // 添加好友模式，默认需要验证

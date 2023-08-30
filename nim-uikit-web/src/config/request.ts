@@ -8,6 +8,7 @@ const service = axios.create({
   timeout: 60000, // 请求超时时间 毫秒
   // withCredentials: true,   // 异步请求时是否携带cookie
   headers: {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     token: Cookies.get('token'),
   },
 });
@@ -28,7 +29,9 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const res = response.data;
-    if (res.code == -1) {
+    if (res.code == -1 && res.msg === '用户不存在') {
+      return Promise.reject(res.msg);
+    } else if (res.code == -1) {
       message.info(res.msg);
       return Promise.reject(res.msg);
     } else {

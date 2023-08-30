@@ -73,9 +73,12 @@ export default {
         this.loginFn()
           .then((data) => {
             // 登录成功
-            this.useToken().setToken('123');
-            console.log(data);
-            // Cookies.set('token', data.token);
+            this.useToken().setToken(data.token);
+            this.useToken().setImToken(data.imToken);
+            this.useToken().setAccid(data.accid);
+            Cookies.set('token', data.token);
+            Cookies.set('accid', data.accid);
+            Cookies.set('imToken', data.imToken);
           })
           .catch(() => {
             // 暂无账号，去注册
@@ -101,10 +104,13 @@ export default {
      */
     registerFn() {
       this.$api.get_register(this.form).then((data) => {
-        console.log(data);
-        this.useToken().setToken('123');
-        // Cookies.set('token', data.token);
         // 注册成功
+        this.useToken().setToken(data.token);
+        this.useToken().setImToken(data.imToken);
+        this.useToken().setAccid(data.accid);
+        Cookies.set('token', data.token);
+        Cookies.set('accid', data.accid);
+        Cookies.set('imToken', data.imToken);
       });
     },
   },
