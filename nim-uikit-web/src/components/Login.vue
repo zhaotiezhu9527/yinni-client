@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <div class="title">验证码登录</div>
-    <p class="sub_title">未注册的手机号码验证通过后将自动注册</p>
+    <p class="sub_title">未注册的账号验证通过后将自动注册</p>
     <a-form ref="formRef" :rules="rules" layout="vertical" :model="form">
       <a-form-item label="账号：" name="userName">
         <a-input
@@ -72,18 +72,21 @@ export default {
       this.$refs.formRef.validate().then(() => {
         this.loginFn()
           .then((data) => {
-            // 登录成功
-            this.useToken().setToken(data.token);
-            this.useToken().setImToken(data.imToken);
-            this.useToken().setAccid(data.accid);
-            Cookies.set('token', data.token);
-            Cookies.set('accid', data.accid);
-            Cookies.set('imToken', data.imToken);
+            if (data.code == -1) {
+              // 暂无账号，去注册
+              this.registerFn();
+              this.$message.info('账号未注册，验证通过自动注册');
+            } else {
+              // 登录成功
+              this.useToken().setToken(data.token);
+              this.useToken().setImToken(data.imToken);
+              this.useToken().setAccid(data.accid);
+              Cookies.set('token', data.token);
+              Cookies.set('accid', data.accid);
+              Cookies.set('imToken', data.imToken);
+            }
           })
-          .catch(() => {
-            // 暂无账号，去注册
-            this.registerFn();
-          });
+          .catch(() => {});
       });
     },
     loginFn() {

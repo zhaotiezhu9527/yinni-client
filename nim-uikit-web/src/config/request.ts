@@ -30,7 +30,7 @@ service.interceptors.response.use(
   (response) => {
     const res = response.data;
     if (res.code == -1 && res.msg === '用户不存在') {
-      return Promise.reject(res.msg);
+      return res;
     } else if (res.code == -1) {
       message.info(res.msg);
       return Promise.reject(res.msg);
