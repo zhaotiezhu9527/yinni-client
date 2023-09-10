@@ -1,0 +1,29 @@
+{
+  "hash": "59199be8",
+  "browserHash": "1e7e1160",
+  "optimized": {
+    "aegis-web-sdk": {
+      "src": "../../node_modules/aegis-web-sdk/lib/aegis.min.js",
+      "file": "aegis-web-sdk.js",
+      "fileHash": "6474a2c8",
+      "needsInterop": true
+    },
+    "tim-js-sdk": {
+      "src": "../../node_modules/tim-js-sdk/tim-js.js",
+      "file": "tim-js-sdk.js",
+      "fileHash": "343ad754",
+      "needsInterop": true
+    },
+    "tim-upload-plugin": {
+      "src": "../../node_modules/tim-upload-plugin/index.js",
+      "file": "tim-upload-plugin.js",
+      "fileHash": "d1daf53a",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-RSJERJUL": {
+      "file": "chunk-RSJERJUL.js"
+    }
+  }
+}
