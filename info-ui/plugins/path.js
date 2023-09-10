@@ -48,9 +48,6 @@ const home = [
     path: "/pages/RealName",
   },
   {
-    path: "/pages/BindUSDT",
-  },
-  {
     path: "/pages/BindBank",
   },
   {
