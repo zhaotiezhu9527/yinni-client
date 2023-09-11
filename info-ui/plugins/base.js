@@ -3,7 +3,7 @@ import * as store from "plugins/store.js";
 Vue.prototype.$store = store;
 import i18n from "./lang/index";
 Vue.prototype._i18n = i18n;
-let langType = 'vi_VN'
+let langType = 'zh-CN'
 let that = i18n.vm.messages[uni.getStorageSync("lang") || langType];
 
 //设置缓存内容
@@ -29,8 +29,8 @@ export const loading = (title) => {
 };
 const PATH_URL =
   process.env.NODE_ENV === "development"
-    ? "http://192.168.4.85:9522/" //本地测试
-    // ? "https://shopeegg.com/yn-qtapi-prod/" //测试
+    // ? "http://192.168.4.85:9522/" //本地测试
+    ? "http://ymqt.juhai.xyz/ym-qtapi-test/" //测试
     // : "http://ynqt.juhai.xyz/yn-qtapi-test/"; //app打包地址测试
     // : "/yn-qtapi-test/"; //app打包地址测试
     : "https://shopeegg.com/yn-qtapi-prod/"; //app打包地址测试

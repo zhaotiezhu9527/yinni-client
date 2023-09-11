@@ -198,4 +198,11 @@ export default {
   inviteCodeText: "邀请码ID",
   home:"首页",
   personalCenter:"个人中心",
+
+  passport: "疫苗护照",
+  enrollment: "登记打疫苗",
+  reserve: "预约",
+  information: "个人信息",
+  opinion: "意见",
+  schedule: "进度",
 };

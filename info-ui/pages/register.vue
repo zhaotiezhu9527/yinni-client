@@ -7,7 +7,7 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#0382c7"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
@@ -19,7 +19,7 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_logo1.jpg"
+          src="../static/img/login_logo1.png"
         />
       </view>
       <view class="form">
@@ -41,7 +41,7 @@
             >
             </u-input>
           </u-form-item>
-          <u-form-item>
+          <u-form-item class="register-item">
             <template #label>
               <image
                 class="img"
@@ -71,38 +71,6 @@
               clearable
               border="none"
               v-model="confirmLoginPwd"
-            ></u-input>
-          </u-form-item>
-          <u-form-item>
-            <template #label>
-              <image
-                class="img2"
-                src="../static/img/money2.png"
-                mode="widthFix"
-              />
-            </template>
-            <u-input
-              type="password"
-              :placeholder="$t('inputPayPwd')"
-              clearable
-              border="none"
-              v-model="payPwd"
-            ></u-input>
-          </u-form-item>
-          <u-form-item>
-            <template #label>
-              <image
-                class="img2"
-                src="../static/img/user2.png"
-                mode="widthFix"
-              />
-            </template>
-            <u-input
-              type="number"
-              :placeholder="$t('inviteCode')"
-              clearable
-              border="none"
-              v-model="inviteCode"
             ></u-input>
           </u-form-item>
         </u-form>
@@ -225,11 +193,14 @@ export default {
   box-sizing: border-box;
   .img {
     width: 44rpx;
-    margin-right: 24rpx;
+    margin: 0 24rpx;
   }
   .img2 {
     margin-right: 28rpx;
     width: 40rpx;
+  }
+  .register-item{
+    margin: 20rpx 0;
   }
 }
 </style>

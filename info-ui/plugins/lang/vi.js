@@ -198,4 +198,11 @@ export default {
   inviteCodeText: "Mã giới thiệu",
   home:"Trang chủ",
   personalCenter:"trung tâm cá nhân",
+
+  passport: "Hộ chiếu vắc xin",
+  enrollment: "Đăng ký tiêm chủng",
+  reserve: "Đặt hẹn khám",
+  information: "Thông tin cá nhân",
+  opinion: "Ý kiến",
+  schedule: "Tiến Độ Hồ Sơ",
 };

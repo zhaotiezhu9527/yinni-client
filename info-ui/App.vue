@@ -137,7 +137,8 @@ text {
 }
 /deep/.u-form-item {
   font-size: 32rpx !important;
-  padding-top: 20rpx !important;
+  border: 1px solid #eee;
+  border-radius: 5px;
 }
 /deep/.u-form-item__body {
   padding: 28rpx 0 !important;

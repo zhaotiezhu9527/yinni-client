@@ -49,11 +49,6 @@
             </view>
 
             <view class="line"></view>
-            <!-- <view class="table-time">
-              <label class="grey-text" @click="goContract(item.orderNo)">
-                {{ $t("look") }}
-              </label>
-            </view> -->
           </view>
         </u-list-item>
         <view class="loading" v-if="loading">{{ $t("loading") }}...</view>

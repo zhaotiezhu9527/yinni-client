@@ -8,7 +8,8 @@
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#0382c7"
+      class="login-nav"
       height="52px"
       titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
@@ -18,12 +19,27 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_logo1.jpg"
+          src="../static/img/login_logo1.png"
         />
       </view>
       <view class="from">
+        <view class="from-title">
+          <view class="from-title-text">
+            小字体小字体小字体小字体小字体
+          </view>
+          <view class="from-title-big">
+            大字体
+          </view>
+        </view>
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
-          <u-form-item :label="$t('account')">
+          <u-form-item :label="$t('account')" class="login-item">
+            <template #label>
+              <image
+                class="login-img"
+                src="../static/img/user3.png"
+                mode="widthFix"
+              />
+            </template>
             <u-input
               type="text"
               :placeholder="$t('loginAccount')"
@@ -32,7 +48,14 @@
               v-model="userPhone"
             ></u-input>
           </u-form-item>
-          <u-form-item :label="$t('password')">
+          <u-form-item :label="$t('password')" class="login-item">
+            <template #label>
+              <image
+                class="login-img"
+                src="../static/img/pass2.png"
+                mode="widthFix"
+              />
+            </template>
             <u-input
               type="password"
               :placeholder="$t('loginPass')"
@@ -45,14 +68,27 @@
         <view class="btns">
           <u-button
             class="custom-style"
-            color="#2196f3"
+            color="linear-gradient(to right, #0382c7,#11a9c6,#7966f3)"
             block
             @click="login"
             :loading="loading"
           >
             {{ $t("login") }}
           </u-button>
-          <view class="register" @click="register"> {{ $t("register") }} </view>
+          <view class="dividing-line-box">
+            <view class="dividing-line"></view>
+            <view class="dividing-line-text">分界线</view>
+            <view class="dividing-line"></view>
+          </view>
+          <u-button
+            class="custom-style"
+            color="linear-gradient(to right, #0382c7,#11a9c6,#7966f3)"
+            block
+            @click="register"
+            :loading="loading"
+          >
+          {{ $t("register") }}
+          </u-button>
         </view>
       </view>
     </view>
@@ -112,6 +148,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.wrap{
+  background: linear-gradient(
+    to right,
+    #0382c7,
+    #11a9c6,
+    #7966f3,
+  );
+}
 view,
 text {
   font-size: 32rpx;
@@ -119,9 +163,10 @@ text {
 .logo {
   display: flex;
   justify-content: center;
-  padding-top: 60rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   .img {
-    width: 80%;
+    width: 50%;
   }
 }
 .btns {
@@ -143,8 +188,52 @@ text {
   padding: 40rpx;
   width: 100%;
   box-sizing: border-box;
-  .image {
-    height: 60rpx;
+  background-color: #fff;
+  border-radius: 80rpx 80rpx 0px 0px;
+  .login-img{
+    width: 44rpx;
+    margin: 0 24rpx;
   }
+  .login-item{
+    margin-top: 20rpx;
+  }
+  .dividing-line-box{
+    display: flex;
+    align-items: center;
+    margin: 40rpx 0;
+    .dividing-line{
+      flex: 1;
+      height: 2rpx;
+      background-color: #eee;
+    }
+    .dividing-line-text{
+      color: #999;
+      font-size: 28rpx;
+      margin: 20rpx;
+    }
+  }
+  .from-title{
+    width: 100%;
+    text-align: center;
+    .from-title-text{
+      color: #999;
+      font-size: 24rpx;
+    }
+    .from-title-big{
+      color: #0b79b3;
+      font-size: 60rpx;
+      font-weight: 800;
+      margin-top: 10rpx;
+      margin-bottom: 40rpx;
+    }
+  }
+}
+.login-nav{
+  background: linear-gradient(
+    to right,
+    #0382c7,
+    #11a9c6,
+    #7966f3,
+  );
 }
 </style>

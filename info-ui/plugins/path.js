@@ -12,22 +12,10 @@ const home = [
     // #endif
   },
   {
-    path: "/pages/content",
-  },
-  {
-    path: "/pages/info",
-  },
-  {
-    path: "/pages/about",
-  },
-  {
     path: "/pages/personal",
   },
   {
     path: "/pages/register",
-  },
-  {
-    path: "/pages/fundDetails",
   },
   {
     path: "/pages/InvestmentRecords",
@@ -48,25 +36,17 @@ const home = [
     path: "/pages/RealName",
   },
   {
-    path: "/pages/BindBank",
-  },
-  {
-    path: "/pages/AccountSafe",
-  },
-  {
-    path: "/pages/ChangeLoginPassword",
-  },
-  {
     path: "/pages/ModifyPaymentPassword",
-  },
-  {
-    path: "/pages/contract",
   },
   {
     path: "/pages/withdraw",
   },
   { path: "/pages/preview" },
-  { path: "/pages/onlineService" },
-  { path: "/pages/addr" },
+  { path: "/pages/enrollment" },
+  { path: "/pages/passport" },
+  { path: "/pages/opinion" },
+  { path: "/pages/schedule" },
+  { path: "/pages/reserve" },
+  { path: "/pages/information" },
 ];
 export default home;
