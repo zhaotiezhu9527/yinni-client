@@ -23,18 +23,18 @@
             </view>
             <view class="position-value">
               <input 
-                placeholder="Tìm kiếm"
+                :placeholder="$t('search')"
                 v-model="addr"
               />
             </view>
             <view class="position-right-text" @click="show = true">
               | 
               <img class="position-img" src="../static/img/position.png" />
-              <text>Hồ Chí Minh</text>
+              <text>{{$t('hoChiMinh')}}</text>
             </view>
           </view>
           <view class="position-info">
-            Danh sách cơ sở y tế （0）
+            {{$t('medicalList')}}（0）
           </view>
         </view>
         <view class="kongbai"></view>
@@ -42,7 +42,7 @@
           <image class="img" src="../static/img/construction.jpeg" />
         </view>
         <view class="text-box">
-          描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+          {{$t('noData')}}
         </view>
       </view>
       <u-action-sheet @close="show = false" round="10" @select="selectClick" :title="title" :show="show">

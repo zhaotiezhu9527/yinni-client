@@ -14,7 +14,7 @@
             <view class="btj-img img-green">
               <image class="btj-icon" src="../static/img/btj.png" />
             </view>
-            <view class="btj-text text-green">登记领补贴金</view>
+            <view class="btj-text text-green">{{$t('welfarePackage')}}</view>
           </view>
         </view>
         <view class="title-item">
@@ -23,7 +23,7 @@
             <view class="btj-img img-red">
               <image class="btj-icon" src="../static/img/cross.png" />
             </view>
-            <view class="btj-text text-red">sos</view>
+            <view class="btj-text text-red">{{$t('assistance')}}</view>
           </view>
         </view>
       </view>
@@ -42,7 +42,7 @@
             </view>
         </view>
         <view class="notice">
-          <view class="notice-title">信息</view>
+          <view class="notice-title">{{$t('handbook')}}</view>
           <view class="notice-content">
             <view v-for="(item, index) in list"
             :key="index"

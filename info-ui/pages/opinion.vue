@@ -17,16 +17,16 @@
     <view class="wrap">
       <view class="content">
         <view class="kongbai">
-          <view class="opinion-text">你的意见：</view>
+          <view class="opinion-text">{{$t('yourOpinion')}}：</view>
           <view>
-            <textarea class="opinion-textarea" v-model="value1"/>
+            <textarea class="opinion-textarea" v-model="value1"></textarea>
           </view>
         </view>
         <view class="img-box">
           <image class="img" src="../static/img/construction.jpeg" />
         </view>
         <view class="btn-box">
-          这是个按钮
+          {{$t('confirmText')}}
         </view>
       </view>
     </view>

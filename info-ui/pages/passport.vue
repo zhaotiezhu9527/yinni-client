@@ -21,7 +21,7 @@
           <image class="img" src="../static/img/construction.jpeg" />
         </view>
         <view class="text-box">
-          描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+          {{$t('noMessage')}}
         </view>
       </view>
     </view>

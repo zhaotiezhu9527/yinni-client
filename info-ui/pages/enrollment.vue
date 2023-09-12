@@ -21,10 +21,10 @@
           <image class="img" src="../static/img/construction.jpeg" />
         </view>
         <view class="text-box">
-          描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+          {{$t('noData')}}
         </view>
         <view class="btn-box">
-          这是个按钮
+          {{$t('vaccinationRegistration')}}
         </view>
       </view>
     </view>
