@@ -2,9 +2,6 @@ import Vue from "vue";
 import * as base from "plugins/base.js";
 Vue.prototype.$base = base;
 //统一API资源管理
-
-
-
 //登录
 export const user_login = (data) => {
   return new Promise((resolve, reject) => {
@@ -22,7 +19,6 @@ export const user_login = (data) => {
       });
   });
 };
-
 //注册
 export const user_register = (data) => {
   return new Promise((resolve, reject) => {
@@ -68,236 +64,12 @@ export const user_info = (data) => {
   });
 };
 
-//用户签到
-export const user_sign = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/sign",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//资金明细
-export const account_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/account/list",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//投资记录
-export const invest_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/invest/list",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//注单详情
-export const order_detail = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "order/detail/" + data.orderNo,
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//绑定银行卡
-export const user_bindBank = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/bindBank",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-
-
-//实名认证
-export const user_realName = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/realName",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//用户收益记录列表
-export const user_profit_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/profit/list",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//用户充值记录列表
-export const user_deposit_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/deposit/list",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//用户提现记录列表
-export const user_withdraw_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/withdraw/list",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//修改用户密码
-export const user_updatePwd = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/updatePwd",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-//修改用户支付密码
-export const user_updatePayPwd = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/updatePayPwd",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-//用户提现
-export const user_withdraw = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/withdraw",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-//用户提现
+//系统资源
 export const system_config = (data) => {
   return new Promise((resolve, reject) => {
     base
       .request({
         url: "system/config",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-// 获取所有分类
-export const project_allType = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "project/allType",
-        method: "get",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//收货地址
-export const user_address = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/address",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-// 获取所有分类
-export const system_text = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "/system/text",
         method: "get",
         data: data,
       })
