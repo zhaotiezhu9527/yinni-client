@@ -26,16 +26,16 @@
             mode="widthFix"
             src="../static/img/vietnam.png"
           />
-          <view class="nation-text">越南语</view>
+          <view class="nation-text">{{$t('languageType')}}</view>
         </view>
       </view>
       <view class="from">
         <view class="from-title">
           <view class="from-title-text">
-            小字体小字体小字体小字体小字体
+            {{$t('welcome')}}
           </view>
           <view class="from-title-big">
-            大字体
+            {{$t('appName')}}
           </view>
         </view>
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
@@ -49,7 +49,7 @@
             </template>
             <u-input
               type="text"
-              :placeholder="$t('loginAccount')"
+              :placeholder="$t('noPhone')"
               clearable
               border="none"
               v-model="userPhone"
@@ -65,7 +65,7 @@
             </template>
             <u-input
               type="password"
-              :placeholder="$t('loginPass')"
+              :placeholder="$t('noPassword')"
               clearable
               border="none"
               v-model="password"
@@ -85,7 +85,7 @@
           </u-button>
           <view class="dividing-line-box">
             <view class="dividing-line"></view>
-            <view class="dividing-line-text">分界线</view>
+            <view class="dividing-line-text">{{$t('orText')}}</view>
             <view class="dividing-line"></view>
           </view>
           <u-button
@@ -98,7 +98,7 @@
           {{ $t("register") }}
           </u-button>
           <view class="register" @click="register">
-            忘记密码？
+            {{$t('forgetPassword')}}
           </view>
         </view>
       </view>
@@ -126,9 +126,9 @@ export default {
     },
     login() {
       if (!this.userPhone) {
-        return this.$base.show(this.$t("loginAccount"));
+        return this.$base.show(this.$t("noPhone"));
       } else if (!this.password) {
-        return this.$base.show(this.$t("loginPass"));
+        return this.$base.show(this.$t("noPassword"));
       }
       const DATA_OBJ = {
         loginPwd: this.password,

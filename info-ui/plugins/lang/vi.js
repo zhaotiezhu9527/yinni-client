@@ -1,12 +1,12 @@
 export default {
-  login: "đăng nhập",
-  register: "đăng kí",
+  
+  
   loginPass: "mật khẩu",
   loginNewPass: "mật khẩu mới",
   confirmLoginPwd: "nhập lại mật khẩu",
   NoTwoLoginPwd: "mật khẩu đăng nhập mới không được giống mật khẩu ban đầu.",
   confirmPwd: "xác nhận mật khẩu",
-  password: "mật khẩu",
+  
   loginAccount: "tài khoản đăng nhập",
   account: "tài khoản",
   registerAccount: "tên tài khoản",
@@ -192,7 +192,6 @@ export default {
   overTime:"hết thời gian",
   commission: "Giỏ hàng",
   address: "địa chỉ giao hàng",
-  phoneNo: "số điện thoại",
   inputAddress: "vui lòng nhập địa chỉ",
   inputPhoneNo: "vui lòng nhập số điện thoại",
   inviteCodeText: "Mã giới thiệu",
@@ -205,4 +204,15 @@ export default {
   information: "Thông tin cá nhân",
   opinion: "Ý kiến",
   schedule: "Tiến Độ Hồ Sơ",
+  languageType: "Tiếng Việt",
+  welcome: "Chào mừng bạn đến với",
+  appName: "An Sinh",
+  phoneNo: "Số điện thoại",
+  noPhone: "Vui lòng nhập số điện thoại",
+  password: "Mật khẩu",
+  noPassword: "Xin vui lòng nhập mật khẩu",
+  login: "Đăng nhập",
+  register: "Dăng ký",
+  forgetPassword: "Quên?",
+  orText: "HOẶC",
 };
