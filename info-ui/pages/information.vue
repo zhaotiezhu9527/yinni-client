@@ -19,7 +19,7 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_logo1.png"
+          src="../static/img/user.png"
         />
       </view>
       <view class="form">
@@ -145,11 +145,8 @@
           @click="login"
           :loading="loading"
         >
-          {{ $t("register") }}
+          提交
         </u-button>
-        <view class="register" @click="register">
-          {{ $t("returnLogin") }}
-        </view>
       </view>
     </view>
     <u-datetime-picker
@@ -269,7 +266,7 @@ export default {
   justify-content: center;
   padding-top: 60rpx;
   .img {
-    width: 80%;
+    width: 40%;
   }
 }
 .btns {

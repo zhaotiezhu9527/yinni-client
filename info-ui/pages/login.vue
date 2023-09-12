@@ -20,6 +20,14 @@
           mode="widthFix"
           src="../static/img/login_logo1.png"
         />
+        <view class="nation">
+          <image
+            class="nation-img"
+            mode="widthFix"
+            src="../static/img/vietnam.png"
+          />
+          <view class="nation-text">越南语</view>
+        </view>
       </view>
       <view class="from">
         <view class="from-title">
@@ -61,7 +69,8 @@
               clearable
               border="none"
               v-model="password"
-            ></u-input>
+            >
+          </u-input>
           </u-form-item>
         </u-form>
         <view class="btns">
@@ -88,6 +97,9 @@
           >
           {{ $t("register") }}
           </u-button>
+          <view class="register" @click="register">
+            忘记密码？
+          </view>
         </view>
       </view>
     </view>
@@ -164,8 +176,27 @@ text {
   justify-content: center;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
+  position: relative;
   .img {
     width: 50%;
+  }
+  .nation{
+    position: absolute;
+    top: 20rpx;
+    right: 0rpx;
+    color: #fff;
+    font-size: 24rpx;
+    width: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .nation-img{
+      width: 30%;
+    }
+    .nation-text{
+      margin-left: 20rpx;
+      font-size: 24rpx;
+    }
   }
 }
 .btns {
@@ -199,7 +230,7 @@ text {
   .dividing-line-box{
     display: flex;
     align-items: center;
-    margin: 40rpx 0;
+    margin: 20rpx 0;
     .dividing-line{
       flex: 1;
       height: 2rpx;

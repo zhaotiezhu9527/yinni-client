@@ -15,22 +15,11 @@
     >
     </u-navbar>
     <view class="wrap">
-      <view class="logo">
-        <image
-          class="img"
-          mode="widthFix"
-          src="../static/img/login_logo1.png"
-        />
-      </view>
       <view class="form">
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
           <u-form-item>
             <template #label>
-              <image
-                class="img"
-                src="../static/img/user3.png"
-                mode="widthFix"
-              />
+              <text class="input-label">用户名 * </text>
             </template>
             <u-input
               type="text"
@@ -43,11 +32,7 @@
           </u-form-item>
           <u-form-item class="register-item">
             <template #label>
-              <image
-                class="img"
-                src="../static/img/pass2.png"
-                mode="widthFix"
-              />
+              <text class="input-label">城市 * </text>
             </template>
             <u-input
               type="password"
@@ -57,13 +42,9 @@
               v-model="password"
             ></u-input>
           </u-form-item>
-          <u-form-item>
+          <u-form-item class="register-item">
             <template #label>
-              <image
-                class="img"
-                src="../static/img/pass2.png"
-                mode="widthFix"
-              />
+              <text class="input-label">城市 * </text>
             </template>
             <u-input
               type="password"
@@ -72,6 +53,60 @@
               border="none"
               v-model="confirmLoginPwd"
             ></u-input>
+          </u-form-item>
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">出生日期 * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('confirmLoginPwd')"
+              clearable
+              border="none"
+              v-model="inputTime"
+              suffixIcon="calendar"
+	            suffixIconStyle="color: #909399"
+              @focus="pickerShow = true"
+            ></u-input>
+          </u-form-item>
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">身份证号 * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">身份证号1 * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">身份证号2 * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
           </u-form-item>
         </u-form>
       </view>
@@ -90,10 +125,20 @@
         </view>
       </view>
     </view>
+    <u-datetime-picker
+            :show="pickerShow"
+            v-model="dateTime"
+            mode="date"
+            @cancel="pickerShow = false"
+            @confirm="pikerChange"
+            cancelText="Hủy bỏ"
+            confirmText="xác nhận"
+    ></u-datetime-picker>
   </view>
 </template>
 
 <script>
+import { changetime } from "../plugins/util";
 export default {
   data() {
     return {
@@ -106,6 +151,9 @@ export default {
       confirmLoginPwd: "", //确认登录密码
       payPwd: "", //支付密码
       inviteCode: "", //邀请码id
+      pickerShow: false,
+      dateTime: '',
+      inputTime: "",
     };
   },
   onLoad() {},
@@ -164,6 +212,10 @@ export default {
         this.navigateToFn();
       }
     },
+    pikerChange(e){
+      this.inputTime = changetime(e.value)
+      this.pickerShow = false
+    }
   },
 };
 </script>
@@ -200,7 +252,11 @@ export default {
     width: 40rpx;
   }
   .register-item{
-    margin: 20rpx 0;
+    margin-top: 20rpx;
+  }
+  .input-label{
+    margin: 0 10rpx;
+    color: #6d8aa1;
   }
 }
 </style>
