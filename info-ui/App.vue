@@ -156,4 +156,12 @@ text {
 .uni-app--showleftwindow + .uni-tabbar-bottom {
   display: block !important;
 }
+.linear {
+  /deep/.u-navbar__content {
+    background: linear-gradient(to right,
+    #0382c7,
+    #11a9c6,
+    #7966f3,) !important;
+  }
+}
 </style>

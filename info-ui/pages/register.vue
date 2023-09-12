@@ -7,7 +7,7 @@
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#0382c7"
+      class="linear"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
@@ -78,7 +78,7 @@
       <view class="btns">
         <u-button
           class="btn-class"
-          color="#2196f3"
+          color="linear-gradient(to right, #0382c7,#11a9c6,#7966f3)"
           block
           @click="login"
           :loading="loading"

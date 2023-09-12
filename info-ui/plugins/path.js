@@ -12,36 +12,8 @@ const home = [
     // #endif
   },
   {
-    path: "/pages/personal",
-  },
-  {
     path: "/pages/register",
   },
-  {
-    path: "/pages/InvestmentRecords",
-  },
-  {
-    path: "/pages/InvestmentDetails",
-  },
-  {
-    path: "/pages/RevenueRecords",
-  },
-  {
-    path: "/pages/RechargeRecord",
-  },
-  {
-    path: "/pages/WithdrawalRecords",
-  },
-  {
-    path: "/pages/RealName",
-  },
-  {
-    path: "/pages/ModifyPaymentPassword",
-  },
-  {
-    path: "/pages/withdraw",
-  },
-  { path: "/pages/preview" },
   { path: "/pages/enrollment" },
   { path: "/pages/passport" },
   { path: "/pages/opinion" },

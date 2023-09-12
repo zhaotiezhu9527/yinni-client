@@ -8,8 +8,7 @@
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#0382c7"
-      class="login-nav"
+      class="linear"
       height="52px"
       titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
