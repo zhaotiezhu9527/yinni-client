@@ -153,6 +153,7 @@ export default {
     .icon-img3 {
       width: 100rpx;
       height: 100rpx;
+      border-radius: 100rpx;
     }
     label {
       flex: 1;
@@ -215,13 +216,16 @@ export default {
         text-align: center;
         border-radius: 10rpx;
         margin-top: 30rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &.text-green{
           background: #48d9b2;
-          border: 3px solid #31d4b7;
+          border: 4px solid #31d4b7;
         }
         &.text-red{
           background: #ff7570;
-          border: 3px solid #fe756e;
+          border: 4px solid #fe756e;
         }
       }
     }
