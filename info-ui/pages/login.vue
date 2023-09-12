@@ -52,7 +52,7 @@
               :placeholder="$t('noPhone')"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="phone"
             ></u-input>
           </u-form-item>
           <u-form-item :label="$t('password')" class="login-item">
@@ -68,7 +68,7 @@
               :placeholder="$t('noPassword')"
               clearable
               border="none"
-              v-model="password"
+              v-model="loginPwd"
             >
           </u-input>
           </u-form-item>
@@ -109,8 +109,8 @@
 export default {
   data() {
     return {
-      password: "",
-      userPhone: "",
+      loginPwd: "",
+      phone: "",
       loading: false,
     };
   },
@@ -125,14 +125,14 @@ export default {
       });
     },
     login() {
-      if (!this.userPhone) {
+      if (!this.phone) {
         return this.$base.show(this.$t("noPhone"));
-      } else if (!this.password) {
+      } else if (!this.loginPwd) {
         return this.$base.show(this.$t("noPassword"));
       }
       const DATA_OBJ = {
-        loginPwd: this.password,
-        userName: this.userPhone,
+        loginPwd: this.loginPwd,
+        phone: this.phone,
       };
       this.loading = true;
       this.$api
@@ -145,7 +145,7 @@ export default {
               key: "token",
               data: res.data.token,
               success: function () {
-                uni.switchTab({ url: "/pages/personal" });
+                uni.switchTab({ url: "/pages/index" });
               },
             });
           }

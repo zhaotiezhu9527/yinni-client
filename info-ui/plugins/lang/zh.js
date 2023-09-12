@@ -241,4 +241,7 @@ export default {
   noPass: "抱歉，您的申请未获批准......！",
   bank: "银行名称",
   bankNo: "银行卡号",
+  isEmpty: "为空",
+  incorrectFormat: "格式不正确",
+  inconsistentTwice: "两次输入密码不一致",
 };

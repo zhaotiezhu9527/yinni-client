@@ -139,6 +139,7 @@ text {
   font-size: 32rpx !important;
   border: 1px solid #eee;
   border-radius: 5px;
+  text-indent: 30rpx;
 }
 /deep/.u-form-item__body {
   padding: 28rpx 0 !important;

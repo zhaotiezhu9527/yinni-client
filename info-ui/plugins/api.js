@@ -3,50 +3,7 @@ import * as base from "plugins/base.js";
 Vue.prototype.$base = base;
 //统一API资源管理
 
-//产品列表
-export const project_list = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "project/list",
-        method: "get",
-        data: data,
-        loading: false,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
 
-//产品详情
-export const project_info = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "project/detail/" + data,
-        method: "get",
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
-
-//购买产品
-export const order_execute = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "order/execute",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
 
 //登录
 export const user_login = (data) => {
@@ -186,20 +143,7 @@ export const user_bindBank = (data) => {
   });
 };
 
-//绑定USDT
-export const user_bindUSDT = (data) => {
-  return new Promise((resolve, reject) => {
-    base
-      .request({
-        url: "user/bindUsdt",
-        method: "post",
-        data: data,
-      })
-      .then((res) => {
-        resolve(res);
-      });
-  });
-};
+
 
 //实名认证
 export const user_realName = (data) => {

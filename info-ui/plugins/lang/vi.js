@@ -238,4 +238,7 @@ export default {
   noPass: "Rất tiếc hồ sơ của bạn không được thông qua.....!",
   bankName: "tên ngân hàng",
   bankNo: "Số thẻ ngân hàng",
+  isEmpty: "trống",
+  incorrectFormat: "Định dạng không chính xác",
+  inconsistentTwice: "không nhất quán hai lần",
 };

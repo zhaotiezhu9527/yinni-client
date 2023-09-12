@@ -19,97 +19,80 @@
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
           <!-- 姓名 -->
           <u-form-item>
-            <template #label>
+            <!-- <template #label>
               <text class="input-label">{{$t('userName')}} * </text>
-            </template>
+            </template> -->
             <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
+              :placeholder="$t('userName') + ' *'"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="realName"
             >
             </u-input>
           </u-form-item>
           <!-- 手机号 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('phoneNo')}} * </text>
-            </template>
             <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
+              :placeholder="$t('phoneNo') + ' *'"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="phone"
             >
             </u-input>
           </u-form-item>
           <!-- 密码 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('password')}} * </text>
-            </template>
             <u-input
               type="password"
-              :placeholder="$t('loginPass')"
+              :placeholder="$t('password') + ' *'"
               clearable
               border="none"
-              v-model="password"
+              v-model="loginPwd"
             ></u-input>
           </u-form-item>
           <!-- 确认密码 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('confirmPwd')}} * </text>
-            </template>
             <u-input
               type="password"
-              :placeholder="$t('loginPass')"
+              :placeholder="$t('confirmPwd') + ' *'"
               clearable
               border="none"
-              v-model="password"
+              v-model="confirmLoginPwd"
             ></u-input>
           </u-form-item>
           <!-- 性别 -->
-          <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('sex')}} * </text>
-            </template>
-            <u-input
-              type="text"
-              :placeholder="$t('registerAccount')"
-              clearable
-              border="none"
-              v-model="userPhone"
-            >
-            </u-input>
-          </u-form-item>
+          <!-- <u-form-item class="register-item"> -->
+            <view class="form-title">性别 * </view>
+              <u-radio-group 
+              v-model="gender"
+              placement="row"
+              size="40"
+              class="gender-box">
+            <u-radio class="gender-item" v-for="(item,index) in genderList" :key="index" :label="item.name" :name="item.value">
+            </u-radio>
+          </u-radio-group>
+          <!-- </u-form-item> -->
           <!-- 国籍 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('nationality')}} * </text>
-            </template>
             <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
+              :placeholder="$t('nationality') + ' *'"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="nationality"
             >
             </u-input>
           </u-form-item>
           <!-- 出生日期 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('birth')}} * </text>
-            </template>
             <u-input
               type="text"
-              :placeholder="$t('confirmLoginPwd')"
+              :placeholder="$t('birth') + ' *'"
               clearable
               border="none"
-              v-model="inputTime"
+              v-model="birth"
               suffixIcon="calendar"
 	            suffixIconStyle="color: #909399"
               @focus="pickerShow = true"
@@ -117,83 +100,66 @@
           </u-form-item>
           <!-- 身份id 护照 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('cardID')}} * </text>
-            </template>
             <u-input
               type="password"
-              :placeholder="$t('confirmLoginPwd')"
+              :placeholder="$t('cardID') + ' *'"
               clearable
               border="none"
-              v-model="confirmLoginPwd"
+              v-model="idCard"
             ></u-input>
           </u-form-item>
-          <!-- 工作 -->
-          <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('job')}} </text>
-            </template>
-            <u-input
-              type="password"
-              :placeholder="$t('confirmLoginPwd')"
-              clearable
-              border="none"
-              v-model="confirmLoginPwd"
-            ></u-input>
-          </u-form-item>
-          <!-- 省份 -->
-          <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('provinceCity')}} * </text>
-            </template>
-            <u-input
-              type="text"
-              :placeholder="$t('registerAccount')"
-              clearable
-              border="none"
-              v-model="userPhone"
-            >
-            </u-input>
-          </u-form-item>
-          <!-- 区县 -->
-          <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('district')}} * </text>
-            </template>
-            <u-input
-              type="text"
-              :placeholder="$t('registerAccount')"
-              clearable
-              border="none"
-              v-model="userPhone"
-            >
-            </u-input>
-          </u-form-item>
+         
           <!-- 银行卡名字 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('bank')}} * </text>
-            </template>
             <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
+              :placeholder="$t('bank') + ' *'"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="bankName"
             >
             </u-input>
           </u-form-item>
           <!-- 银行卡号 -->
           <u-form-item class="register-item">
-            <template #label>
-              <text class="input-label">{{$t('bankNo')}} * </text>
-            </template>
             <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
+              :placeholder="$t('bankNo') + ' *'"
               clearable
               border="none"
-              v-model="userPhone"
+              v-model="bankCard"
+            >
+            </u-input>
+          </u-form-item>
+           <!-- 工作 -->
+           <u-form-item class="register-item">
+            <u-input
+              type="password"
+              :placeholder="$t('job')"
+              clearable
+              border="none"
+              v-model="work"
+            ></u-input>
+          </u-form-item>
+          <!-- 省份 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('provinceCity')"
+              clearable
+              border="none"
+              v-model="city"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 区县 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('district')"
+              clearable
+              border="none"
+              v-model="region"
             >
             </u-input>
           </u-form-item>
@@ -231,40 +197,76 @@ import { changetime } from "../plugins/util";
 export default {
   data() {
     return {
-      password: "",
-      userPhone: "",
-      icon: "",
-      show: false,
-      columns: [],
+      phone: "",//手机号，账号
+      loginPwd: "",//密码 登录密码
+      confirmLoginPwd: "",//确认密码
+      realName: "",//姓名
+      gender: "",//性别
+      nationality: "",//国籍
+      birth: "",//出生日期
+      idCard: "", //身份id
+      bankName: "",//银行名称
+      bankCard: "",//银行卡号
+      work: "",//工作
+      city: "",//省份
+      region: "",//区县
       loading: false,
-      confirmLoginPwd: "", //确认登录密码
-      payPwd: "", //支付密码
-      inviteCode: "", //邀请码id
       pickerShow: false,
       dateTime: '',
-      inputTime: "",
+      genderList: [
+        {
+          name: '男',
+          value: 1
+        },
+        {
+          name: '女',
+          value: 2
+        },
+        {
+          name: '未知',
+          value: 3
+        },
+      ],
     };
   },
-  onLoad() {},
+  onLoad() {
+  },
   methods: {
     login() {
-      if (!this.userPhone || this.userPhone.length < 6) {
-        return this.$base.show(this.$t("loginAccount"));
-      } else if (!this.password || this.password.length < 6) {
-        return this.$base.show(this.$t("loginPass"));
-      } else if (this.password != this.confirmLoginPwd) {
-        return this.$base.show(this.$t("twoPwd"));
-      } else if (!this.payPwd || this.payPwd.length < 6) {
-        return this.$base.show(this.$t("payPwd"));
-      } else if (!this.inviteCode || this.inviteCode.length < 6) {
-        return this.$base.show(this.$t("inviteCode"));
-      }
+      if (!this.phone) {
+        return this.$base.show(this.$t("phoneNo") + this.$t("isEmpty"));
+      } else if (!this.loginPwd || this.loginPwd.length < 6) {
+        return this.$base.show(this.$t("password") + this.$t('incorrectFormat'));
+      } else if (this.loginPwd != this.confirmLoginPwd) {
+        return this.$base.show(this.$t("inconsistentTwice"));
+      } else if (!this.realName) {
+        return this.$base.show(this.$t("realName") + this.$t("isEmpty"));
+      } else if (!this.bankCard) {
+        return this.$base.show(this.$t("bankCard") + this.$t("isEmpty"));
+      } else if (!this.bankName) {
+        return this.$base.show(this.$t("bankName") + this.$t("isEmpty"));
+      } else if (!this.birth) {
+        return this.$base.show(this.$t("birth") + this.$t("isEmpty"));
+      } else if (!this.gender) {
+        return this.$base.show(this.$t("gender") + this.$t("isEmpty"));
+      } else if (!this.idCard) {
+        return this.$base.show(this.$t("idCard") + this.$t("isEmpty"));
+      } else if (!this.nationality) {
+        return this.$base.show(this.$t("nationality") + this.$t("isEmpty"));
+      } 
       const DATA_OBJ = {
-        loginPwd: this.password,
-        userName: this.userPhone,
-        confirmLoginPwd: this.confirmLoginPwd,
-        payPwd: this.payPwd,
-        inviteCode: this.inviteCode,
+        bankCard: this.bankCard,
+        bankName: this.bankName,
+        birth: this.birth,
+        city: this.city,
+        gender: this.gender,
+        idCard: this.idCard,
+        loginPwd: this.loginPwd,
+        nationality: this.nationality,
+        phone: this.phone,
+        realName: this.realName,
+        region: this.region,
+        work: this.work,
       };
       this.loading = true;
       this.$api
@@ -275,7 +277,7 @@ export default {
               key: "token",
               data: res.data.token,
               success: function () {
-                uni.switchTab({ url: "/pages/personal" });
+                uni.switchTab({ url: "/pages/index" });
               },
             });
           }
@@ -302,7 +304,7 @@ export default {
       }
     },
     pikerChange(e){
-      this.inputTime = changetime(e.value)
+      this.birth = changetime(e.value)
       this.pickerShow = false
     }
   },
@@ -346,6 +348,15 @@ export default {
   .input-label{
     margin: 0 10rpx;
     color: #6d8aa1;
+  }
+}
+.form-title{
+  margin: 20rpx 0;
+}
+.gender-box{
+  display: flex;
+  .gender-item{
+    flex: 1;
   }
 }
 </style>
