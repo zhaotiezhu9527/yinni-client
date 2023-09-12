@@ -54,6 +54,9 @@
           </view>
         </view>
       </view>
+      <view class="online-service">
+        <image class="online-service-img" src="../static/img/service.png" />
+      </view>
     </view>
   </view>
 </template>
@@ -254,4 +257,28 @@ export default {
       }
     }
   }
+  .online-service{
+    position: fixed;
+    bottom: 40rpx;
+    right: 40rpx;
+    width: 120rpx;
+    height: 120rpx;
+    .online-service-img{
+      width: 120rpx;
+      height: 120rpx;
+      background-color: #eee;
+      border-radius: 120rpx;
+      animation: glow 800ms ease-out infinite alternate;
+    }
+  }
+  @keyframes glow {
+    0% {
+        border-color: #f4001c;
+        box-shadow: 0 0 10px rgba(234, 22, 111, 0.2), inset 0 0 5px rgba(234, 22, 111,.1), 0 0px 0 #f4001c;
+    }
+    100% {
+        border-color: #eb1d34;
+        box-shadow: 0 0 20px rgba(206, 12, 25, 0.6), inset 0 0 10px rgba(206, 12, 25,.4), 0 0px 0 #eb1d34;
+    }
+}
 </style>

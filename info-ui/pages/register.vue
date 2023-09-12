@@ -17,9 +17,10 @@
     <view class="wrap">
       <view class="form">
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
+          <!-- 姓名 -->
           <u-form-item>
             <template #label>
-              <text class="input-label">用户名 * </text>
+              <text class="input-label">{{$t('userName')}} * </text>
             </template>
             <u-input
               type="text"
@@ -30,9 +31,24 @@
             >
             </u-input>
           </u-form-item>
+          <!-- 手机号 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">城市 * </text>
+              <text class="input-label">{{$t('phoneNo')}} * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 密码 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('password')}} * </text>
             </template>
             <u-input
               type="password"
@@ -42,21 +58,51 @@
               v-model="password"
             ></u-input>
           </u-form-item>
+          <!-- 确认密码 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">城市 * </text>
+              <text class="input-label">{{$t('confirmPwd')}} * </text>
             </template>
             <u-input
               type="password"
-              :placeholder="$t('confirmLoginPwd')"
+              :placeholder="$t('loginPass')"
               clearable
               border="none"
-              v-model="confirmLoginPwd"
+              v-model="password"
             ></u-input>
           </u-form-item>
+          <!-- 性别 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">出生日期 * </text>
+              <text class="input-label">{{$t('sex')}} * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 国籍 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('nationality')}} * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 出生日期 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('birth')}} * </text>
             </template>
             <u-input
               type="text"
@@ -69,9 +115,36 @@
               @focus="pickerShow = true"
             ></u-input>
           </u-form-item>
+          <!-- 身份id 护照 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">身份证号 * </text>
+              <text class="input-label">{{$t('cardID')}} * </text>
+            </template>
+            <u-input
+              type="password"
+              :placeholder="$t('confirmLoginPwd')"
+              clearable
+              border="none"
+              v-model="confirmLoginPwd"
+            ></u-input>
+          </u-form-item>
+          <!-- 工作 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('job')}} </text>
+            </template>
+            <u-input
+              type="password"
+              :placeholder="$t('confirmLoginPwd')"
+              clearable
+              border="none"
+              v-model="confirmLoginPwd"
+            ></u-input>
+          </u-form-item>
+          <!-- 省份 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('provinceCity')}} * </text>
             </template>
             <u-input
               type="text"
@@ -82,9 +155,10 @@
             >
             </u-input>
           </u-form-item>
+          <!-- 区县 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">身份证号1 * </text>
+              <text class="input-label">{{$t('district')}} * </text>
             </template>
             <u-input
               type="text"
@@ -95,9 +169,24 @@
             >
             </u-input>
           </u-form-item>
+          <!-- 银行卡名字 -->
           <u-form-item class="register-item">
             <template #label>
-              <text class="input-label">身份证号2 * </text>
+              <text class="input-label">{{$t('bank')}} * </text>
+            </template>
+            <u-input
+              type="text"
+              :placeholder="$t('registerAccount')"
+              clearable
+              border="none"
+              v-model="userPhone"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 银行卡号 -->
+          <u-form-item class="register-item">
+            <template #label>
+              <text class="input-label">{{$t('bankNo')}} * </text>
             </template>
             <u-input
               type="text"

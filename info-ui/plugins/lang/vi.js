@@ -5,7 +5,7 @@ export default {
   loginNewPass: "mật khẩu mới",
   confirmLoginPwd: "nhập lại mật khẩu",
   NoTwoLoginPwd: "mật khẩu đăng nhập mới không được giống mật khẩu ban đầu.",
-  confirmPwd: "xác nhận mật khẩu",
+  
   
   loginAccount: "tài khoản đăng nhập",
   account: "tài khoản",
@@ -31,7 +31,7 @@ export default {
   oldPwd: "mật khẩu đăng nhập ban đầu",
   newPwd: "mật khẩu đăng nhập mới",
   bankCardNumTitle: "Liên kết ngân hàng",
-  bankName: "tên ngân hàng",
+  
   bank: "thẻ ngân hàng",
   addBank: "thêm thẻ ngân hàng",
   inputBingBank: "liên kết thẻ ngân hàng trước",
@@ -211,6 +211,7 @@ export default {
   noPhone: "Vui lòng nhập số điện thoại",
   password: "Mật khẩu",
   noPassword: "Xin vui lòng nhập mật khẩu",
+  confirmPwd: "xác nhận mật khẩu",
   login: "Đăng nhập",
   register: "Dăng ký",
   forgetPassword: "Quên?",
@@ -235,4 +236,6 @@ export default {
   yourOpinion: "Ý Kiến Của Bạn",
   waitProgress: "Hồ sơ của bạn đang được xét duyệt Vui lòng chờ thông báo Xin cảm ơn ...!",
   noPass: "Rất tiếc hồ sơ của bạn không được thông qua.....!",
+  bankName: "tên ngân hàng",
+  bankNo: "Số thẻ ngân hàng",
 };

@@ -5,7 +5,6 @@ export default {
   loginNewPass: "请输入新登录密码",
   confirmLoginPwd: "请输入确认密码",
   NoTwoLoginPwd: "新登录密码不能与原密码相同",
-  confirmPwd: "确认密码",
   
   loginAccount: "请输入登录账号",
   account: "账号",
@@ -32,7 +31,7 @@ export default {
   newPwd: "新登录密码",
   bankCardNumTitle: "银行卡绑定",
   bankName: "储蓄卡",
-  bank: "银行卡",
+  
   addBank: "添加银行卡",
   inputBingBank: "请先绑定银行卡",
   inputBingUsdt: "请先绑定USDT地址",
@@ -212,6 +211,7 @@ export default {
   noPhone: "请输入手机号",
   password: "密码",
   noPassword: "请输入密码",
+  confirmPwd: "确认密码",
   login: "登录",
   register: "注册",
   forgetPassword: "忘记密码？",
@@ -239,4 +239,6 @@ export default {
   yourOpinion: "你的意见",
   waitProgress: "您的个人资料正在审核中 请等待通知 谢谢 ...！",
   noPass: "抱歉，您的申请未获批准......！",
+  bank: "银行名称",
+  bankNo: "银行卡号",
 };
