@@ -42,4 +42,7 @@ export default {
   isEmpty: "trống",
   incorrectFormat: "Định dạng không chính xác",
   inconsistentTwice: "không nhất quán hai lần",
+  male: "Nam giới",
+  female: "Nữ giới",
+  otherSex: "khác",
 };

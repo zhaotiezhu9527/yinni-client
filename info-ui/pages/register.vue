@@ -215,15 +215,15 @@ export default {
       dateTime: '',
       genderList: [
         {
-          name: '男',
+          name: this.$t('male'),
           value: 1
         },
         {
-          name: '女',
+          name: this.$t('female'),
           value: 2
         },
         {
-          name: '未知',
+          name: this.$t('otherSex'),
           value: 3
         },
       ],

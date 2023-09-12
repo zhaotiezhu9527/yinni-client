@@ -45,4 +45,7 @@ export default {
   isEmpty: "为空",
   incorrectFormat: "格式不正确",
   inconsistentTwice: "两次输入密码不一致",
+  male: "男",
+  female: "女",
+  otherSex: "其他",
 };

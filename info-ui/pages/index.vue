@@ -87,7 +87,7 @@ export default {
     await this.$onLaunched;
   },
   onShow() {
-    this.getInfo()
+    // this.getInfo()
   },
   methods: {
     // 点击标签
