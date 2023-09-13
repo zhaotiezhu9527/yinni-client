@@ -68,4 +68,5 @@ export default {
   confirmText: "Có",
   cancelText: "Không",
   verificationCode: "Mã xác nhận",
+  chooseType: "Chọn một loại",
 };

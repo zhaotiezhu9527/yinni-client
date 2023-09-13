@@ -47,7 +47,7 @@
             </view>
           </view>
         </view>
-        <view class="welf-title margin-top10">
+        <view class="welf-title margin-top10 border1" @click="active = 1" :class="active == 1 ? 'active' : ''">
           <view class="wlef-img">
             <image class="wlef-image" src="../static/img/money.png" />
           </view>
@@ -58,7 +58,7 @@
             </view>
           </view>
         </view>
-        <view class="welf-title margin-top10">
+        <view class="welf-title margin-top10 border1" @click="active = 2" :class="active == 2 ? 'active' : ''">
           <view class="wlef-img">
             <image class="wlef-image" src="../static/img/money.png" />
           </view>
@@ -69,7 +69,7 @@
             </view>
           </view>
         </view>
-        <view class="welf-title margin-top10">
+        <view class="welf-title margin-top10 border1" @click="active = 3" :class="active == 3 ? 'active' : ''">
           <view class="wlef-img">
             <image class="wlef-image" src="../static/img/money.png" />
           </view>
@@ -92,6 +92,7 @@
 export default {
   data() {
     return {
+      active: "",
     };
   },
   onShow() {
@@ -99,7 +100,14 @@ export default {
   },
   methods: {
     opinionApply(){
-      this.$api.opinion_apply().then(({ data }) => {
+      if(!this.active){
+        return this.$base.show(this.$t('chooseType'));
+      }
+      this.$api.opinion_apply(
+        {
+          id: this.active,
+        }
+      ).then(({ data }) => {
         if (data.code == 0) {
           this.$base.show(data.msg);
         }
@@ -123,6 +131,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10rpx;
+    padding: 10rpx;
     .wlef-img{
       width: 80rpx;
       height: 80rpx;
@@ -141,6 +151,12 @@ export default {
       .wlef-text-grey{
         color: #999;
         font-size: 24rpx;
+      }
+    }
+    &.active{
+      background-color: #4779fa;
+      .wlef-text-black{
+        color: #fff;
       }
     }
   }

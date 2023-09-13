@@ -70,4 +70,5 @@ export default {
   confirmText: "确定",
   cancelText: "取消",
   verificationCode: "验证码",
+  chooseType: "请选择类型",
 };

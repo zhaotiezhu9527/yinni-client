@@ -33,7 +33,7 @@
         <view class="title margin-top10">
           {{$t('communitysupport')}}
         </view>
-        <view class="welf-title margin-top10">
+        <view class="welf-title margin-top10 border1" @click="active = 4" :class="active == 4 ? 'active' : ''">
           <view class="wlef-img">
             <image class="wlef-image" src="../static/img/sos.png" />
           </view>
@@ -47,7 +47,7 @@
             </view>
           </view>
         </view>
-        <view class="welf-title margin-top10">
+        <view class="welf-title margin-top10 border1" @click="active = 5" :class="active == 5 ? 'active' : ''">
           <view class="wlef-img">
             <image class="wlef-image" src="../static/img/redCross.png" />
           </view>
@@ -72,13 +72,25 @@
 export default {
   data() {
     return {
+      active: "",
     };
   },
   onShow() {
   },
   methods: {
     opinionApply(){
-      this.$base.show(this.$t('waitProgress'));
+      if(!this.active){
+        return this.$base.show(this.$t('chooseType'));
+      }
+      this.$api.opinion_apply(
+        {
+          id: this.active,
+        }
+      ).then(({ data }) => {
+        if (data.code == 0) {
+          this.$base.show(data.msg);
+        }
+      });
     }
   },
 };
@@ -98,6 +110,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10rpx;
+    padding: 10rpx;
     .wlef-img{
       width: 80rpx;
       height: 80rpx;
@@ -116,6 +130,12 @@ export default {
       .wlef-text-grey{
         color: #999;
         font-size: 24rpx;
+      }
+    }
+    &.active{
+      background-color: #4779fa;
+      .wlef-text-black{
+        color: #fff;
       }
     }
   }
