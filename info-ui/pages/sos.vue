@@ -25,58 +25,38 @@
           </view>
           <view class="wlef-text">
             <view class="wlef-text-black">
-              {{$t('HealthBag')}}
+              {{$t('medicalSupport')}}
+              
+            </view>
+          </view>
+        </view>
+        <view class="title margin-top10">
+          {{$t('communitysupport')}}
+        </view>
+        <view class="welf-title margin-top10">
+          <view class="wlef-img">
+            <image class="wlef-image" src="../static/img/sos.png" />
+          </view>
+          <view class="wlef-text">
+            <view class="wlef-text-black">
+              {{$t('SoSEmergency')}}
               
             </view>
             <view class="wlef-text-grey">
-              {{$t('Neccessary')}}
-            </view>
-          </view>
-        </view>
-        <view class="welf-title margin-top40">
-          <view class="wlef-img">
-            <image class="wlef-image" src="../static/img/money.png" />
-          </view>
-          <view class="wlef-text">
-            <view class="wlef-text-black">
-              {{$t('Cash')}}
-              
-            </view>
-            <view class="wlef-text-black">
-              {{$t('welfarePackageBack')}}
+              {{$t('firstAid')}}
             </view>
           </view>
         </view>
         <view class="welf-title margin-top10">
           <view class="wlef-img">
-            <image class="wlef-image" src="../static/img/money.png" />
+            <image class="wlef-image" src="../static/img/redCross.png" />
           </view>
           <view class="wlef-text">
             <view class="wlef-text-black">
-              {{$t('firstWelfare')}}1
-              
+              {{$t('MedicalAssistance')}}
             </view>
-          </view>
-        </view>
-        <view class="welf-title margin-top10">
-          <view class="wlef-img">
-            <image class="wlef-image" src="../static/img/money.png" />
-          </view>
-          <view class="wlef-text">
-            <view class="wlef-text-black">
-              {{$t('firstWelfare')}}2
-              
-            </view>
-          </view>
-        </view>
-        <view class="welf-title margin-top10">
-          <view class="wlef-img">
-            <image class="wlef-image" src="../static/img/money.png" />
-          </view>
-          <view class="wlef-text">
-            <view class="wlef-text-black">
-              {{$t('firstWelfare')}}3
-              
+            <view class="wlef-text-grey">
+              {{$t('MedicalAdvice')}}
             </view>
           </view>
         </view>
@@ -95,15 +75,10 @@ export default {
     };
   },
   onShow() {
-    // this.systemFn()
   },
   methods: {
     opinionApply(){
-      this.$api.opinion_apply().then(({ data }) => {
-        if (data.code == 0) {
-          this.$base.show(data.msg);
-        }
-      });
+      this.$base.show(this.$t('waitProgress'));
     }
   },
 };
