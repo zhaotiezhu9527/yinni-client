@@ -69,4 +69,5 @@ export default {
   download: "有最新版本，是否下载",
   confirmText: "确定",
   cancelText: "取消",
+  verificationCode: "验证码",
 };

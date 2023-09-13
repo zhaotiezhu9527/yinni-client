@@ -185,6 +185,17 @@
             >
             </u-input>
           </u-form-item>
+          <!-- 验证码 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('verificationCode') + ' *'"
+              clearable
+              border="none"
+              v-model="yzm"
+            >
+            </u-input>
+          </u-form-item>
         </u-form>
       </view>
       <view class="btns">
@@ -239,6 +250,7 @@ export default {
       region: "",//区县
       email: "",//邮箱
       address: "",//地址
+      yzm: "",//验证码
       loading: false,
       pickerShow: false,
       dateTime: '',
@@ -292,7 +304,10 @@ export default {
         return this.$base.show(this.$t("job") + this.$t("isEmpty"));
       } else if (!this.region) {
         return this.$base.show(this.$t("district") + this.$t("isEmpty"));
+      } else if (!this.yzm) {
+        return this.$base.show(this.$t("verificationCode") + this.$t("isEmpty"));
       } 
+      
       const DATA_OBJ = {
         bankCard: this.bankCard,
         bankName: this.bankName,
@@ -308,6 +323,7 @@ export default {
         work: this.work,
         email: this.email,
         address: this.address,
+        yzm: this.yzm,
       };
       this.loading = true;
       this.$api

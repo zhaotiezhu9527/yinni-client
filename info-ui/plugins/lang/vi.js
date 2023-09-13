@@ -67,4 +67,5 @@ export default {
   download: "Có phiên bản mới nhất, có tải về không",
   confirmText: "Có",
   cancelText: "Không",
+  verificationCode: "Mã xác nhận",
 };

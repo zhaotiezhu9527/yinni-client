@@ -28,7 +28,6 @@
           <view class="form-title">{{ $t('userName') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.realName"
@@ -41,7 +40,6 @@
           <view class="form-title">{{ $t('birth') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.birth"
@@ -70,7 +68,6 @@
           <view class="form-title">{{ $t('phoneNo') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.phone"
@@ -83,7 +80,6 @@
           <view class="form-title">{{ $t('cardID') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.idCard"
@@ -96,7 +92,6 @@
           <view class="form-title">{{ $t('email') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.email"
@@ -109,7 +104,6 @@
           <view class="form-title">{{ $t('provinceCity') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.city"
@@ -122,7 +116,6 @@
           <view class="form-title">{{ $t('district') }} <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.region"
@@ -135,7 +128,6 @@
           <view class="form-title">{{ $t('address') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
-              :placeholder="$t('registerAccount')"
               clearable
               border="surround"
               v-model="userData.address"
