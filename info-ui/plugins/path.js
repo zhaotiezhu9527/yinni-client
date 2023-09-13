@@ -22,5 +22,7 @@ const home = [
   { path: "/pages/information" },
   { path: "/pages/welfare" },
   { path: "/pages/sos" },
+  { path: "/pages/onlineService" },
+  
 ];
 export default home;

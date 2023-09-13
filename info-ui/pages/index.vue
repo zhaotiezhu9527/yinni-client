@@ -57,7 +57,7 @@
           </view>
         </view>
       </view>
-      <view class="online-service">
+      <view class="online-service" @click="goService">
         <image class="online-service-img" src="../static/img/service.png" />
       </view>
     </view>
@@ -121,6 +121,12 @@ export default {
     goSos(){
       uni.navigateTo({
         url: "/pages/sos",
+      });
+    },
+    // 跳转客服
+    goService(){
+      uni.navigateTo({
+        url: "/pages/onlineService",
       });
     }
   },

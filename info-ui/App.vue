@@ -1,22 +1,22 @@
 <script>
 export default {
   onLaunch: function () {
-    // let token = uni.getStorageSync("token");
-    // if (token) {
-    //   this.$api.user_info().then(({ data }) => {
-    //     if (data.code == 0) {
-    //       uni.setStorage({
-    //         key: "infos",
-    //         data: data.data,
-    //         success: () => {
-    //           this.systemFn();
-    //         },
-    //       });
-    //     }
-    //   });
-    // } else {
-    //   this.systemFn();
-    // }
+    let token = uni.getStorageSync("token");
+    if (token) {
+      this.$api.user_info().then(({ data }) => {
+        if (data.code == 0) {
+          uni.setStorage({
+            key: "infos",
+            data: data.data,
+            success: () => {
+              this.systemFn();
+            },
+          });
+        }
+      });
+    } else {
+      this.systemFn();
+    }
   },
   methods: {
     systemFn() {

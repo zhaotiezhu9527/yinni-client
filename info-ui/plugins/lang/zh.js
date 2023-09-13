@@ -64,4 +64,9 @@ export default {
   Cash: "现金",
   welfarePackageBack: "领取福利包回来",
   firstWelfare: "要求收回福利包",
+  service: "在线客服",
+  tips: "提示",
+  download: "有最新版本，是否下载",
+  confirmText: "确定",
+  cancelText: "取消",
 };

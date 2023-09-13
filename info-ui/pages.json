@@ -45,6 +45,9 @@
     },
     {
       "path": "pages/sos"
+    },
+    {
+      "path": "pages/onlineService"
     }
   ],
   // "tabBar": {

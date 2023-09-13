@@ -28,6 +28,7 @@ export default {
   welfarePackage: "Đăng Ký Nhận Gói An Sinh",
   assistance: "Hỗ Trợ Y Tế Khẩn Cấp",
   handbook: "Cẩm Nang",
+  noData: "Xin lỗi, chưa có dữ liệu để hiển thị",
   noMessage: "Rất tiếc chưa có thông tin của bạn trên hệ thống hộ chiếu vắc xin . Vui lòng kiểm tra và khai báo thông tin chính xác với giấy chứng nhận tiêm",
   confirmText: "Xác Nhận",
   vaccinationRegistration: "Đăng Ký Tiêm Chủng",
@@ -61,4 +62,9 @@ export default {
   Cash: "Tiền mặt",
   welfarePackageBack: "Nhận lại gói an sinh",
   firstWelfare: "Yêu cầu nhận lại gói an sinh lần",
+  service: "CSKH",
+  tips: "Gợi ý",
+  download: "Có phiên bản mới nhất, có tải về không",
+  confirmText: "Có",
+  cancelText: "Không",
 };

@@ -96,7 +96,7 @@
           >
           {{ $t("register") }}
           </u-button>
-          <view class="register" @click="register">
+          <view class="register" @click="goService">
             {{$t('forgetPassword')}}
           </view>
         </view>
@@ -153,6 +153,12 @@ export default {
           this.loading = false;
         });
     },
+    // 跳转客服
+    goService(){
+      uni.navigateTo({
+        url: "/pages/onlineService",
+      });
+    }
   },
 };
 </script>
