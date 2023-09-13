@@ -23,9 +23,9 @@
         <view class="text-box">
           {{$t('noData')}}
         </view>
-        <view class="btn-box">
+        <!-- <view class="btn-box">
           {{$t('vaccinationRegistration')}}
-        </view>
+        </view> -->
       </view>
     </view>
   </view>

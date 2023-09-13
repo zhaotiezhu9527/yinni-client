@@ -19,13 +19,13 @@
         <view class="kongbai">
           <view class="opinion-text">{{$t('yourOpinion')}}：</view>
           <view>
-            <textarea class="opinion-textarea" v-model="value1"></textarea>
+            <textarea class="opinion-textarea" v-model="content"></textarea>
           </view>
         </view>
         <view class="img-box">
-          <image class="img" src="../static/img/construction.jpeg" />
+          <!-- <image class="img" src="../static/img/construction.jpeg" /> -->
         </view>
-        <view class="btn-box">
+        <view class="btn-box" @click="changeApply">
           {{$t('confirmText')}}
         </view>
       </view>
@@ -37,18 +37,19 @@
 export default {
   data() {
     return {
-      config: {}, //配置
-      value1: '11111'
+      content: ''
     };
   },
   onShow() {
-    // this.systemFn()
   },
   methods: {
-    systemFn(){
-      this.$api.system_config().then(({ data }) => {
+    changeApply(){
+      this.$api.apply({
+        content: this.content
+      }).then(({ data }) => {
         if (data.code == 0) {
-          this.config = data.data
+          this.content = ""
+          this.$base.show(data.msg);
         }
       });
     }

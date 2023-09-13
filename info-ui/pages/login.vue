@@ -93,7 +93,6 @@
             color="linear-gradient(to right, #0382c7,#11a9c6,#7966f3)"
             block
             @click="register"
-            :loading="loading"
           >
           {{ $t("register") }}
           </u-button>

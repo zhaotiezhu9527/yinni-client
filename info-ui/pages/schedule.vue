@@ -20,7 +20,16 @@
         <view class="img-box">
           <image class="img" src="../static/img/construction.jpeg" />
         </view>
-        <view class="text-box">
+        <view class="text-box" v-if="status === 0">
+          {{$t('waitProgress')}}
+        </view>
+        <view class="text-box" v-else-if="status === -1">
+          {{$t('noPass')}}
+        </view>
+        <view class="text-box" v-else-if="status === 2">
+          {{$t('noPass')}}
+        </view>
+        <view class="text-box" v-else-if="status === 1">
           {{$t('waitProgress')}}
         </view>
       </view>
@@ -32,17 +41,17 @@
 export default {
   data() {
     return {
-      config: {}, //配置
+      status: {}, //状态
     };
   },
   onShow() {
-    // this.systemFn()
+    this.getData()
   },
   methods: {
-    systemFn(){
-      this.$api.system_config().then(({ data }) => {
+    getData(){
+      this.$api.schedule().then(({ data }) => {
         if (data.code == 0) {
-          this.config = data.data
+          this.status = data.status
         }
       });
     }

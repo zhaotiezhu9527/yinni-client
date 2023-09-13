@@ -20,5 +20,7 @@ const home = [
   { path: "/pages/schedule" },
   { path: "/pages/reserve" },
   { path: "/pages/information" },
+  { path: "/pages/welfare" },
+  { path: "/pages/sos" },
 ];
 export default home;

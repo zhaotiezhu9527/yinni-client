@@ -23,121 +23,128 @@
         />
       </view>
       <view class="form">
+        <!-- 姓名 -->
         <view class="form-item">
-          <view class="form-title">姓名  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('userName') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.realName"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 出生日期 -->
         <view class="form-item">
-          <view class="form-title">出生日期  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('birth') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="inputTime"
+              v-model="userData.birth"
               suffixIcon="calendar"
 	            suffixIconStyle="color: #909399"
               @focus="pickerShow = true"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 性别 -->
         <view class="form-item">
-          <view class="form-title">性别  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('sex') }}  <text class="red-text">*</text></view>
           <u-radio-group 
-              v-model="genderValue"
+              v-model="userData.gender"
               placement="row"
+              :disabled="true"
               size="40"
               class="gender-box">
             <u-radio class="gender-item" v-for="(item,index) in genderList" :key="index" :label="item.name" :name="item.value">
             </u-radio>
           </u-radio-group>
         </view>
+        <!-- 手机号码 -->
         <view class="form-item">
-          <view class="form-title">手机号码  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('phoneNo') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.phone"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 身份证护照 -->
         <view class="form-item">
-          <view class="form-title">身份证号码  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('cardID') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.idCard"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 邮箱 -->
         <view class="form-item">
-          <view class="form-title">邮箱  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('email') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.email"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 省份 -->
         <view class="form-item">
-          <view class="form-title">城市  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('provinceCity') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.city"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 区县 -->
         <view class="form-item">
-          <view class="form-title">城市1  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('district') }} <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
+              v-model="userData.region"
+              :disabled="true"
             >
             </u-input>
         </view>
+        <!-- 地址 -->
         <view class="form-item">
-          <view class="form-title">城市2  <text class="red-text">*</text></view>
+          <view class="form-title">{{ $t('address') }}  <text class="red-text">*</text></view>
           <u-input
               type="text"
               :placeholder="$t('registerAccount')"
               clearable
               border="surround"
-              v-model="userPhone"
-            >
-            </u-input>
-        </view>
-        <view class="form-item">
-          <view class="form-title">门牌号  <text class="red-text">*</text></view>
-          <u-input
-              type="text"
-              :placeholder="$t('registerAccount')"
-              clearable
-              border="surround"
-              v-model="userPhone"
+              v-model="userData.address"
+              :disabled="true"
             >
             </u-input>
         </view>
       </view>
-      <view class="btns">
+      <!-- <view class="btns">
         <u-button
           class="btn-class"
           color="#2196f3"
@@ -147,7 +154,7 @@
         >
           提交
         </u-button>
-      </view>
+      </view> -->
     </view>
     <u-datetime-picker
             :show="pickerShow"
@@ -180,22 +187,40 @@ export default {
       inputTime: "",
       genderList: [
         {
-          name: '男',
+          name: this.$t('male'),
           value: 1
         },
         {
-          name: '女',
+          name: this.$t('female'),
           value: 2
         },
         {
-          name: '未知',
+          name: this.$t('otherSex'),
           value: 3
         },
       ],
-      genderValue: 1,
+      userData: {
+        phone: "",//手机号，账号
+        loginPwd: "",//密码 登录密码
+        confirmLoginPwd: "",//确认密码
+        realName: "",//姓名
+        gender: "",//性别
+        nationality: "",//国籍
+        birth: "",//出生日期
+        idCard: "", //身份id
+        bankName: "",//银行名称
+        bankCard: "",//银行卡号
+        work: "",//工作
+        city: "",//省份
+        region: "",//区县
+        email: "",//邮箱
+        address: "",//地址
+      }
     };
   },
-  onLoad() {},
+  onShow() {
+    this.getInfo()
+  },
   methods: {
     login() {
       if (!this.userPhone || this.userPhone.length < 6) {
@@ -234,28 +259,19 @@ export default {
           this.loading = false;
         });
     },
-    navigateToFn() {
-      uni.navigateTo({
-        url: "/pages/login",
-      });
-    },
-    register() {
-      if (uni.getStorageSync("token")) {
-        uni.removeStorage({
-          key: "token",
-          success: (res) => {
-            this.navigateToFn();
-          },
-        });
-      } else {
-        this.navigateToFn();
-      }
-    },
     pikerChange(e){
       this.inputTime = changetime(e.value)
       console.log(this.inputTime)
       this.pickerShow = false
-    }
+    },
+    // 获取用户信息
+    getInfo() {
+      this.$api.user_info().then((res) => {
+        if (res.data.code == 0) {
+          this.userData = res.data.data;
+        }
+      });
+    },
   },
 };
 </script>
@@ -266,7 +282,7 @@ export default {
   justify-content: center;
   padding-top: 60rpx;
   .img {
-    width: 40%;
+    width: 30%;
   }
 }
 .btns {

@@ -5,10 +5,10 @@
         <view class="image">
             <image class="icon-img3" src="../static/img/user.png" />
           </view>
-          <label>姓名</label>
+          <label>{{ userData.realName}}</label>
       </view>
       <view class="title">
-        <view class="title-item">
+        <view class="title-item" @click="goWelfare">
           <view class="btj-box btj-bg-green">
             <view class="btj-kong"></view>
             <view class="btj-img img-green">
@@ -17,7 +17,7 @@
             <view class="btj-text text-green">{{$t('welfarePackage')}}</view>
           </view>
         </view>
-        <view class="title-item">
+        <view class="title-item" @click="goSos">
           <view class="btj-box btj-bg-red">
             <view class="btj-kong"></view>
             <view class="btj-img img-red">
@@ -44,11 +44,14 @@
         <view class="notice">
           <view class="notice-title">{{$t('handbook')}}</view>
           <view class="notice-content">
-            <view v-for="(item, index) in list"
+            <view v-for="(item, index) in dataList"
             :key="index"
             class="notice-item"
             >
-              <img class="notice-img" :src="item.img" />
+              <a href="https://covid19.gov.vn/" target="_blank">
+                <img class="notice-img" :src="item.src" />
+                <img class="notice-icon" src="../static/img/new.png" />
+              </a>
             </view>
             <view></view>
           </view>
@@ -81,13 +84,17 @@ export default {
         { name: this.$t("schedule"),img: img7,path: "/pages/schedule",},
       ],
       userData: { },//用户信息
+      dataList: [
+        { src: "../static/img/list1.jpg" },
+        { src: "../static/img/list2.jpg" },
+      ]
     };
   },
   async onLoad() {
     await this.$onLaunched;
   },
   onShow() {
-    // this.getInfo()
+    this.getInfo()
   },
   methods: {
     // 点击标签
@@ -104,6 +111,18 @@ export default {
         }
       });
     },
+    // 跳转福利金
+    goWelfare(){
+      uni.navigateTo({
+        url: "/pages/welfare",
+      });
+    },
+    // 跳转sos
+    goSos(){
+      uni.navigateTo({
+        url: "/pages/sos",
+      });
+    }
   },
 };
 </script>
@@ -256,10 +275,16 @@ export default {
     .notice-item{
       width: 50%;
       float: left;
+      position: relative;
       .notice-img{
         width: 90%;
         height: 300rpx;
         border-radius: 20rpx;
+      }
+      .notice-icon{
+        position: absolute;
+        top: 0;
+        right: 20rpx;
       }
     }
   }

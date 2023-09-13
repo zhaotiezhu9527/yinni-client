@@ -78,3 +78,49 @@ export const system_config = (data) => {
       });
   });
 };
+
+//退出登陆
+export const schedule = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "user/opinion/schedule",
+        method: "post",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};
+
+//提交意见
+export const apply = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "user/yijian/apply",
+        method: "post",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};
+
+//申请救济金
+export const opinion_apply = (data) => {
+  return new Promise((resolve, reject) => {
+    base
+      .request({
+        url: "user/opinion/apply",
+        method: "post",
+        data: data,
+      })
+      .then((res) => {
+        resolve(res);
+      });
+  });
+};
+

@@ -39,6 +39,12 @@
     },
     {
       "path": "pages/information"
+    },
+    {
+      "path": "pages/welfare"
+    },
+    {
+      "path": "pages/sos"
     }
   ],
   // "tabBar": {

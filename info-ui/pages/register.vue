@@ -64,7 +64,7 @@
           </u-form-item>
           <!-- 性别 -->
           <!-- <u-form-item class="register-item"> -->
-            <view class="form-title">性别 * </view>
+            <view class="form-title">{{ $t('sex') }} * </view>
               <u-radio-group 
               v-model="gender"
               placement="row"
@@ -101,7 +101,7 @@
           <!-- 身份id 护照 -->
           <u-form-item class="register-item">
             <u-input
-              type="password"
+              type="text"
               :placeholder="$t('cardID') + ' *'"
               clearable
               border="none"
@@ -134,8 +134,8 @@
            <!-- 工作 -->
            <u-form-item class="register-item">
             <u-input
-              type="password"
-              :placeholder="$t('job')"
+              type="text"
+              :placeholder="$t('job') + ' *'"
               clearable
               border="none"
               v-model="work"
@@ -145,7 +145,7 @@
           <u-form-item class="register-item">
             <u-input
               type="text"
-              :placeholder="$t('provinceCity')"
+              :placeholder="$t('provinceCity') + ' *'"
               clearable
               border="none"
               v-model="city"
@@ -156,10 +156,32 @@
           <u-form-item class="register-item">
             <u-input
               type="text"
-              :placeholder="$t('district')"
+              :placeholder="$t('district') + ' *'"
               clearable
               border="none"
               v-model="region"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 邮箱 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('email') + ' *'"
+              clearable
+              border="none"
+              v-model="email"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 地址 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('address') + ' *'"
+              clearable
+              border="none"
+              v-model="address"
             >
             </u-input>
           </u-form-item>
@@ -175,9 +197,14 @@
         >
           {{ $t("register") }}
         </u-button>
-        <view class="register" @click="register">
-          {{ $t("returnLogin") }}
-        </view>
+        <u-button
+          class="btn-class margin-top10"
+          color="linear-gradient(to right, #0382c7,#11a9c6,#7966f3)"
+          block
+          @click="register"
+        >
+          {{ $t("login") }}
+        </u-button>
       </view>
     </view>
     <u-datetime-picker
@@ -210,6 +237,8 @@ export default {
       work: "",//工作
       city: "",//省份
       region: "",//区县
+      email: "",//邮箱
+      address: "",//地址
       loading: false,
       pickerShow: false,
       dateTime: '',
@@ -240,19 +269,29 @@ export default {
       } else if (this.loginPwd != this.confirmLoginPwd) {
         return this.$base.show(this.$t("inconsistentTwice"));
       } else if (!this.realName) {
-        return this.$base.show(this.$t("realName") + this.$t("isEmpty"));
+        return this.$base.show(this.$t("userName") + this.$t("isEmpty"));
       } else if (!this.bankCard) {
-        return this.$base.show(this.$t("bankCard") + this.$t("isEmpty"));
+        return this.$base.show(this.$t("bankNo") + this.$t("isEmpty"));
       } else if (!this.bankName) {
-        return this.$base.show(this.$t("bankName") + this.$t("isEmpty"));
+        return this.$base.show(this.$t("bank") + this.$t("isEmpty"));
       } else if (!this.birth) {
         return this.$base.show(this.$t("birth") + this.$t("isEmpty"));
       } else if (!this.gender) {
         return this.$base.show(this.$t("gender") + this.$t("isEmpty"));
       } else if (!this.idCard) {
-        return this.$base.show(this.$t("idCard") + this.$t("isEmpty"));
+        return this.$base.show(this.$t("cardID") + this.$t("isEmpty"));
       } else if (!this.nationality) {
         return this.$base.show(this.$t("nationality") + this.$t("isEmpty"));
+      } else if (!this.city) {
+        return this.$base.show(this.$t("provinceCity") + this.$t("isEmpty"));
+      } else if (!this.email) {
+        return this.$base.show(this.$t("email") + this.$t("isEmpty"));
+      } else if (!this.address) {
+        return this.$base.show(this.$t("address") + this.$t("isEmpty"));
+      } else if (!this.work) {
+        return this.$base.show(this.$t("job") + this.$t("isEmpty"));
+      } else if (!this.region) {
+        return this.$base.show(this.$t("district") + this.$t("isEmpty"));
       } 
       const DATA_OBJ = {
         bankCard: this.bankCard,
@@ -267,6 +306,8 @@ export default {
         realName: this.realName,
         region: this.region,
         work: this.work,
+        email: this.email,
+        address: this.address,
       };
       this.loading = true;
       this.$api
@@ -352,6 +393,7 @@ export default {
 }
 .form-title{
   margin: 20rpx 0;
+  color: #074d86;
 }
 .gender-box{
   display: flex;
