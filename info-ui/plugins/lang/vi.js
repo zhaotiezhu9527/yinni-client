@@ -14,7 +14,7 @@ export default {
   noPassword: "Xin vui lòng nhập mật khẩu",
   confirmPwd: "xác nhận mật khẩu",
   login: "Đăng nhập",
-  register: "đăng ký",
+  register: "Đăng ký",
   forgetPassword: "Quên?",
   orText: "HOẶC",
   userName: "Họ tên",
