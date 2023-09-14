@@ -35,7 +35,6 @@ export default {
   search: "搜索",
   hoChiMinh: "胡志明",
   medicalList: "医疗设施一览",
-  welfarePackage: "报名领取福利包",
   yourOpinion: "你的意见",
   waitProgress: "您的个人资料正在审核中 请等待通知 谢谢 ...！",
   noPass: "抱歉，您的申请未获批准......！",
