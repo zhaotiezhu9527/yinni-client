@@ -94,7 +94,7 @@ export default {
     //   this.$base.show("登录已过期~");
     // }
     if (!token && !route.includes(path)) {
-      this.$base.show("登录已过期~");
+      // this.$base.show("登录已过期~");
       uni.removeStorage({
         key: "token",
         success: (res) => {
