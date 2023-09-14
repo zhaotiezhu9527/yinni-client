@@ -1,15 +1,14 @@
 <template>
   <view class="page">
     <u-navbar
-      placeholder
+    placeholder
       :title="$t('register')"
       :border="false"
       autoBack
       fixed
+      leftIconSize="0"
       safe-area-inset-top
       class="linear"
-      leftIconColor="#fff"
-      leftIconSize="32"
       height="52px"
       titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
     >
@@ -25,7 +24,6 @@
             <u-input
               type="text"
               :placeholder="$t('userName') + ' *'"
-              clearable
               border="none"
               v-model="realName"
             >
@@ -36,7 +34,6 @@
             <u-input
               type="text"
               :placeholder="$t('phoneNo') + ' *'"
-              clearable
               border="none"
               v-model="phone"
             >
@@ -47,7 +44,6 @@
             <u-input
               type="password"
               :placeholder="$t('password') + ' *'"
-              clearable
               border="none"
               v-model="loginPwd"
             ></u-input>
@@ -57,7 +53,6 @@
             <u-input
               type="password"
               :placeholder="$t('confirmPwd') + ' *'"
-              clearable
               border="none"
               v-model="confirmLoginPwd"
             ></u-input>
@@ -79,7 +74,6 @@
             <u-input
               type="text"
               :placeholder="$t('nationality') + ' *'"
-              clearable
               border="none"
               v-model="nationality"
             >
@@ -87,23 +81,18 @@
           </u-form-item>
           <!-- 出生日期 -->
           <u-form-item class="register-item">
-            <u-input
-              type="text"
-              :placeholder="$t('birth') + ' *'"
-              clearable
-              border="none"
-              v-model="birth"
-              suffixIcon="calendar"
-	            suffixIconStyle="color: #909399"
-              @focus="pickerShow = true"
-            ></u-input>
+            <view class="birth-box" @click="pickerShow = true">
+              <view class="birth-text font-grey" v-if="!birth">{{ $t('birth') + ' *' }}</view>
+              <view class="birth-text" v-else-if="birth">{{ birth }}</view>
+              <view class="birth-icon"><u-icon name="calendar" size="50"></u-icon></view>
+            </view>
+            
           </u-form-item>
           <!-- 身份id 护照 -->
           <u-form-item class="register-item">
             <u-input
               type="text"
               :placeholder="$t('cardID') + ' *'"
-              clearable
               border="none"
               v-model="idCard"
             ></u-input>
@@ -114,7 +103,6 @@
             <u-input
               type="text"
               :placeholder="$t('bank') + ' *'"
-              clearable
               border="none"
               v-model="bankName"
             >
@@ -125,7 +113,6 @@
             <u-input
               type="text"
               :placeholder="$t('bankNo') + ' *'"
-              clearable
               border="none"
               v-model="bankCard"
             >
@@ -136,7 +123,6 @@
             <u-input
               type="text"
               :placeholder="$t('job') + ' *'"
-              clearable
               border="none"
               v-model="work"
             ></u-input>
@@ -146,7 +132,6 @@
             <u-input
               type="text"
               :placeholder="$t('provinceCity') + ' *'"
-              clearable
               border="none"
               v-model="city"
             >
@@ -157,7 +142,6 @@
             <u-input
               type="text"
               :placeholder="$t('district') + ' *'"
-              clearable
               border="none"
               v-model="region"
             >
@@ -168,7 +152,6 @@
             <u-input
               type="text"
               :placeholder="$t('email') + ' *'"
-              clearable
               border="none"
               v-model="email"
             >
@@ -179,7 +162,6 @@
             <u-input
               type="text"
               :placeholder="$t('address') + ' *'"
-              clearable
               border="none"
               v-model="address"
             >
@@ -190,7 +172,6 @@
             <u-input
               type="text"
               :placeholder="$t('verificationCode') + ' *'"
-              clearable
               border="none"
               v-model="yzm"
             >
@@ -334,7 +315,7 @@ export default {
               key: "token",
               data: res.data.token,
               success: function () {
-                uni.switchTab({ url: "/pages/index" });
+                uni.navigateTo({ url: "/pages/index" });
               },
             });
           }
@@ -401,6 +382,19 @@ export default {
   }
   .register-item{
     margin-top: 20rpx;
+    .birth-box{
+      display: flex;
+      width: 100%;
+      .birth-text{
+        flex: 1;
+        &.font-grey{
+          color: #bbb;
+        }
+      }
+      .birth-icon{
+        margin-right: 40rpx;
+      }
+    }
   }
   .input-label{
     margin: 0 10rpx;

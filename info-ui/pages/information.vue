@@ -242,7 +242,7 @@ export default {
               key: "token",
               data: res.data.token,
               success: function () {
-                uni.switchTab({ url: "/pages/personal" });
+                uni.navigateTo({ url: "/pages/personal" });
               },
             });
           }

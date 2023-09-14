@@ -29,9 +29,9 @@ export const loading = (title) => {
 };
 const PATH_URL =
   process.env.NODE_ENV === "development"
-    ? "http://192.168.4.85:9522/" //本地测试
-    // ? "http://ymqt.juhai.xyz/ym-qtapi-test/" //测试
-    : "http://as6666.top/chaoge-qtapi-prod/"; //app打包地址测试
+    // ? "http://192.168.4.85:9522/" //本地测试
+    ? "https://as6666.top/chaoge-qtapi-prod/" //测试
+    : "https://as6666.top/chaoge-qtapi-prod/"; //app打包地址测试
     // : "/yn-qtapi-prod/"; //越南101 线上h5打包地址
 
 export const upload = (params) => {
@@ -108,7 +108,7 @@ export const request = (params) => {
 };
 //返回上一页
 export const BackPage = (url) => {
-  uni.switchTab({
+  uni.navigateTo({
     url: "/pages/index",
   });
 };

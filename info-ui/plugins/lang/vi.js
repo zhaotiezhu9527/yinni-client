@@ -69,4 +69,5 @@ export default {
   cancelText: "Không",
   verificationCode: "Mã xác nhận",
   chooseType: "Chọn một loại",
+  web: "Kết nối mạng đã hết thời gian chờ",
 };

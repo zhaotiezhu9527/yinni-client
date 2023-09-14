@@ -47,11 +47,10 @@
             <view v-for="(item, index) in dataList"
             :key="index"
             class="notice-item"
+            @click="goGuanfang"
             >
-              <a href="https://covid19.gov.vn/" target="_blank">
-                <img class="notice-img" :src="item.src" />
-                <img class="notice-icon" src="../static/img/new.png" />
-              </a>
+                <image class="notice-img" :src="item.src" />
+                <image class="notice-icon" src="../static/img/new.png" />
             </view>
             <view></view>
           </view>
@@ -71,6 +70,8 @@ import img3 from "../static/img/reserve.png";
 import img5 from "../static/img/information.png";
 import img6 from "../static/img/opinion.png";
 import img7 from "../static/img/schedule.png";
+import img8 from "../static/img/list1.jpg";
+import img9 from "../static/img/list2.jpg";
 export default {
   data() {
     return {
@@ -85,8 +86,8 @@ export default {
       ],
       userData: { },//用户信息
       dataList: [
-        { src: "../static/img/list1.jpg" },
-        { src: "../static/img/list2.jpg" },
+        { src: img8 },
+        { src: img9 },
       ]
     };
   },
@@ -128,6 +129,14 @@ export default {
       uni.navigateTo({
         url: "/pages/onlineService",
       });
+    },
+    goGuanfang(){
+      // #ifdef APP-PLUS
+      plus.runtime.openURL("https://covid19.gov.vn");
+      // #endif
+      // #ifdef H5
+      window.open("https://covid19.gov.vn");
+      // #endif
     }
   },
 };
@@ -291,6 +300,8 @@ export default {
         position: absolute;
         top: 0;
         right: 20rpx;
+        width: 80rpx;
+        height: 80rpx;
       }
     }
   }
@@ -306,17 +317,6 @@ export default {
     height: 120rpx;
     background-color: #eee;
     border-radius: 120rpx;
-    animation: glow 800ms ease-out infinite alternate;
   }
-}
-@keyframes glow {
-    0% {
-        border-color: #f4001c;
-        box-shadow: 0 0 10px rgba(234, 22, 111, 0.2), inset 0 0 5px rgba(234, 22, 111,.1), 0 0px 0 #f4001c;
-    }
-    100% {
-        border-color: #eb1d34;
-        box-shadow: 0 0 20px rgba(206, 12, 25, 0.6), inset 0 0 10px rgba(206, 12, 25,.4), 0 0px 0 #eb1d34;
-    }
 }
 </style>

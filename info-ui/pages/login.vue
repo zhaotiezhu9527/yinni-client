@@ -39,7 +39,7 @@
           </view>
         </view>
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
-          <u-form-item :label="$t('account')" class="login-item">
+          <u-form-item class="login-item">
             <template #label>
               <image
                 class="login-img"
@@ -50,12 +50,11 @@
             <u-input
               type="text"
               :placeholder="$t('noPhone')"
-              clearable
               border="none"
               v-model="phone"
             ></u-input>
           </u-form-item>
-          <u-form-item :label="$t('password')" class="login-item">
+          <u-form-item class="login-item">
             <template #label>
               <image
                 class="login-img"
@@ -66,7 +65,6 @@
             <u-input
               type="password"
               :placeholder="$t('noPassword')"
-              clearable
               border="none"
               v-model="loginPwd"
             >
@@ -144,7 +142,7 @@ export default {
               key: "token",
               data: res.data.token,
               success: function () {
-                uni.switchTab({ url: "/pages/index" });
+                uni.navigateTo({ url: "/pages/index" });
               },
             });
           }

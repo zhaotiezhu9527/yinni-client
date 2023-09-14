@@ -29,7 +29,7 @@
             </view>
             <view class="position-right-text" @click="show = true">
               | 
-              <img class="position-img" src="../static/img/position.png" />
+              <image class="position-img" src="../static/img/position.png" />
               <text>{{$t('hoChiMinh')}}</text>
             </view>
           </view>
@@ -207,6 +207,7 @@ export default {
     width: 90%;
     margin: auto;
     .position-img{
+      width: 30rpx;
       height: 30rpx;
       margin: 0 20rpx;
     }

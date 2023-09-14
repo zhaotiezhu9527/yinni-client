@@ -71,4 +71,5 @@ export default {
   cancelText: "取消",
   verificationCode: "验证码",
   chooseType: "请选择类型",
+  web: "网络连接超时",
 };
