@@ -38,7 +38,7 @@ export default {
   yourOpinion: "Ý Kiến Của Bạn",
   waitProgress: "Hồ sơ của bạn đang được xét duyệt Vui lòng chờ thông báo Xin cảm ơn ...!",
   noPass: "Rất tiếc hồ sơ của bạn không được thông qua.....!",
-  bankName: "tên ngân hàng",
+  bank: "tên ngân hàng",
   bankNo: "Số thẻ ngân hàng",
   isEmpty: "trống",
   incorrectFormat: "Định dạng không chính xác",

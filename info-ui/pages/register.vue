@@ -86,7 +86,6 @@
               <view class="birth-text" v-else-if="birth">{{ birth }}</view>
               <view class="birth-icon"><u-icon name="calendar" size="50"></u-icon></view>
             </view>
-            
           </u-form-item>
           <!-- 身份id 护照 -->
           <u-form-item class="register-item">
@@ -99,7 +98,7 @@
           </u-form-item>
          
           <!-- 银行卡名字 -->
-          <u-form-item class="register-item">
+          <u-form-item class="register-item" @click="changeSelectShow('bank')">
             <u-input
               type="text"
               :placeholder="$t('bank') + ' *'"
@@ -107,6 +106,11 @@
               v-model="bankName"
             >
             </u-input>
+            <view class="birth-box">
+              <view class="birth-text font-grey" v-if="!bankName">{{ $t('bank') + ' *' }}</view>
+              <view class="birth-text" v-else-if="bankName">{{ bankName }}</view>
+              <view class="birth-icon"><u-icon name="arrow-down-fill" size="50"></u-icon></view>
+            </view>
           </u-form-item>
           <!-- 银行卡号 -->
           <u-form-item class="register-item">
@@ -115,6 +119,35 @@
               :placeholder="$t('bankNo') + ' *'"
               border="none"
               v-model="bankCard"
+            >
+            </u-input>
+          </u-form-item>
+          
+          <!-- 省份 -->
+          <u-form-item class="register-item"  @click="changeSelectShow('city')">
+            <view class="birth-box">
+              <view class="birth-text font-grey" v-if="!city">{{ $t('provinceCity') + ' *' }}</view>
+              <view class="birth-text" v-else-if="city">{{ city }}</view>
+              <view class="birth-icon"><u-icon name="arrow-down-fill" size="50"></u-icon></view>
+            </view>
+          </u-form-item>
+          <!-- 区县 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('district') + ' *'"
+              border="none"
+              v-model="region"
+            >
+            </u-input>
+          </u-form-item>
+          <!-- 地址 -->
+          <u-form-item class="register-item">
+            <u-input
+              type="text"
+              :placeholder="$t('address') + ' *'"
+              border="none"
+              v-model="address"
             >
             </u-input>
           </u-form-item>
@@ -127,26 +160,6 @@
               v-model="work"
             ></u-input>
           </u-form-item>
-          <!-- 省份 -->
-          <u-form-item class="register-item">
-            <u-input
-              type="text"
-              :placeholder="$t('provinceCity') + ' *'"
-              border="none"
-              v-model="city"
-            >
-            </u-input>
-          </u-form-item>
-          <!-- 区县 -->
-          <u-form-item class="register-item">
-            <u-input
-              type="text"
-              :placeholder="$t('district') + ' *'"
-              border="none"
-              v-model="region"
-            >
-            </u-input>
-          </u-form-item>
           <!-- 邮箱 -->
           <u-form-item class="register-item">
             <u-input
@@ -154,16 +167,6 @@
               :placeholder="$t('email') + ' *'"
               border="none"
               v-model="email"
-            >
-            </u-input>
-          </u-form-item>
-          <!-- 地址 -->
-          <u-form-item class="register-item">
-            <u-input
-              type="text"
-              :placeholder="$t('address') + ' *'"
-              border="none"
-              v-model="address"
             >
             </u-input>
           </u-form-item>
@@ -210,6 +213,15 @@
             cancelText="Hủy bỏ"
             confirmText="xác nhận"
     ></u-datetime-picker>
+    <u-action-sheet @close="selectShow = false" round="10" :title="title" :show="selectShow" >
+      <view class="sheet-box">
+        <view class="height15"></view>
+        <view class="sheet-addr" :class="listId == item.value ? 'active' : ''" @click="changeAddr(item)" v-for="(item,index) in selectList" :key="index">
+          <text class="sheet-addr-text">{{ item.name }}</text>
+          <u-icon v-if="listId == item.value" name="checkbox-mark" class="sheet-addr-icon" color="#4579e0"></u-icon>
+        </view>
+      </view>
+    </u-action-sheet>
   </view>
 </template>
 
@@ -251,9 +263,50 @@ export default {
           value: 3
         },
       ],
+      selectShow: false,//下拉框显示
+      listId: 0,// 选中哪个地址
+      listType: "",// 选中哪个下拉框
+      title: " ",
+      provinceArr: [],//省份
+      selectList: [],//下拉框数据
+      bankList:[
+        // { name:'Vietcombank ',value: 1},
+        // { name:'Techcombank ',value: 2},
+        // { name:'BIDV ',value: 3},
+        // { name:'Agribank ',value: 4},
+        // { name:'Vietinbank ',value: 5},
+        // { name:'Sacombank ',value: 6},
+        // { name:'ACB ',value: 7},
+        // { name:'MB bank ',value: 8},
+        // { name:'VP Bank ',value: 9},
+        // { name:'MSB ',value: 10},
+        // { name:'Bac A bank ',value: 11},
+        // { name:'Baoviet bank  ',value: 12},
+        // { name:'BIDC ',value: 13},
+        // { name:'CB Bank ',value: 14},
+        // { name:'CIMB Bank ',value: 15},
+        // { name:'Citi Bank ',value: 16},
+        // { name:'DongA Bank ',value: 17},
+        // { name:'Eximbank ',value: 18},
+        // { name:'HD Bank ',value: 19},
+        // { name:'Lienviet Post Bank ',value: 20},
+        // { name:'Nam A Bank ',value: 21},
+        // { name:'NCB Bank ',value: 22},
+        // { name:'OCB  ',value: 23},
+        // { name:'OCEAN Bank ',value: 24},
+        // { name:'Pvcom bank ',value: 25},
+        // { name:'VIB Bank ',value: 26},
+        // { name:'Scb ',value: 27},
+        // { name:'Sea bank ',value: 28},
+        // { name:'SHB ',value: 29},
+        // { name:'SHINHAN Bank ',value: 30},
+        // { name:'TP Bank ',value: 31},
+        // { name:'VP Bank ',value: 32},
+       ]
     };
   },
-  onLoad() {
+  onShow() {
+    this.systemFn()
   },
   methods: {
     login() {
@@ -346,6 +399,40 @@ export default {
     pikerChange(e){
       this.birth = changetime(e.value)
       this.pickerShow = false
+    },
+    // 选择地址
+    changeAddr(item){
+      let self = this
+      self.listId = item.value
+      if(this.listType === 'city'){
+        self.city = item.name
+      }else if(this.listType === 'bank'){
+        self.bankName = item.name
+      }
+      
+    },
+    systemFn(){
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.provinceArr = data.data.area
+          this.bankList = data.data.bank
+        }
+      });
+    },
+    // 弹出下拉框
+    changeSelectShow(type){
+      this.listType = type
+      if(type === 'bank'){
+        this.title = this.$t("bank")
+        this.selectList = this.bankList
+        this.listId = 0
+        this.selectShow = true
+      }else if(type === 'city'){
+        this.title = this.$t("provinceCity")
+        this.selectList = this.provinceArr
+        this.listId = 0
+        this.selectShow = true
+      }
     }
   },
 };
@@ -411,6 +498,31 @@ export default {
   display: flex;
   .gender-item{
     flex: 1;
+  }
+}
+.sheet-box{
+  width: 90%;
+  margin: auto;
+  height: 80vh;
+  overflow: scroll;
+  .height30{
+    height: 15rpx;
+  }
+  .sheet-addr{
+    height: 80rpx;
+    border-bottom: 1px solid #eee;
+    line-height: 80rpx;
+    text-align: left;
+    display: flex;
+    &.active{
+      background-color: #eaf2ff;
+    }
+    .sheet-addr-text{
+      flex: 1;
+    }
+    .sheet-addr-icon{
+      margin-right: 50rpx;
+    }
   }
 }
 </style>
