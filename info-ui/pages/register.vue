@@ -208,7 +208,7 @@
             mode="date"
             @cancel="pickerShow = false"
             @confirm="pikerChange"
-            :minDate="1691082"
+            :minDate="-2209017600000"
             :maxDate="1786778555000"
             cancelText="Hủy bỏ"
             confirmText="xác nhận"
