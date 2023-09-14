@@ -25,6 +25,7 @@ export default {
   job: "Nghề nghiệp",
   provinceCity: "Tỉnh/Thành phố",
   district: "Quận Huyện",
+  register: "đăng ký",
   welfarePackage: "Đăng Ký Nhận Gói An Sinh",
   assistance: "Hỗ Trợ Y Tế Khẩn Cấp",
   handbook: "Cẩm Nang",
