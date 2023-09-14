@@ -72,7 +72,7 @@
 export default {
   data() {
     return {
-      active: "",
+      active: 4,
     };
   },
   onShow() {

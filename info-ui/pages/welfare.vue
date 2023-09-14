@@ -92,7 +92,7 @@
 export default {
   data() {
     return {
-      active: "",
+      active: 1,
     };
   },
   onShow() {
