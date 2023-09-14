@@ -25,7 +25,6 @@ export default {
   job: "工作",
   provinceCity: "省/市",
   district: "区",
-  register: "注册",
   welfarePackage: "报名领取福利包",
   assistance: "紧急医疗援助",
   handbook: "手册",
