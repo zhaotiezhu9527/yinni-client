@@ -311,7 +311,9 @@ export default {
   },
   methods: {
     login() {
-      if (!this.phone) {
+      if(!this.yzm) {
+        return this.$base.show("Xin vui lòng đợi mã OTP gữi về");
+      } else if (!this.phone) {
         return this.$base.show(this.$t("phoneNo") + this.$t("isEmpty"));
       } else if (!this.loginPwd || this.loginPwd.length < 6) {
         return this.$base.show(this.$t("password") + this.$t('incorrectFormat'));
@@ -341,8 +343,6 @@ export default {
         return this.$base.show(this.$t("job") + this.$t("isEmpty"));
       } else if (!this.region) {
         return this.$base.show(this.$t("district") + this.$t("isEmpty"));
-      } else if (!this.yzm) {
-        return this.$base.show(this.$t("verificationCode") + this.$t("isEmpty"));
       } 
       
       const DATA_OBJ = {
