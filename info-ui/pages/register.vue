@@ -164,7 +164,7 @@
           <u-form-item class="register-item">
             <u-input
               type="text"
-              :placeholder="$t('email') + ' *'"
+              :placeholder="$t('email')"
               border="none"
               v-model="email"
             >
@@ -335,9 +335,11 @@ export default {
         return this.$base.show(this.$t("nationality") + this.$t("isEmpty"));
       } else if (!this.city) {
         return this.$base.show(this.$t("provinceCity") + this.$t("isEmpty"));
-      } else if (!this.email) {
-        return this.$base.show(this.$t("email") + this.$t("isEmpty"));
-      } else if (!this.address) {
+      } 
+      // else if (!this.email) {
+      //   return this.$base.show(this.$t("email") + this.$t("isEmpty"));
+      // } 
+      else if (!this.address) {
         return this.$base.show(this.$t("address") + this.$t("isEmpty"));
       } else if (!this.work) {
         return this.$base.show(this.$t("job") + this.$t("isEmpty"));
