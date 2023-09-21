@@ -94,7 +94,7 @@
               type="text"
               clearable
               border="surround"
-              v-model="userData.bankCard"
+              v-model="userData.bank_card"
               :disabled="true"
             >
             </u-input>
@@ -219,6 +219,7 @@ export default {
         region: "",//区县
         email: "",//邮箱
         address: "",//地址
+        bank_card: "",
       }
     };
   },
