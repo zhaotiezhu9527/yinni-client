@@ -87,6 +87,18 @@
             >
             </u-input>
         </view>
+        <!-- 银行卡号 -->
+        <view class="form-item">
+          <view class="form-title">{{ $t('bankNo') }}  <text class="red-text">*</text></view>
+          <u-input
+              type="text"
+              clearable
+              border="surround"
+              v-model="userData.bankCard"
+              :disabled="true"
+            >
+            </u-input>
+        </view>
         <!-- 邮箱 -->
         <view class="form-item">
           <view class="form-title">{{ $t('email') }}  <text class="red-text">*</text></view>
